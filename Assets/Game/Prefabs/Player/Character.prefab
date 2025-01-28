@@ -12,10 +12,11 @@ GameObject:
   - component: {fileID: 4468188839660314802}
   - component: {fileID: 5719633833217197449}
   - component: {fileID: 8433736280077241493}
+  - component: {fileID: 3447269091130579517}
   - component: {fileID: 3548782346146811614}
   - component: {fileID: 8600533154630250892}
-  - component: {fileID: 7471990758279618263}
   - component: {fileID: 1075515894657513602}
+  - component: {fileID: 2680875753976137586}
   m_Layer: 7
   m_Name: Character
   m_TagString: Player
@@ -154,6 +155,25 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 2}
   m_Direction: 0
+--- !u!114 &3447269091130579517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2869420466150730056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08eca9f7688a0a24685b89133b020c8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scriptableObjectInstallers: []
+  _monoInstallers:
+  - {fileID: 1075515894657513602}
+  - {fileID: 2680875753976137586}
+  _installerPrefabs: []
+  _autoRun: 1
+  _kernel: {fileID: 0}
 --- !u!114 &3548782346146811614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,24 +198,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 599a41d3a5ff56b47b6132d0c9da36e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7471990758279618263
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2869420466150730056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08eca9f7688a0a24685b89133b020c8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _scriptableObjectInstallers: []
-  _monoInstallers:
-  - {fileID: 1075515894657513602}
-  _installerPrefabs: []
-  _autoRun: 1
-  _kernel: {fileID: 0}
 --- !u!114 &1075515894657513602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,6 +224,18 @@ MonoBehaviour:
       serializedVersion: 2
       m_Bits: 577
     _overlapSize: {x: 0.5, y: 0.1}
+--- !u!114 &2680875753976137586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2869420466150730056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f27e85f5484d455d8dc8c030080c2d95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2987660026266140915
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,7 +1,8 @@
+using Game.Components;
 using UnityEngine;
 using Zenject;
 
-namespace Game.Components
+namespace Game.Player.Installers
 {
     public class StateComponentsInstaller : Installer<GroundCheckParams, int, StateComponentsInstaller>
     {
@@ -21,9 +22,11 @@ namespace Game.Components
                 .AsSingle()
                 .WithArguments(_health);
 
-            Container.BindInterfacesAndSelfTo<GroundChecker>()
-                .AsSingle()
-                .WithArguments(_groundCheckParams);
+            // Container.BindInterfacesAndSelfTo<GroundChecker>()
+            //     .AsSingle()
+            //     .WithArguments(_groundCheckParams);
+
+            // Debug.Log("Initialized StateComponentsInstaller");
         }
     }
 }

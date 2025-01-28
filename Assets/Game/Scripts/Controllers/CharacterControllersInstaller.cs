@@ -2,7 +2,7 @@ using Zenject;
 
 namespace Game.Player
 {
-    public class ControllersInstaller : Installer<ControllersInstaller>
+    public class CharacterControllersInstaller : MonoInstaller
     {
         public override void InstallBindings()
         {

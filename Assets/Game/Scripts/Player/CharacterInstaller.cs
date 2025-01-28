@@ -1,4 +1,5 @@
 using Game.Components;
+using Game.Player.Installers;
 using UnityEngine;
 using Zenject;
 
@@ -25,9 +26,6 @@ namespace Game.Player
                 .FromInstance(_character)
                 .AsSingle();
 
-            //Controllers
-            ControllersInstaller.Install(Container);
-
             //Components
             Container.Bind<Rigidbody2D>()
                 .FromInstance(_rigidbody)
@@ -36,6 +34,10 @@ namespace Game.Player
             Container.Bind<UnityEventReceiver>()
                 .FromInstance(_unityEvents)
                 .AsSingle();
+            
+            Container.BindInterfacesAndSelfTo<GroundChecker>()
+                .AsSingle()
+                .WithArguments(_groundCheckParams);
 
             StateComponentsInstaller.Install(Container, _groundCheckParams, _health);
             MoveComponentsInstaller.Install(Container, _transform, _jumpForce, _jumpDelay, _speed);
