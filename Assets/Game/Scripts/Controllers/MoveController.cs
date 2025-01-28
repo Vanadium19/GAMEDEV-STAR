@@ -2,7 +2,7 @@ using Game.Components;
 using UnityEngine;
 using Zenject;
 
-namespace Game.Player
+namespace Game.Controllers
 {
     public class MoveController : IFixedTickable
     {
