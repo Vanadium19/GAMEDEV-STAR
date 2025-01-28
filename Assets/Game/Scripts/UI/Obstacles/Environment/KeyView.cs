@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 namespace Game.UI.Obstacles
@@ -8,6 +8,7 @@ namespace Game.UI.Obstacles
         [SerializeField] private GameObject _keyPrefab;
 
         private Transform _transform;
+        private List<GameObject> _keys = new();
 
         private void Awake()
         {
@@ -16,7 +17,17 @@ namespace Game.UI.Obstacles
 
         public void AddKey()
         {
-            Instantiate(_keyPrefab, _transform);
+            _keys.Add(Instantiate(_keyPrefab, _transform));
+        }
+
+        public void RemoveKey()
+        {
+            if (_keys.Count == 0)
+                return;
+
+            GameObject key = _keys[0];
+            _keys.Remove(key);
+            Destroy(key);
         }
     }
 }

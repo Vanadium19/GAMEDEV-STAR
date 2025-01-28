@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Game.UI.Obstacles
 {
@@ -8,6 +7,11 @@ namespace Game.UI.Obstacles
         public void Open()
         {
             gameObject.SetActive(false);
+        }
+
+        public void Close()
+        {
+            gameObject.SetActive(true);
         }
     }
 }

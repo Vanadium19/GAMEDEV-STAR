@@ -10,6 +10,7 @@ namespace Game.Obstacles.Environment
         [SerializeField] private UnityEventReceiver _unityEvents;
 
         public event Action<Key> Collected;
+        public event Action<Key> Lost;
 
         private void OnEnable()
         {
@@ -27,7 +28,18 @@ namespace Game.Obstacles.Environment
             {
                 gameObject.SetActive(false);
                 Collected?.Invoke(this);
+
+                if (target.TryGetComponent(out IDamagable player))
+                    player.Died += OnPlayerDied;
             }
+        }
+
+        private void OnPlayerDied(IDamagable player)
+        {
+            Lost?.Invoke(this);
+            gameObject.SetActive(true);
+            
+            player.Died -= OnPlayerDied;
         }
     }
 }

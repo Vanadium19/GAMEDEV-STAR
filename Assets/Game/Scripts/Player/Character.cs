@@ -1,3 +1,4 @@
+using System;
 using Game.Components;
 using UnityEngine;
 using Zenject;
@@ -17,6 +18,8 @@ namespace Game.Player
         private Transform _currentParent;
         private Vector3 _startPosition;
 
+        public event Action<IDamagable> Died;
+        
         public Vector2 Position => _transform.position;
 
         [Inject]
@@ -76,6 +79,7 @@ namespace Game.Player
         {
             _transform.position = _startPosition;
             _health.ResetHealth();
+            Died?.Invoke(this);
         }
 
         private void SetParent(Transform parent)

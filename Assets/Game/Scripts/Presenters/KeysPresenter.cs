@@ -25,7 +25,15 @@ namespace Game.Presenters
         {
             _view.AddKey();
 
+            key.Lost += OnKeyLost;
             key.Collected -= OnKeyCollected;
+        }
+
+        private void OnKeyLost(Key key)
+        {
+            _view.RemoveKey();
+            
+            key.Collected += OnKeyCollected;
         }
     }
 }

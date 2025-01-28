@@ -19,16 +19,23 @@ namespace Game.Presenters
         public void Initialize()
         {
             _door.Opened += OnDoorOpened;
+            _door.Closed += OnDoorClosed;
         }
 
         public void Dispose()
         {
             _door.Opened -= OnDoorOpened;
+            _door.Closed -= OnDoorClosed;
         }
 
         private void OnDoorOpened()
         {
             _view.Open();
+        }
+
+        private void OnDoorClosed()
+        {
+            _view.Close();
         }
     }
 }
