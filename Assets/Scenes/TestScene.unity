@@ -417,7 +417,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a70cca5d2a164981b9f83180a43a79f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _keyPrefab: {fileID: 1826101861056039337, guid: 350d27b0571986a48a1280b2485f6a13, type: 3}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1501,7 +1500,8 @@ MonoBehaviour:
   _keys:
   - {fileID: 1291889607}
   - {fileID: 1239661046}
-  _keyView: {fileID: 582012740}
+  _keyViewPrefab: {fileID: 594058080930255399, guid: 350d27b0571986a48a1280b2485f6a13, type: 3}
+  _keysView: {fileID: 582012740}
 --- !u!1 &2014731765
 GameObject:
   m_ObjectHideFlags: 0

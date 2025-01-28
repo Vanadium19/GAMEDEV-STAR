@@ -14,18 +14,20 @@ namespace Game.Obstacles.Environment
 
         private void OnEnable()
         {
-            _unityEvents.OnTriggerEntered += OnTriggerEntered;
+            _unityEvents.OnTriggerEntered += OnEntered;
         }
 
         private void OnDisable()
         {
-            _unityEvents.OnTriggerEntered += OnTriggerEntered;
+            _unityEvents.OnTriggerEntered -= OnEntered;
         }
 
-        private void OnTriggerEntered(Collider2D target)
+        private void OnEntered(Collider2D target)
         {
             if (target.gameObject.CompareTag("Player"))
             {
+                // Debug.Log("Collected key");
+                
                 gameObject.SetActive(false);
                 Collected?.Invoke(this);
 
@@ -36,6 +38,8 @@ namespace Game.Obstacles.Environment
 
         private void OnPlayerDied(IDamagable player)
         {
+            // Debug.Log("Lost key");
+            
             Lost?.Invoke(this);
             gameObject.SetActive(true);
             
