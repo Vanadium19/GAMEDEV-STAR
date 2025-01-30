@@ -19,7 +19,7 @@ namespace Game.Components
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            // Debug.Log("OnTriggerEnter2D");
+            // Debug.Log("OnTriggerEnter2D " + gameObject.name);
             
             OnTriggerEntered?.Invoke(other);
         }

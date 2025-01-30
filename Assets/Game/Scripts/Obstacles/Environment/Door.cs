@@ -12,6 +12,7 @@ namespace Game.Obstacles.Environment
         private int _currentKeyCount;
 
         public event Action Opened;
+        public event Action Closed;
 
         public Door(Key[] keys)
         {
@@ -33,6 +34,18 @@ namespace Game.Obstacles.Environment
                 OpenDoor();
 
             key.Collected -= AddKey;
+            key.Lost += RemoveKey;
+        }
+
+        private void RemoveKey(Key key)
+        {
+            _currentKeyCount--;
+
+            if (_currentKeyCount <= 0)
+                Closed?.Invoke();
+            
+            key.Collected += AddKey;
+            key.Lost += RemoveKey;
         }
 
         private void OpenDoor()

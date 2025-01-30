@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using Game.Obstacles.Environment;
+﻿using Game.Obstacles.Environment;
 using Game.Presenters;
 using Game.UI.Obstacles;
 using UnityEngine;
@@ -9,10 +8,13 @@ namespace Game.Scripts.Installers
 {
     public class GameSceneInstaller : MonoInstaller
     {
+        private const string KeyViewName = "KeyView";
+        
         [SerializeField] private DoorView _door;
 
         [SerializeField] private Key[] _keys;
-        [SerializeField] private KeyView _keyView;
+        [SerializeField] private KeyView _keyViewPrefab;
+        [SerializeField] private KeysView _keysView;
 
         public override void InstallBindings()
         {
@@ -20,9 +22,12 @@ namespace Game.Scripts.Installers
                 .FromInstance(_keys)
                 .AsSingle();
 
-            // Container.BindFactory<Vector2, Key, KeyFactory>()
-            //     .FromComponentInNewPrefab(_keyPrefab)
-            //     .AsSingle();
+            Container.BindMemoryPool<KeyView, KeyViewPool>()
+                .ExpandByOneAtATime()
+                .FromComponentInNewPrefab(_keyViewPrefab)
+                .WithGameObjectName(KeyViewName)
+                .UnderTransform(_keysView.transform)
+                .AsSingle();
 
             Container.BindInterfacesTo<Door>()
                 .AsSingle();
@@ -39,8 +44,8 @@ namespace Game.Scripts.Installers
                 .AsSingle()
                 .NonLazy();
 
-            Container.Bind<KeyView>()
-                .FromInstance(_keyView)
+            Container.Bind<KeysView>()
+                .FromInstance(_keysView)
                 .AsSingle();
         }
     }

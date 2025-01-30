@@ -7,9 +7,9 @@ namespace Game.Presenters
     public class KeysPresenter : IInitializable
     {
         private readonly Key[] _keys;
-        private readonly KeyView _view;
+        private readonly KeysView _view;
 
-        public KeysPresenter(Key[] keys, KeyView view)
+        public KeysPresenter(Key[] keys, KeysView view)
         {
             _keys = keys;
             _view = view;
@@ -25,7 +25,16 @@ namespace Game.Presenters
         {
             _view.AddKey();
 
+            key.Lost += OnKeyLost;
             key.Collected -= OnKeyCollected;
+        }
+
+        private void OnKeyLost(Key key)
+        {
+            _view.RemoveKey();
+            
+            key.Lost -= OnKeyLost;
+            key.Collected += OnKeyCollected;
         }
     }
 }
