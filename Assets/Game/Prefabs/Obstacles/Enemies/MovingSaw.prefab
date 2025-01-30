@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 673976714081214254}
   - component: {fileID: 2583240377224085921}
   - component: {fileID: 7490027345425712272}
-  - component: {fileID: 4441366466531120921}
-  - component: {fileID: 8256031599625511289}
   - component: {fileID: 6828285282088320917}
+  - component: {fileID: 3049774528592764537}
+  - component: {fileID: 4504955538752520069}
   m_Layer: 0
   m_Name: Saw
   m_TagString: Untagged
@@ -127,30 +127,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &4441366466531120921
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 991185004844730951}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a105cff6feba47148bfd843c45fcdcf4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &8256031599625511289
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 991185004844730951}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36097dd5bee349eda2bce122a653a6bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6828285282088320917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,8 +139,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d410a6e78c5a468a9bf36f4de6201b1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetRotation: {x: 0, y: 0, z: 359}
+  _angle: 180
   _duration: 2
+--- !u!114 &3049774528592764537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991185004844730951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36097dd5bee349eda2bce122a653a6bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4504955538752520069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991185004844730951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67d930d5419643189b24bbf1ab42ece6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _unityEvents: {fileID: 3049774528592764537}
 --- !u!1 &1445231682111932024
 GameObject:
   m_ObjectHideFlags: 0
@@ -259,8 +260,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8514794531219480817}
   - component: {fileID: 4479822314724253650}
-  - component: {fileID: 6704828682037404753}
   - component: {fileID: 4813336627906855149}
+  - component: {fileID: 8250075463041735202}
   m_Layer: 0
   m_Name: MovingSaw
   m_TagString: Untagged
@@ -300,27 +301,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scriptableObjectInstallers: []
   _monoInstallers:
-  - {fileID: 6704828682037404753}
+  - {fileID: 8250075463041735202}
   - {fileID: 4813336627906855149}
+  - {fileID: 4504955538752520069}
   _installerPrefabs: []
   _autoRun: 1
   _kernel: {fileID: 0}
---- !u!114 &6704828682037404753
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1620201807081565195}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc61ef89629341d48b7834a6e2f14751, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _saw: {fileID: 4441366466531120921}
-  _transform: {fileID: 673976714081214254}
-  _speed: 2
-  _unityEvents: {fileID: 8256031599625511289}
 --- !u!114 &4813336627906855149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -335,6 +321,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startPoint: {fileID: 6649852793608333563}
   _endPoint: {fileID: 7567979847365168760}
+--- !u!114 &8250075463041735202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620201807081565195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f7df37cd87b454299fe50de13ef11b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _transform: {fileID: 673976714081214254}
+  _speed: 2
 --- !u!1 &5255521364401716386
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,32 +1,32 @@
+using System;
 using Game.Components;
 using UnityEngine;
 using Zenject;
 
 namespace Game.Obstacles.Enemies
 {
-    public class Trap : MonoBehaviour
+    public class Trap : IInitializable, IDisposable
     {
-        private UnityEventReceiver _unityEvents;
-        private Attacker _attacker;
+        private readonly TriggerTracker _tracker;
+        private readonly Attacker _attacker;
 
-        [Inject]
-        public void Construct(UnityEventReceiver unityEvents, Attacker attacker)
+        public Trap(TriggerTracker tracker, Attacker attacker)
         {
-            _unityEvents = unityEvents;
+            _tracker = tracker;
             _attacker = attacker;
         }
 
-        private void OnEnable()
+        public void Initialize()
         {
-            _unityEvents.OnTriggerEntered += OnTriggerEntered;
+            _tracker.Entered += OnEntered;
         }
 
-        private void OnDisable()
+        public void Dispose()
         {
-            _unityEvents.OnTriggerEntered -= OnTriggerEntered;
+            _tracker.Entered -= OnEntered;
         }
 
-        private void OnTriggerEntered(Collider2D target)
+        private void OnEntered(Collider2D target)
         {
             _attacker.Attack(target);
         }

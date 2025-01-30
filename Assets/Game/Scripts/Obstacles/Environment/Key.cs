@@ -9,8 +9,15 @@ namespace Game.Obstacles.Environment
     {
         [SerializeField] private UnityEventReceiver _unityEvents;
 
+        private ILevelProgressTracker _tracker;
+
         public event Action<Key> Collected;
-        public event Action<Key> Lost;
+
+        [Inject]
+        public void Construct(ILevelProgressTracker tracker)
+        {
+            _tracker = tracker;
+        }
 
         private void OnEnable()
         {
@@ -27,23 +34,19 @@ namespace Game.Obstacles.Environment
             if (target.gameObject.CompareTag("Player"))
             {
                 // Debug.Log("Collected key");
-                
+
                 gameObject.SetActive(false);
                 Collected?.Invoke(this);
-
-                if (target.TryGetComponent(out IDamagable player))
-                    player.Died += OnPlayerDied;
+                _tracker.LevelRestarted += OnLevelRestarted;
             }
         }
 
-        private void OnPlayerDied(IDamagable player)
+        private void OnLevelRestarted()
         {
             // Debug.Log("Lost key");
-            
-            Lost?.Invoke(this);
+
             gameObject.SetActive(true);
-            
-            player.Died -= OnPlayerDied;
+            _tracker.LevelRestarted -= OnLevelRestarted;
         }
     }
 }

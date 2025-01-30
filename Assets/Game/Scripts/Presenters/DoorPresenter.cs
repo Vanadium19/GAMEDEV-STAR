@@ -20,12 +20,19 @@ namespace Game.Presenters
         {
             _door.Opened += OnDoorOpened;
             _door.Closed += OnDoorClosed;
+            _door.KeyCollected += OnKeyCollected;
         }
 
         public void Dispose()
         {
             _door.Opened -= OnDoorOpened;
             _door.Closed -= OnDoorClosed;
+            _door.KeyCollected -= OnKeyCollected;
+        }
+
+        private void OnKeyCollected(int count)
+        {
+            _view.AddKey();
         }
 
         private void OnDoorOpened()
@@ -36,6 +43,7 @@ namespace Game.Presenters
         private void OnDoorClosed()
         {
             _view.Close();
+            _view.RemoveAllKeys();
         }
     }
 }

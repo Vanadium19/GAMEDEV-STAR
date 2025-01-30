@@ -12,7 +12,7 @@ namespace Game.Obstacles.Installers
         [SerializeField] private UnityEventReceiver _unityEvents;
         [SerializeField] private GameObject _platform;
 
-        [SerializeField] private float _delay = 2f;
+        [SerializeField] private float _delay = 1f;
 
         public override void InstallBindings()
         {

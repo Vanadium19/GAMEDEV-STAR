@@ -7,20 +7,24 @@ namespace Game.Obstacles.Installers
 {
     public class TrapInstaller : MonoInstaller
     {
+        private const string Tag = "Player";
         private const int Damage = int.MaxValue;
 
-        [SerializeField] private Trap _trap;
         [SerializeField] private UnityEventReceiver _unityEvents;
 
         public override void InstallBindings()
         {
-            Container.Bind<Trap>()
-                .FromInstance(_trap)
-                .AsSingle();
+            Container.BindInterfacesTo<Trap>()
+                .AsSingle()
+                .NonLazy();
 
             Container.Bind<UnityEventReceiver>()
                 .FromInstance(_unityEvents)
                 .AsSingle();
+
+            Container.BindInterfacesAndSelfTo<TriggerTracker>()
+                .AsSingle()
+                .WithArguments(new[] { Tag });
 
             Container.Bind<Attacker>()
                 .AsSingle()

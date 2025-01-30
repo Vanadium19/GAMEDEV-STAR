@@ -181,7 +181,6 @@ GameObject:
   - component: {fileID: 1134198696606375605}
   - component: {fileID: 3628857648813889758}
   - component: {fileID: 9117081084019594018}
-  - component: {fileID: 6463196511499523387}
   - component: {fileID: 1744413187787215978}
   - component: {fileID: 1828674036787175299}
   m_Layer: 0
@@ -200,7 +199,7 @@ Transform:
   m_GameObject: {fileID: 7559894978507833542}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: -1.5, z: 0}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -329,18 +328,6 @@ MonoBehaviour:
   _installerPrefabs: []
   _autoRun: 1
   _kernel: {fileID: 0}
---- !u!114 &6463196511499523387
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7559894978507833542}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 275040b29ba145bdba9ceced6cc00690, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1744413187787215978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -353,7 +340,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67d930d5419643189b24bbf1ab42ece6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _trap: {fileID: 6463196511499523387}
   _unityEvents: {fileID: 1828674036787175299}
 --- !u!114 &1828674036787175299
 MonoBehaviour:

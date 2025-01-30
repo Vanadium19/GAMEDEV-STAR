@@ -14,7 +14,7 @@ namespace Game.Scripts.Installers
 
         [SerializeField] private Key[] _keys;
         [SerializeField] private KeyView _keyViewPrefab;
-        [SerializeField] private KeysView _keysView;
+        [SerializeField] private Transform _keyViewContainer;
 
         public override void InstallBindings()
         {
@@ -26,7 +26,7 @@ namespace Game.Scripts.Installers
                 .ExpandByOneAtATime()
                 .FromComponentInNewPrefab(_keyViewPrefab)
                 .WithGameObjectName(KeyViewName)
-                .UnderTransform(_keysView.transform)
+                .UnderTransform(_keyViewContainer)
                 .AsSingle();
 
             Container.BindInterfacesTo<Door>()
@@ -38,14 +38,6 @@ namespace Game.Scripts.Installers
 
             Container.Bind<DoorView>()
                 .FromInstance(_door)
-                .AsSingle();
-
-            Container.BindInterfacesTo<KeysPresenter>()
-                .AsSingle()
-                .NonLazy();
-
-            Container.Bind<KeysView>()
-                .FromInstance(_keysView)
                 .AsSingle();
         }
     }

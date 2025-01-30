@@ -8,6 +8,7 @@ namespace Game.Player
     public class Character : MonoBehaviour, IMovable, IDamagable, IJumper
     {
         private Transform _transform;
+        private ILevelRestarter _levelRestarter;
 
         private GroundChecker _groundChecker;
         private Rotater _rotater;
@@ -18,17 +19,17 @@ namespace Game.Player
         private Transform _currentParent;
         private Vector3 _startPosition;
 
-        public event Action<IDamagable> Died;
-        
         public Vector2 Position => _transform.position;
 
         [Inject]
-        public void Construct(GroundChecker groundChecker,
+        public void Construct(ILevelRestarter levelRestarter,
+            GroundChecker groundChecker,
             Rotater rotater,
             Mover mover,
             Jumper jumper,
             Health health)
         {
+            _levelRestarter = levelRestarter;
             _groundChecker = groundChecker;
             _rotater = rotater;
             _mover = mover;
@@ -78,8 +79,9 @@ namespace Game.Player
         private void OnCharacterDied()
         {
             _transform.position = _startPosition;
+
             _health.ResetHealth();
-            Died?.Invoke(this);
+            _levelRestarter.RestartLevel();
         }
 
         private void SetParent(Transform parent)
