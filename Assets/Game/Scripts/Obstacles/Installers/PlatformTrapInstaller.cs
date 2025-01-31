@@ -20,16 +20,17 @@ namespace Game.Obstacles.Installers
                 .FromInstance(_unityEvents)
                 .AsSingle();
 
+            Container.Bind<GameObject>()
+                .FromInstance(_platform)
+                .AsSingle();
+
             Container.BindInterfacesAndSelfTo<CollisionTracker>()
                 .AsSingle()
                 .WithArguments(new[] { Tag });
 
-            Container.Bind<GameObjectSwitcher>()
-                .AsSingle()
-                .WithArguments(_platform, _delay);
-
             Container.BindInterfacesTo<PlatformTrap>()
                 .AsSingle()
+                .WithArguments(_delay)
                 .NonLazy();
         }
     }

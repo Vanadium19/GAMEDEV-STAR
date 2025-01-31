@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Threading;
+using Cysharp.Threading.Tasks;
 using Game.Components;
 using UnityEngine;
 using Zenject;
@@ -7,28 +9,55 @@ namespace Game.Obstacles.Enemies
 {
     public class PlatformTrap : IInitializable, IDisposable
     {
+        private readonly ILevelProgressTracker _levelTracker;
         private readonly CollisionTracker _tracker;
-        private readonly GameObjectSwitcher _switcher;
+        private readonly GameObject _platform;
+        private readonly float _delay;
 
-        public PlatformTrap(CollisionTracker tracker, GameObjectSwitcher switcher)
+        private CancellationTokenSource _resetToken;
+
+        public PlatformTrap(ILevelProgressTracker levelTracker,
+            CollisionTracker tracker,
+            GameObject platform,
+            float delay)
         {
+            _levelTracker = levelTracker;
             _tracker = tracker;
-            _switcher = switcher;
+            _delay = delay;
+            _platform = platform;
         }
 
         public void Initialize()
         {
             _tracker.Entered += OnEntered;
+            _levelTracker.LevelRestarted += ResetPlatform;
         }
 
         public void Dispose()
         {
             _tracker.Entered -= OnEntered;
+            _levelTracker.LevelRestarted -= ResetPlatform;
+            _resetToken?.Dispose();
         }
 
         private void OnEntered(Collider2D target)
         {
-            _switcher.Enable(false);
+            _resetToken = new CancellationTokenSource();
+
+            DisablePlatform().Forget();
+        }
+
+        private async UniTask DisablePlatform()
+        {
+            await UniTask.Delay(TimeSpan.FromSeconds(_delay), cancellationToken: _resetToken.Token);
+
+            _platform.SetActive(false);
+        }
+
+        private void ResetPlatform()
+        {
+            _resetToken?.Cancel();
+            _platform.SetActive(true);
         }
     }
 }

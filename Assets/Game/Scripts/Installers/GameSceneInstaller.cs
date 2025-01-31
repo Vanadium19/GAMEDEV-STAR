@@ -8,25 +8,13 @@ namespace Game.Scripts.Installers
 {
     public class GameSceneInstaller : MonoInstaller
     {
-        private const string KeyViewName = "KeyView";
-        
         [SerializeField] private DoorView _door;
-
         [SerializeField] private Key[] _keys;
-        [SerializeField] private KeyView _keyViewPrefab;
-        [SerializeField] private Transform _keyViewContainer;
 
         public override void InstallBindings()
         {
             Container.Bind<Key[]>()
                 .FromInstance(_keys)
-                .AsSingle();
-
-            Container.BindMemoryPool<KeyView, KeyViewPool>()
-                .ExpandByOneAtATime()
-                .FromComponentInNewPrefab(_keyViewPrefab)
-                .WithGameObjectName(KeyViewName)
-                .UnderTransform(_keyViewContainer)
                 .AsSingle();
 
             Container.BindInterfacesTo<Door>()

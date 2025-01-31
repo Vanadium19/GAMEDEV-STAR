@@ -13,7 +13,7 @@ namespace Game.Obstacles.Environment
 
         private int _currentKeyCount;
 
-        public event Action<int> KeyCollected;
+        public event Action<int> KeyCountChanged;
         public event Action Opened;
         public event Action Closed;
 
@@ -23,6 +23,8 @@ namespace Game.Obstacles.Environment
             _keyCount = keys.Length;
             _keys = keys;
         }
+        
+        public int KeyCount => _keyCount;
 
         public void Initialize()
         {
@@ -44,7 +46,7 @@ namespace Game.Obstacles.Environment
         {
             _currentKeyCount++;
 
-            KeyCollected?.Invoke(_currentKeyCount);
+            KeyCountChanged?.Invoke(_currentKeyCount);
 
             if (_currentKeyCount >= _keyCount)
                 OpenDoor();
@@ -60,6 +62,7 @@ namespace Game.Obstacles.Environment
         {
             _currentKeyCount = 0;
             
+            KeyCountChanged?.Invoke(_currentKeyCount);
             Closed?.Invoke();
         }
     }
