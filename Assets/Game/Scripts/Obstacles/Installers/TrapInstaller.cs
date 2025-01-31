@@ -1,6 +1,7 @@
 using Game.Components;
 using Game.Obstacles.Enemies;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Zenject;
 
 namespace Game.Obstacles.Installers
@@ -10,7 +11,7 @@ namespace Game.Obstacles.Installers
         private const string Tag = "Player";
         private const int Damage = int.MaxValue;
 
-        [SerializeField] private UnityEventReceiver _unityEvents;
+        [SerializeField] private UnityEventReceiver _playerTracker;
 
         public override void InstallBindings()
         {
@@ -18,13 +19,9 @@ namespace Game.Obstacles.Installers
                 .AsSingle()
                 .NonLazy();
 
-            Container.Bind<UnityEventReceiver>()
-                .FromInstance(_unityEvents)
-                .AsSingle();
-
             Container.BindInterfacesAndSelfTo<TriggerTracker>()
                 .AsSingle()
-                .WithArguments(new[] { Tag });
+                .WithArguments(_playerTracker, new[] { Tag });
 
             Container.Bind<Attacker>()
                 .AsSingle()

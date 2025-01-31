@@ -22,7 +22,7 @@ namespace Game.Player
 
         public override void InstallBindings()
         {
-            Container.BindInterfacesTo<Character>()
+            Container.BindInterfacesAndSelfTo<Character>()
                 .FromInstance(_character)
                 .AsSingle();
 

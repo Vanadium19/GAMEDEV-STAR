@@ -1,3 +1,16 @@
-﻿{
-  "name": "Game.View"
+{
+    "name": "Game.View",
+    "rootNamespace": "",
+    "references": [
+        "GUID:fe5b808f5f3e09d419db8213aea9f671"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }
