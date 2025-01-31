@@ -14,7 +14,7 @@ namespace Game.Scripts.View
         {
             var rotation = new Vector3(0f, 0f, _angle);
 
-            transform.DORotate(rotation, _duration).SetLoops(LoopCount, LoopType.Restart).SetEase(Ease.Linear);
+            transform.DORotate(rotation, _duration, RotateMode.FastBeyond360).SetLoops(LoopCount, LoopType.Restart).SetEase(Ease.Linear);
         }
     }
 }

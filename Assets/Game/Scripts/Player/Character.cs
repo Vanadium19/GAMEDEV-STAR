@@ -19,7 +19,7 @@ namespace Game.Player
         private Transform _currentParent;
         private Vector3 _startPosition;
         private bool _isDead;
-        
+
         public event Action<Action> Died;
 
         public Vector2 Position => _transform.position;
@@ -49,20 +49,18 @@ namespace Game.Player
         private void OnEnable()
         {
             _health.Died += OnCharacterDied;
-            _groundChecker.ParentChanged += SetParent;
         }
 
         private void OnDisable()
         {
             _health.Died -= OnCharacterDied;
-            _groundChecker.ParentChanged -= SetParent;
         }
 
         public void Move(Vector2 direction)
         {
             if (_isDead)
                 return;
-            
+
             _transform.SetParent(null);
 
             _mover.Move(direction);
@@ -75,7 +73,7 @@ namespace Game.Player
         {
             if (_isDead)
                 return;
-            
+
             if (_groundChecker.IsGrounded)
                 _jumper.Jump();
         }
@@ -84,7 +82,7 @@ namespace Game.Player
         {
             if (_isDead)
                 return;
-            
+
             _health.TakeDamage(damage);
         }
 
@@ -94,21 +92,16 @@ namespace Game.Player
 
             _health.ResetHealth();
             _levelRestarter.RestartLevel();
+            _mover.FreezePosition(false);
             _isDead = false;
         }
 
         private void OnCharacterDied()
         {
             _isDead = true;
-            _mover.Move(Vector2.zero);
-            
-            Died?.Invoke(Die);
-        }
+            _mover.FreezePosition(true);
 
-        private void SetParent(Transform parent)
-        {
-            _transform.SetParent(parent);
-            _currentParent = parent;
+            Died?.Invoke(Die);
         }
     }
 }
