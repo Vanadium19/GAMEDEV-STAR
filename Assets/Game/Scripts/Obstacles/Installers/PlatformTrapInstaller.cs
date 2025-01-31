@@ -1,6 +1,7 @@
 ﻿using Game.Components;
 using Game.Obstacles.Enemies;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Zenject;
 
 namespace Game.Obstacles.Installers
@@ -9,24 +10,20 @@ namespace Game.Obstacles.Installers
     {
         private const string Tag = "Player";
 
-        [SerializeField] private UnityEventReceiver _unityEvents;
+        [SerializeField] private UnityEventReceiver _playerTracker;
         [SerializeField] private GameObject _platform;
 
         [SerializeField] private float _delay = 1f;
 
         public override void InstallBindings()
         {
-            Container.Bind<UnityEventReceiver>()
-                .FromInstance(_unityEvents)
-                .AsSingle();
-
             Container.Bind<GameObject>()
                 .FromInstance(_platform)
                 .AsSingle();
 
             Container.BindInterfacesAndSelfTo<CollisionTracker>()
                 .AsSingle()
-                .WithArguments(new[] { Tag });
+                .WithArguments(_playerTracker, new[] { Tag });
 
             Container.BindInterfacesTo<PlatformTrap>()
                 .AsSingle()

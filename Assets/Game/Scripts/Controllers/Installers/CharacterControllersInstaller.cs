@@ -1,8 +1,13 @@
+using UnityEngine;
 using Zenject;
 
 namespace Game.Controllers
 {
-    public class CharacterControllersInstaller : MonoInstaller
+    [CreateAssetMenu(
+        fileName = "CharacterControllersInstaller",
+        menuName = "Zenject/New CharacterControllersInstaller"
+    )]
+    public class CharacterControllersInstaller : ScriptableObjectInstaller
     {
         public override void InstallBindings()
         {

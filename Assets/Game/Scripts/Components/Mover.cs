@@ -19,5 +19,17 @@ namespace Game.Components
 
             _rigidbody.velocity = velocity;
         }
+
+        public void FreezePosition(bool value)
+        {
+            _rigidbody.gravityScale = value ? 0 : 1;
+            _rigidbody.isKinematic = value;
+
+            if (value)
+            {
+                _rigidbody.velocity = Vector2.zero;
+                _rigidbody.angularVelocity = 0f;
+            }
+        }
     }
 }
