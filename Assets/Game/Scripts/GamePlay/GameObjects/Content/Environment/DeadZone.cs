@@ -1,4 +1,5 @@
-﻿using Game.Core.Components;
+﻿using Game.Core;
+using Game.Core.Components;
 using UnityEngine;
 
 namespace Game.Content.Environment
@@ -7,8 +8,13 @@ namespace Game.Content.Environment
     {
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.TryGetComponent(out IDamagable target))
-                target.TakeDamage(int.MaxValue);
+            if (other.TryGetComponent(out IEntity entity))
+            {
+                if (entity.TryGet(out IDamagable target))
+                {
+                    target.TakeDamage(int.MaxValue);
+                }
+            }
         }
     }
 }

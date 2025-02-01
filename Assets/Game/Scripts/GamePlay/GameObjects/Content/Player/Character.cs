@@ -5,7 +5,7 @@ using Zenject;
 
 namespace Game.Content.Player
 {
-    public class Character : MonoBehaviour, IMovable, IDamagable, IJumper
+    public class Character : IInitializable, IDisposable, IMovable, IDamagable, IJumper
     {
         private Transform _transform;
         private ILevelRestarter _levelRestarter;
@@ -27,6 +27,7 @@ namespace Game.Content.Player
         [Inject]
         public void Construct(ILevelRestarter levelRestarter,
             GroundChecker groundChecker,
+            Transform transform,
             Rotater rotater,
             Mover mover,
             Jumper jumper,
@@ -38,20 +39,17 @@ namespace Game.Content.Player
             _mover = mover;
             _jumper = jumper;
             _health = health;
-        }
 
-        private void Awake()
-        {
             _transform = transform;
             _startPosition = _transform.position;
         }
 
-        private void OnEnable()
+        public void Initialize()
         {
             _health.Died += OnCharacterDied;
         }
 
-        private void OnDisable()
+        public void Dispose()
         {
             _health.Died -= OnCharacterDied;
         }

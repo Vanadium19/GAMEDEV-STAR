@@ -549,28 +549,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8540829326951820841, guid: cac7512a6f7200848a27f77683073607, type: 3}
   m_PrefabInstance: {fileID: 4537522197855649033}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &647540447 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1075515894657513602, guid: cac7512a6f7200848a27f77683073607, type: 3}
-  m_PrefabInstance: {fileID: 4537522197855649033}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5b441aeaa4cbf84eb846c34cbbb354a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &647540454 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1288434788258467036, guid: cac7512a6f7200848a27f77683073607, type: 3}
-  m_PrefabInstance: {fileID: 4537522197855649033}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47dc6262a50a414bb2f22ef067fe8d36, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &836549813
 GameObject:
   m_ObjectHideFlags: 0
@@ -1771,10 +1749,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scriptableObjectInstallers:
   - {fileID: 11400000, guid: b6b659f99f0570c4fa963359bbb95d09, type: 2}
-  - {fileID: 11400000, guid: 6bbf3d254a981854ab40bd21a0e0eb6d, type: 2}
   _monoInstallers:
   - {fileID: 1955509836}
-  - {fileID: 647540447}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -1823,7 +1799,6 @@ MonoBehaviour:
   _keys:
   - {fileID: 1291889607}
   - {fileID: 1239661046}
-  _playerView: {fileID: 647540454}
 --- !u!1 &2014731765
 GameObject:
   m_ObjectHideFlags: 0
@@ -2512,10 +2487,6 @@ PrefabInstance:
     - target: {fileID: 2869420466150730056, guid: cac7512a6f7200848a27f77683073607, type: 3}
       propertyPath: m_Name
       value: Character
-      objectReference: {fileID: 0}
-    - target: {fileID: 5719633833217197449, guid: cac7512a6f7200848a27f77683073607, type: 3}
-      propertyPath: m_Interpolate
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8540829326951820841, guid: cac7512a6f7200848a27f77683073607, type: 3}
       propertyPath: m_LocalPosition.x

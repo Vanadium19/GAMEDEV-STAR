@@ -10,8 +10,6 @@ namespace Game.Installers
     {
         [SerializeField] private DoorView _door;
         [SerializeField] private Key[] _keys;
-        
-        [SerializeField] private PlayerView _playerView;
 
         public override void InstallBindings()
         {
@@ -26,16 +24,8 @@ namespace Game.Installers
                 .AsSingle()
                 .NonLazy();
 
-            Container.BindInterfacesTo<PlayerPresenter>()
-                .AsSingle()
-                .NonLazy();
-            
             Container.Bind<DoorView>()
                 .FromInstance(_door)
-                .AsSingle();
-            
-            Container.Bind<PlayerView>()
-                .FromInstance(_playerView)
                 .AsSingle();
         }
     }

@@ -1,4 +1,5 @@
 using Game.Core.Components;
+using Game.View;
 using UnityEngine;
 using Zenject;
 
@@ -6,7 +7,6 @@ namespace Game.Content.Player
 {
     public class CharacterInstaller : MonoInstaller
     {
-        [SerializeField] private Character _character;
         [SerializeField] private Rigidbody2D _rigidbody;
         [SerializeField] private Transform _transform;
 
@@ -18,23 +18,39 @@ namespace Game.Content.Player
 
         [Header("Ground Check Settings")] [SerializeField] private GroundCheckParams _groundCheckParams;
 
+        [Header("View")] [SerializeField] private PlayerView _playerView;
+
         public override void InstallBindings()
         {
             Container.BindInterfacesAndSelfTo<Character>()
-                .FromInstance(_character)
-                .AsSingle();
+                .AsSingle()
+                .NonLazy();
 
             //Components
             Container.Bind<Rigidbody2D>()
                 .FromInstance(_rigidbody)
                 .AsSingle();
             
+            Container.Bind<Transform>()
+                .FromInstance(_transform)
+                .AsSingle();
+
             Container.BindInterfacesAndSelfTo<GroundChecker>()
                 .AsSingle()
                 .WithArguments(_groundCheckParams);
 
             StateComponentsInstaller.Install(Container, _groundCheckParams, _health);
-            MoveComponentsInstaller.Install(Container, _transform, _jumpForce, _jumpDelay, _speed);
+            MoveComponentsInstaller.Install(Container, _jumpForce, _jumpDelay, _speed);
+
+            //Presenters
+            Container.BindInterfacesTo<PlayerPresenter>()
+                .AsSingle()
+                .NonLazy();
+
+            //View
+            Container.Bind<PlayerView>()
+                .FromInstance(_playerView)
+                .AsSingle();
         }
 
         #region Debug
