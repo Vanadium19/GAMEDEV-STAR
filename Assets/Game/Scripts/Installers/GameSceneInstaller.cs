@@ -1,11 +1,10 @@
-﻿using Game.Obstacles.Environment;
-using Game.Presenters;
-using Game.Scripts.View;
-using Game.UI.Obstacles;
+﻿using Game.Content.Environment;
+using Game.UI;
+using Game.View;
 using UnityEngine;
 using Zenject;
 
-namespace Game.Scripts.Installers
+namespace Game.Installers
 {
     public class GameSceneInstaller : MonoInstaller
     {
