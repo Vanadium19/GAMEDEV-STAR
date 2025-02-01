@@ -38,6 +38,8 @@ namespace Game.Content.Enemies
         {
             _tracker.Entered -= OnEntered;
             _levelTracker.LevelRestarted -= ResetPlatform;
+            
+            _resetToken?.Cancel();
             _resetToken?.Dispose();
         }
 
