@@ -45,6 +45,7 @@ namespace Game.Content.Enemies
             _playerTracker.Entered -= OnEntered;
             _levelTracker.LevelRestarted -= OnLevelRestarted;
 
+            _resetToken?.Cancel();
             _resetToken?.Dispose();
         }
 
