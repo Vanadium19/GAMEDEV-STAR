@@ -1,0 +1,31 @@
+using Game.Core.Components;
+using Zenject;
+
+namespace Game.Content.Player
+{
+    public class StateComponentsInstaller : Installer<GroundCheckParams, int, StateComponentsInstaller>
+    {
+        private readonly GroundCheckParams _groundCheckParams;
+        private readonly int _health;
+
+        public StateComponentsInstaller(GroundCheckParams groundCheckParams,
+            int health)
+        {
+            _groundCheckParams = groundCheckParams;
+            _health = health;
+        }
+
+        public override void InstallBindings()
+        {
+            Container.Bind<Health>()
+                .AsSingle()
+                .WithArguments(_health);
+
+            // Container.BindInterfacesAndSelfTo<GroundChecker>()
+            //     .AsSingle()
+            //     .WithArguments(_groundCheckParams);
+
+            // Debug.Log("Initialized StateComponentsInstaller");
+        }
+    }
+}
