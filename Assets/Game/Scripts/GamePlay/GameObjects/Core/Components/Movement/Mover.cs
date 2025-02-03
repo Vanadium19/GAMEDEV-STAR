@@ -13,6 +13,8 @@ namespace Game.Core.Components
             _speed = speed;
         }
 
+        public Vector2 Velocity => _rigidbody.velocity;
+
         public void Move(Vector2 direction)
         {
             Vector2 velocity = direction * _speed + Vector2.up * _rigidbody.velocity.y;

@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 25
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -95,7 +95,469 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: LVL0-6.04V_9
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 86
+        width: 25
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 157c6c986a8e6d448a2ad9e6899183e5
+      internalID: 1715534835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LVL0-6.04V_10
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 85
+        width: 28
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7129d911d844f4b45a5f8f4e165e529e
+      internalID: 631907118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LVL0-6.04V_11
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 85
+        width: 24
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c50d684f60341b1408ae2afc098ee7fb
+      internalID: 704658986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LVL0-6.04V_12
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 87
+        width: 25
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54b5974f623060d418cab7240f5b4326
+      internalID: 1591855426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LVL0-6.04V_13
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 87
+        width: 25
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f490303fd29b524bbee6b7a22578662
+      internalID: -2074845013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LVL0-6.04V_14
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 88
+        width: 24
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77a9e82d922b81740bf00cebad9c7e81
+      internalID: 1931594712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LVL0-6.04V_15
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 88
+        width: 25
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d79d3beb22cbfc04a8904d14423ae76a
+      internalID: 1046191509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LVL0-6.04V_16
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 85
+        width: 28
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f25dae41a1f9ce94688d9762d81aeef9
+      internalID: 38454602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LVL0-6.04V_0
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 130
+        width: 24
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1393c5dd91ac16418885bd40974624d
+      internalID: 1645379810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LVL0-6.04V_1
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 130
+        width: 22
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8952b09519acff42a7e1b0fe65ebe4c
+      internalID: 829371213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LVL0-6.04V_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 129
+        width: 21
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 297598530a6a6f046b3609c7922562f9
+      internalID: -1271078486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LVL0-6.04V_3
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 129
+        width: 20
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cc47ed7751739d4d89862acf9e1d041
+      internalID: -1724871292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LVL0-6.04V_4
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 128
+        width: 23
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f3fcc622ff4c2945882ade72c09190a
+      internalID: -817864990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LVL0-6.04V_5
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 125
+        width: 22
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 305806d830e386840a1fe8c2a3c8103f
+      internalID: 1199536063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LVL0-6.04V_6
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 130
+        width: 22
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c72477fc1f1cf54cbafcdf8b5784260
+      internalID: -1436793510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LVL0-6.04V_18
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 43
+        width: 25
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a4f6e17e5d0ea64ebecd3387e1d1504
+      internalID: -1113745647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LVL0-6.04V_19
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 43
+        width: 21
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9ce7dc3fa32f8940bc8690a71c1797f
+      internalID: 1173849736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LVL0-6.04V_20
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 45
+        width: 20
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73772ed08286da742a163740e6b1d43f
+      internalID: -878966096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LVL0-6.04V_21
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 47
+        width: 22
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7429cb5e608c6a04181629d6bb3a00d8
+      internalID: -961200058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LVL0-6.04V_22
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 43
+        width: 25
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b03672d074b111846891c6843006a314
+      internalID: 113537172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LVL0-6.04V_24
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 34
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4e10bdcf870526459f3a0612d10165c
+      internalID: 1260078802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LVL0-6.04V_28
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 24
+        width: 22
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cf49300ca80b374f924c28f24467095
+      internalID: -801277004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -106,7 +568,39 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      LVL0-6.04V_0: 1645379810
+      LVL0-6.04V_1: 829371213
+      LVL0-6.04V_10: 631907118
+      LVL0-6.04V_11: 704658986
+      LVL0-6.04V_12: 1591855426
+      LVL0-6.04V_13: -2074845013
+      LVL0-6.04V_14: 1931594712
+      LVL0-6.04V_15: 1046191509
+      LVL0-6.04V_16: 38454602
+      LVL0-6.04V_17: 2001282566
+      LVL0-6.04V_18: -1113745647
+      LVL0-6.04V_19: 1173849736
+      LVL0-6.04V_2: -1271078486
+      LVL0-6.04V_20: -878966096
+      LVL0-6.04V_21: -961200058
+      LVL0-6.04V_22: 113537172
+      LVL0-6.04V_23: 1673923539
+      LVL0-6.04V_24: 1260078802
+      LVL0-6.04V_25: 1333580409
+      LVL0-6.04V_26: -284661883
+      LVL0-6.04V_27: 245675667
+      LVL0-6.04V_28: -801277004
+      LVL0-6.04V_29: 1066515892
+      LVL0-6.04V_3: -1724871292
+      LVL0-6.04V_30: -472606942
+      LVL0-6.04V_31: -663678804
+      LVL0-6.04V_4: -817864990
+      LVL0-6.04V_5: 1199536063
+      LVL0-6.04V_6: -1436793510
+      LVL0-6.04V_7: 1501174391
+      LVL0-6.04V_8: 263005825
+      LVL0-6.04V_9: 1715534835
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
