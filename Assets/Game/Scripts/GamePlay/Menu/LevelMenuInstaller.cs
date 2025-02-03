@@ -1,22 +1,23 @@
 ﻿using Game.Menu.UI;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Zenject;
 
 namespace Game.Menu
 {
-    public class MainMenuInstaller : MonoInstaller
+    public class LevelMenuInstaller : MonoInstaller
     {
-        [SerializeField] private MainMenuView _mainMenuView;
+        [SerializeField] private LevelMenuView _levelMenuView;
         [SerializeField] private GameSettingsView _gameSettingsView;
-
+        
         public override void InstallBindings()
         {
-            Container.BindInterfacesTo<MainMenuPresenter>()
+            Container.BindInterfacesTo<LevelMenuPresenter>()
                 .AsSingle()
                 .NonLazy();
 
-            Container.Bind<MainMenuView>()
-                .FromInstance(_mainMenuView)
+            Container.Bind<LevelMenuView>()
+                .FromInstance(_levelMenuView)
                 .AsSingle();
 
             Container.Bind<GameSettingsView>()

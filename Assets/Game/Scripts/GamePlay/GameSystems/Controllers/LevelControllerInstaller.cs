@@ -1,4 +1,5 @@
 ﻿using Game.Core.Components;
+using Game.Menu.UI;
 using UnityEngine;
 using Zenject;
 
@@ -8,6 +9,7 @@ namespace Game.Controllers
     {
         private const string Tag = "Player";
 
+        [SerializeField] private Canvas _levelMenuPrefab;
         [SerializeField] private UnityEventReceiver _endLevelTrigger;
 
         public override void InstallBindings()
@@ -19,6 +21,11 @@ namespace Game.Controllers
             Container.BindInterfacesTo<LevelController>()
                 .AsCached()
                 .NonLazy();
+            
+            //UI
+            Container.BindFactory<Canvas, LevelMenuFactory>()
+                .FromComponentInNewPrefab(_levelMenuPrefab)
+                .AsSingle();
         }
     }
 }
