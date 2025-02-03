@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f56127bc3734c8ea9fb147107a010ed, type: 3}
   m_Name: GameInstaller
   m_EditorClassIdentifier: 
+  _levelMenuPrefab: {fileID: 3985690915710119461, guid: b7aeec6cf7db4d4419d355f0affafea7, type: 3}

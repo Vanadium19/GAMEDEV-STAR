@@ -1,1 +1,1 @@
-{"SettingsData":"{\"Volume\":0.6469482}","LevelLoaderData":"{\"Level\":2}"}
+{"SettingsData":"{\"Volume\":0.8547457}","LevelLoaderData":"{\"Level\":2}"}

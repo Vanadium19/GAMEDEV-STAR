@@ -1,5 +1,8 @@
-﻿using Game.App.SaveLoad;
+﻿using DG.Tweening;
+using Game.App.SaveLoad;
+using Game.Scripts.Common;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Game.Menu.Core
 {
@@ -46,8 +49,16 @@ namespace Game.Menu.Core
             Time.timeScale = 1;
         }
 
+        public void ReturnToMainMenu()
+        {
+            ContinueGame();
+            SceneManager.LoadScene((int)SceneNumber.Menu);
+            DOTween.KillAll();
+        }
+
         public void ExitGame()
         {
+            DOTween.KillAll();
             Application.Quit();
         }
     }
