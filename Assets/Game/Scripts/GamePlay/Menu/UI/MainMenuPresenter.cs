@@ -1,13 +1,16 @@
 ﻿using System;
+using Game.Menu.Core;
+using UniRx;
 using Zenject;
 
-namespace Game.Menu
+namespace Game.Menu.UI
 {
     public class MainMenuPresenter : IInitializable, IDisposable
     {
         private readonly MenuFacade _menuFacade;
         private readonly MainMenuView _menuView;
         private readonly GameSettingsView _gameSettingsView;
+        private readonly CompositeDisposable _disposables = new();
 
         public MainMenuPresenter(MenuFacade menuFacade,
             MainMenuView menuView,
@@ -20,17 +23,20 @@ namespace Game.Menu
 
         public void Initialize()
         {
-            _menuView.PlayButtonPressed += OnOnPlayButtonPressed;
+            _menuView.PlayButtonPressed.Subscribe(unit =>  OnPlayButtonPressed()).AddTo(_disposables);
+            _menuView.ExitButtonPressed.Subscribe(unit => _menuFacade.ExitGame()).AddTo(_disposables);
+            
             _gameSettingsView.VolumeChanged += OnVolumeChanged;
         }
 
         public void Dispose()
         {
-            _menuView.PlayButtonPressed -= OnOnPlayButtonPressed;
             _gameSettingsView.VolumeChanged -= OnVolumeChanged;
+            
+            _disposables.Dispose();
         }
 
-        private void OnOnPlayButtonPressed()
+        private void OnPlayButtonPressed()
         {
             _menuFacade.LoadGame();
         }

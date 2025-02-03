@@ -1,6 +1,7 @@
 ﻿using Game.App.SaveLoad;
+using UnityEngine;
 
-namespace Game.Menu
+namespace Game.Menu.Core
 {
     public class MenuFacade
     {
@@ -33,6 +34,21 @@ namespace Game.Menu
             _levelLoader.SetNextLevel();
             _levelLoader.LoadLevel();
             _gameSaveLoader.Save();
+        }
+
+        public void PauseGame()
+        {
+            Time.timeScale = 0;
+        }
+
+        public void ContinueGame()
+        {
+            Time.timeScale = 1;
+        }
+
+        public void ExitGame()
+        {
+            Application.Quit();
         }
     }
 }

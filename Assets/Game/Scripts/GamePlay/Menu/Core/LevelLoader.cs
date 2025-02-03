@@ -1,7 +1,7 @@
 ﻿using Game.Scripts.Common;
 using UnityEngine.SceneManagement;
 
-namespace Game.Menu
+namespace Game.Menu.Core
 {
     public class LevelLoader : ILevelLoader
     {

@@ -1,4 +1,4 @@
-﻿namespace Game.Menu
+﻿namespace Game.Menu.Core
 {
     public interface IGameSettings
     {

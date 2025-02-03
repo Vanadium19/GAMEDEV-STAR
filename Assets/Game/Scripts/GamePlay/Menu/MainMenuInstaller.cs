@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Game.Menu.UI;
+using UnityEngine;
 using Zenject;
 
 namespace Game.Menu

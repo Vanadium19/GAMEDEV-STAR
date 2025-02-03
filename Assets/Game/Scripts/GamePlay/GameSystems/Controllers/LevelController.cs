@@ -3,7 +3,7 @@ using DG.Tweening;
 using Game.Content.Player;
 using Game.Core;
 using Game.Core.Components;
-using Game.Menu;
+using Game.Menu.Core;
 using UnityEngine;
 using Zenject;
 

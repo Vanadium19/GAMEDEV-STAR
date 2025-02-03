@@ -48,8 +48,8 @@ namespace Game.Content.Player
         public Vector2 Position => _transform.position;
         public IReadOnlyReactiveProperty<bool> IsMoving => _isMoving;
         public IReadOnlyReactiveProperty<bool> IsFalling => _isFalling;
-        public IReactiveCommand<Action> Died => _died; 
-        public IReactiveCommand<Unit> Jumped => _jumped; 
+        public IObservable<Action> Died => _died; 
+        public IObservable<Unit> Jumped => _jumped; 
 
         public void Initialize()
         {
@@ -117,7 +117,7 @@ namespace Game.Content.Player
             _isDead = true;
             _mover.FreezePosition(true);
 
-            Died?.Execute(Die);
+            _died?.Execute(Die);
         }
     }
 }

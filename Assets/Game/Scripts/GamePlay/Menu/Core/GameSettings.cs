@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Game.Menu
+namespace Game.Menu.Core
 {
     public class GameSettings : IGameSettings
     {

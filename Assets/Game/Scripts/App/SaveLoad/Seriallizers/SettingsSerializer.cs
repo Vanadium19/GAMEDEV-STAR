@@ -1,5 +1,5 @@
 ﻿using Game.App.Data;
-using Game.Menu;
+using Game.Menu.Core;
 
 namespace Game.App.SaveLoad
 {
