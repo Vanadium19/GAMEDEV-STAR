@@ -1,31 +1,32 @@
 using System;
 using Game.Core.Components;
+using UniRx;
 using UnityEngine;
 using Zenject;
 
 namespace Game.Content.Player
 {
-    public class Character : IInitializable, IDisposable, IMovable, IDamagable, IJumper
+    public class Character : IInitializable, ITickable, IDisposable, IMovable, IDamagable, IJumper
     {
-        private Transform _transform;
-        private ILevelRestarter _levelRestarter;
+        private readonly Health _health;
+        private readonly Transform _transform;
+        private readonly ILevelRestarter _levelRestarter;
+        
+        private readonly Mover _mover;
+        private readonly Jumper _jumper;
+        private readonly Rotater _rotater;
+        private readonly Vector3 _startPosition;
+        private readonly GroundChecker _groundChecker;
 
-        private GroundChecker _groundChecker;
-        private Rotater _rotater;
-        private Mover _mover;
-        private Jumper _jumper;
-        private Health _health;
+        private readonly ReactiveProperty<bool> _isMoving = new();
+        private readonly ReactiveProperty<bool> _isFalling = new();
+        private readonly ReactiveCommand<Action> _died = new();
+        private readonly ReactiveCommand _jumped = new();
 
         private Transform _currentParent;
-        private Vector3 _startPosition;
         private bool _isDead;
-
-        public event Action<Action> Died;
-
-        public Vector2 Position => _transform.position;
-
-        [Inject]
-        public void Construct(ILevelRestarter levelRestarter,
+        
+        public Character(ILevelRestarter levelRestarter,
             GroundChecker groundChecker,
             Transform transform,
             Rotater rotater,
@@ -44,9 +45,23 @@ namespace Game.Content.Player
             _startPosition = _transform.position;
         }
 
+        public Vector2 Position => _transform.position;
+        public IReadOnlyReactiveProperty<bool> IsMoving => _isMoving;
+        public IReadOnlyReactiveProperty<bool> IsFalling => _isFalling;
+        public IReactiveCommand<Action> Died => _died; 
+        public IReactiveCommand<Unit> Jumped => _jumped; 
+
         public void Initialize()
         {
             _health.Died += OnCharacterDied;
+        }
+
+        public void Tick()
+        {
+            var velocity = _mover.Velocity;
+            
+            _isMoving.Value = !Mathf.Approximately(0, velocity.x);
+            _isFalling.Value = velocity.y < 0;
         }
 
         public void Dispose()
@@ -73,7 +88,10 @@ namespace Game.Content.Player
                 return;
 
             if (_groundChecker.IsGrounded)
-                _jumper.Jump();
+            {
+                if (_jumper.Jump())
+                    _jumped.Execute();
+            }
         }
 
         public void TakeDamage(int damage)
@@ -99,7 +117,7 @@ namespace Game.Content.Player
             _isDead = true;
             _mover.FreezePosition(true);
 
-            Died?.Invoke(Die);
+            Died?.Execute(Die);
         }
     }
 }
