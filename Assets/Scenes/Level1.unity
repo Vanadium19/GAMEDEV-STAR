@@ -774,10 +774,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d3f0968938144fcad828f3f8d916530, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minX: -6.4
-  _maxX: 43.2
+  _minX: -4
+  _maxX: 39
   _minY: 1
-  _maxY: 4.3
+  _maxY: 4
   _offset: {x: 0, y: 3.5, z: -10}
   _target: {fileID: 4537522197855649034}
 --- !u!1 &619394800
