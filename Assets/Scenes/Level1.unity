@@ -954,6 +954,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51002031de3fc364f975810547f2ef1e, type: 3}
+--- !u!114 &636767302 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4604475169033467547, guid: 51002031de3fc364f975810547f2ef1e, type: 3}
+  m_PrefabInstance: {fileID: 636767301}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36097dd5bee349eda2bce122a653a6bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &715922189
 GameObject:
   m_ObjectHideFlags: 0
@@ -2845,7 +2856,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _levelMenuPrefab: {fileID: 3985690915710119461, guid: b7aeec6cf7db4d4419d355f0affafea7, type: 3}
-  _endLevelTrigger: {fileID: 0}
+  _endLevelTrigger: {fileID: 636767302}
 --- !u!114 &1982916719
 MonoBehaviour:
   m_ObjectHideFlags: 0
