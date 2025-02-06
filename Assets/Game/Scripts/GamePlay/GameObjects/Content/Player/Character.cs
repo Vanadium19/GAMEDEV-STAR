@@ -8,10 +8,12 @@ namespace Game.Content.Player
 {
     public class Character : IInitializable, ITickable, IDisposable, IMovable, IDamagable, IJumper
     {
+        private const float Lapping = 0.5f;
+
         private readonly Health _health;
         private readonly Transform _transform;
         private readonly ILevelRestarter _levelRestarter;
-        
+
         private readonly Mover _mover;
         private readonly Jumper _jumper;
         private readonly Rotater _rotater;
@@ -25,7 +27,7 @@ namespace Game.Content.Player
 
         private Transform _currentParent;
         private bool _isDead;
-        
+
         public Character(ILevelRestarter levelRestarter,
             GroundChecker groundChecker,
             Transform transform,
@@ -48,8 +50,8 @@ namespace Game.Content.Player
         public Vector2 Position => _transform.position;
         public IReadOnlyReactiveProperty<bool> IsMoving => _isMoving;
         public IReadOnlyReactiveProperty<bool> IsFalling => _isFalling;
-        public IObservable<Action> Died => _died; 
-        public IObservable<Unit> Jumped => _jumped; 
+        public IObservable<Action> Died => _died;
+        public IObservable<Unit> Jumped => _jumped;
 
         public void Initialize()
         {
@@ -59,9 +61,8 @@ namespace Game.Content.Player
         public void Tick()
         {
             var velocity = _mover.Velocity;
-            
-            _isMoving.Value = !Mathf.Approximately(0, velocity.x);
-            _isFalling.Value = velocity.y < 0;
+            _isMoving.Value = Mathf.Abs(velocity.x) > Lapping && !_isDead;
+            _isFalling.Value = velocity.y < -Lapping && !_isDead;
         }
 
         public void Dispose()
