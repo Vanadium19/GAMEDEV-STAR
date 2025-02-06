@@ -7,7 +7,7 @@ namespace Game.App.Repository
 {
     public class GameRepository : IGameRepository
     {
-        private readonly string _filePath = $"{Application.streamingAssetsPath}/GameState.txt";
+        private readonly string _filePath = $"{Application.persistentDataPath}/GameState.txt";
 
         public void SetState(Dictionary<string, string> state)
         {
@@ -20,6 +20,8 @@ namespace Game.App.Repository
         {
             if (!File.Exists(_filePath))
                 return new Dictionary<string, string>();
+            
+            Debug.Log(_filePath);
             
             var json = File.ReadAllText(_filePath);
 

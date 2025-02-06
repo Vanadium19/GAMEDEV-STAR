@@ -4,7 +4,7 @@ namespace Game.Menu.Core
 {
     public class GameSettings : IGameSettings
     {
-        private float _volume;
+        private float _volume = 1;
         
         public float Volume => _volume;
 

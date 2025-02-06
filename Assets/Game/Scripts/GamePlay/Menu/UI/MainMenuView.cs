@@ -12,6 +12,7 @@ namespace Game.Menu.UI
 
         [SerializeField] private Button _settingButton;
         [SerializeField] private GameObject _settingsPopup;
+        [SerializeField] private GameObject _menuPopup;
 
         [SerializeField] private Button _authorsButton;
         [SerializeField] private GameObject _authorsPopup;
@@ -42,6 +43,7 @@ namespace Game.Menu.UI
 
         private void OnSettingsButtonPressed()
         {
+            _menuPopup.SetActive(false);
             _settingsPopup.SetActive(true);
         }
 

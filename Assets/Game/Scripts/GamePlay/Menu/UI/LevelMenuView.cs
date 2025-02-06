@@ -43,6 +43,7 @@ namespace Game.Menu.UI
 
         private void OnSettingsClicked()
         {
+            _menuPopup.SetActive(false);
             _settingsPopup.SetActive(true);
         }
     }
