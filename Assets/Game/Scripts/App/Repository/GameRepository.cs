@@ -21,8 +21,6 @@ namespace Game.App.Repository
             if (!File.Exists(_filePath))
                 return new Dictionary<string, string>();
             
-            Debug.Log(_filePath);
-            
             var json = File.ReadAllText(_filePath);
 
             return JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
