@@ -1,4 +1,5 @@
 ﻿using Game.Content.Environment;
+using Game.Controllers;
 using Game.Core.Components;
 using UnityEngine;
 using Zenject;
@@ -9,6 +10,8 @@ namespace Game.Content.Installers
     {
         [SerializeField] private Transform _transform;
         [SerializeField] private float _speed = 2;
+        [SerializeField] private Transform _startPosition;
+        [SerializeField] private Transform _endPosition;
 
         public override void InstallBindings()
         {
@@ -16,12 +19,9 @@ namespace Game.Content.Installers
                 .FromInstance(_transform)
                 .AsCached();
 
-            Container.Bind<TransformMover>()
+            Container.BindInterfacesTo<PatrolComponent>()
                 .AsSingle()
-                .WithArguments(_speed);
-
-            Container.BindInterfacesTo<MovingPlatform>()
-                .AsSingle();
+                .WithArguments(_startPosition.position, _endPosition.position, _speed);
         }
     }
 }

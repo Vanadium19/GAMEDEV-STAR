@@ -172,7 +172,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8514794531219480817}
   - component: {fileID: 4479822314724253650}
-  - component: {fileID: 4813336627906855149}
   - component: {fileID: 8250075463041735202}
   m_Layer: 0
   m_Name: MovingSaw
@@ -214,25 +213,10 @@ MonoBehaviour:
   _scriptableObjectInstallers: []
   _monoInstallers:
   - {fileID: 8250075463041735202}
-  - {fileID: 4813336627906855149}
   - {fileID: 4504955538752520069}
   _installerPrefabs: []
   _autoRun: 1
   _kernel: {fileID: 0}
---- !u!114 &4813336627906855149
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1620201807081565195}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5552811fc2e14d2f845fdf6fbbb87e54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _startPoint: {fileID: 6649852793608333563}
-  _endPoint: {fileID: 7567979847365168760}
 --- !u!114 &8250075463041735202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,6 +231,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transform: {fileID: 673976714081214254}
   _speed: 2
+  _startPosition: {fileID: 6649852793608333563}
+  _endPosition: {fileID: 7567979847365168760}
 --- !u!1 &7251312492619805146
 GameObject:
   m_ObjectHideFlags: 0
