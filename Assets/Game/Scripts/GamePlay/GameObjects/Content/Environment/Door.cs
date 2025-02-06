@@ -13,6 +13,7 @@ namespace Game.Content.Environment
 
         private int _currentKeyCount;
 
+        public event Action KeyCollected;
         public event Action<int> KeyCountChanged;
         public event Action Opened;
         public event Action Closed;
@@ -46,6 +47,7 @@ namespace Game.Content.Environment
         {
             _currentKeyCount++;
 
+            KeyCollected?.Invoke();
             KeyCountChanged?.Invoke(_currentKeyCount);
 
             if (_currentKeyCount >= _keyCount)

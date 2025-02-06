@@ -19,6 +19,7 @@ namespace Game.UI
         {
             _door.Opened += OnDoorOpened;
             _door.Closed += OnDoorClosed;
+            _door.KeyCollected += OnKeyCollected;
             _door.KeyCountChanged += OnKeyCountChanged;
 
             OnKeyCountChanged(0);
@@ -28,6 +29,7 @@ namespace Game.UI
         {
             _door.Opened -= OnDoorOpened;
             _door.Closed -= OnDoorClosed;
+            _door.KeyCollected -= OnKeyCollected;
             _door.KeyCountChanged -= OnKeyCountChanged;
         }
 
@@ -46,6 +48,11 @@ namespace Game.UI
         private void OnDoorClosed()
         {
             _view.Close();
+        }
+
+        private void OnKeyCollected()
+        {
+            _view.PlayKeySound();
         }
     }
 }

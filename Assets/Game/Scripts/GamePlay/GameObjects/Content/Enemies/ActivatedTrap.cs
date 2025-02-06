@@ -12,6 +12,7 @@ namespace Game.Content.Enemies
     {
         private readonly ILevelProgressTracker _levelTracker;
         private readonly TriggerTracker _playerTracker;
+        private readonly AudioSource _trapSound;
         private readonly GameObject _trap;
 
         private readonly float _delay;
@@ -22,12 +23,14 @@ namespace Game.Content.Enemies
 
         public ActivatedTrap(ILevelProgressTracker levelTracker,
             TriggerTracker playerTracker,
+            AudioSource trapSound,
             GameObject trap,
             float delay,
             float trapTime)
         {
-            _levelTracker = levelTracker;
             _playerTracker = playerTracker;
+            _levelTracker = levelTracker;
+            _trapSound = trapSound;
             _trap = trap;
             _delay = delay;
             _trapTime = trapTime;
@@ -51,10 +54,11 @@ namespace Game.Content.Enemies
 
         private async UniTaskVoid Activate()
         {
+            _isActive = true;
             await UniTask.Delay(TimeSpan.FromSeconds(_delay), cancellationToken: _resetToken.Token);
 
+            _trapSound.Play();
             _trap.SetActive(true);
-            _isActive = true;
 
             await UniTask.Delay(TimeSpan.FromSeconds(_trapTime), cancellationToken: _resetToken.Token);
 

@@ -10,6 +10,7 @@ namespace Game.Content.Enemies
 
         [SerializeField] private GameObject _trap;
         [SerializeField] private UnityEventReceiver _playerTracker;
+        [SerializeField] private AudioSource _trapAudio;
 
         [SerializeField] private float _delay = 0.5f;
         [SerializeField] private float _trapTime = 3f;
@@ -22,6 +23,10 @@ namespace Game.Content.Enemies
 
             Container.Bind<GameObject>()
                 .FromInstance(_trap)
+                .AsSingle();
+
+            Container.Bind<AudioSource>()
+                .FromInstance(_trapAudio)
                 .AsSingle();
 
             Container.BindInterfacesTo<ActivatedTrap>()

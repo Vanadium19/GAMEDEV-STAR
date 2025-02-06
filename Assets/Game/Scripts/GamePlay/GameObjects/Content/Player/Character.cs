@@ -1,4 +1,5 @@
 using System;
+using Game.Core;
 using Game.Core.Components;
 using UniRx;
 using UnityEngine;
@@ -10,9 +11,11 @@ namespace Game.Content.Player
     {
         private const float Lapping = 0.5f;
 
+        private readonly ILevelRestarter _levelRestarter;
+        private readonly ILevelProgressTracker _levelTracker;
+
         private readonly Health _health;
         private readonly Transform _transform;
-        private readonly ILevelRestarter _levelRestarter;
 
         private readonly Mover _mover;
         private readonly Jumper _jumper;
@@ -29,6 +32,7 @@ namespace Game.Content.Player
         private bool _isDead;
 
         public Character(ILevelRestarter levelRestarter,
+            ILevelProgressTracker levelTracker,
             GroundChecker groundChecker,
             Transform transform,
             Rotater rotater,
@@ -37,6 +41,8 @@ namespace Game.Content.Player
             Health health)
         {
             _levelRestarter = levelRestarter;
+            _levelTracker = levelTracker;
+
             _groundChecker = groundChecker;
             _rotater = rotater;
             _mover = mover;
@@ -56,6 +62,7 @@ namespace Game.Content.Player
         public void Initialize()
         {
             _health.Died += OnCharacterDied;
+            _levelTracker.LevelCompleted += OnCompleteLevel;
         }
 
         public void Tick()
@@ -68,6 +75,7 @@ namespace Game.Content.Player
         public void Dispose()
         {
             _health.Died -= OnCharacterDied;
+            _levelTracker.LevelCompleted -= OnCompleteLevel;
         }
 
         public void Move(Vector2 direction)
@@ -119,6 +127,12 @@ namespace Game.Content.Player
             _mover.FreezePosition(true);
 
             _died?.Execute(Die);
+        }
+
+        private void OnCompleteLevel()
+        {
+            _isDead = true;
+            _mover.FreezePosition(true);
         }
     }
 }

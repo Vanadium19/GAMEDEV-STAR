@@ -14,6 +14,10 @@ namespace Game.View
         [SerializeField] private SpriteRenderer _spriteRenderer;
         [SerializeField] private Color _color;
 
+        [SerializeField] private AudioSource _audioSource;
+        [SerializeField] private AudioClip _jumpSound;
+        [SerializeField] private AudioClip _deathSound;
+
         private Color _startColor;
 
         private void Awake()
@@ -23,6 +27,7 @@ namespace Game.View
 
         public void Die(Action callback)
         {
+            _audioSource.PlayOneShot(_deathSound);
             _animator.SetTrigger(AnimatorParams.Die);
             _spriteRenderer.color = _startColor;
 
@@ -48,6 +53,7 @@ namespace Game.View
 
         public void Jump()
         {
+            _audioSource.PlayOneShot(_jumpSound);
             _animator.SetTrigger(AnimatorParams.Jump);
         }
     }

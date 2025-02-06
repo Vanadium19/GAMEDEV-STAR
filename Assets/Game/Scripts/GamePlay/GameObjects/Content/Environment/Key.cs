@@ -34,8 +34,6 @@ namespace Game.Content.Environment
         {
             if (target.gameObject.CompareTag("Player"))
             {
-                // Debug.Log("Collected key");
-
                 gameObject.SetActive(false);
                 Collected?.Invoke(this);
                 _tracker.LevelRestarted += OnLevelRestarted;
@@ -44,8 +42,6 @@ namespace Game.Content.Environment
 
         private void OnLevelRestarted()
         {
-            // Debug.Log("Lost key");
-
             gameObject.SetActive(true);
             _tracker.LevelRestarted -= OnLevelRestarted;
         }

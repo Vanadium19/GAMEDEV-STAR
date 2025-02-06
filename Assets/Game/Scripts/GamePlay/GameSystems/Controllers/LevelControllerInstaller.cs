@@ -1,5 +1,6 @@
 ﻿using Game.Core.Components;
 using Game.Menu.UI;
+using Game.View;
 using UnityEngine;
 using Zenject;
 
@@ -10,13 +11,13 @@ namespace Game.Controllers
         private const string Tag = "Player";
 
         [SerializeField] private Canvas _levelMenuPrefab;
-        [SerializeField] private UnityEventReceiver _endLevelTrigger;
+        [SerializeField] private EndLevelView _endLevelTrigger;
 
         public override void InstallBindings()
         {
-            Container.BindInterfacesAndSelfTo<TriggerTracker>()
-                .AsSingle()
-                .WithArguments(_endLevelTrigger, new[] { Tag });
+            Container.Bind<EndLevelView>()
+                .FromInstance(_endLevelTrigger)
+                .AsSingle();
 
             Container.BindInterfacesTo<LevelController>()
                 .AsCached()
