@@ -1,4 +1,5 @@
-﻿using Game.Core.Components;
+﻿using Game.Content.Player;
+using Game.Core;
 using Game.Menu.UI;
 using Game.View;
 using UnityEngine;
@@ -8,10 +9,9 @@ namespace Game.Controllers
 {
     public class LevelControllerInstaller : MonoInstaller
     {
-        private const string Tag = "Player";
-
         [SerializeField] private Canvas _levelMenuPrefab;
         [SerializeField] private EndLevelView _endLevelTrigger;
+        [SerializeField] private Entity _player;
 
         public override void InstallBindings()
         {
@@ -19,7 +19,11 @@ namespace Game.Controllers
                 .FromInstance(_endLevelTrigger)
                 .AsSingle();
 
-            Container.BindInterfacesTo<LevelController>()
+            Container.Bind<CharacterProvider>()
+                .AsSingle()
+                .WithArguments(_player);
+
+            Container.BindInterfacesAndSelfTo<LevelController>()
                 .AsCached()
                 .NonLazy();
             

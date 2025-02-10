@@ -41,7 +41,7 @@ namespace Game.Content.Player
                 .AsSingle()
                 .WithArguments(_groundCheckParams);
 
-            Container.Bind<Health>()
+            Container.BindInterfacesAndSelfTo<Health>()
                 .AsSingle()
                 .WithArguments(_health);
 

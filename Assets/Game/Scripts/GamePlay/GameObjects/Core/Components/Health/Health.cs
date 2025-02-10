@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Game.Core.Components
 {
-    public class Health
+    public class Health : IDamagable
     {
         private readonly int _health;
 

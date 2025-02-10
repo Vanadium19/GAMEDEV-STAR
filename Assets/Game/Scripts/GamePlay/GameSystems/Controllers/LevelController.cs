@@ -12,17 +12,24 @@ using Zenject;
 
 namespace Game.Controllers
 {
-    public class LevelController : ILevelProgressTracker, ILevelRestarter, IInitializable, IDisposable
+    public class LevelController : ILevelProgressTracker, IInitializable, IDisposable
     {
+        private const float LevelRestartDelay = 1f;
+        
         private readonly EndLevelView _endLevelTrigger;
+        private readonly CharacterProvider _character;
         private readonly LevelMenuFactory _factory;
         private readonly MenuFacade _menu;
 
         private Canvas _canvas;
 
-        public LevelController(LevelMenuFactory factory, MenuFacade menu, EndLevelView endLevelTrigger)
+        public LevelController(CharacterProvider character,
+            LevelMenuFactory factory,
+            MenuFacade menu,
+            EndLevelView endLevelTrigger)
         {
             _endLevelTrigger = endLevelTrigger;
+            _character = character;
             _factory = factory;
             _menu = menu;
         }
@@ -35,15 +42,18 @@ namespace Game.Controllers
             _canvas = _factory.Create();
             _canvas.worldCamera = Camera.main;
             _endLevelTrigger.LevelEnded += OnLevelEnded;
+            _character.Get<IDamagable>().Died += OnCharacterDied;
         }
 
         public void Dispose()
         {
             _endLevelTrigger.LevelEnded -= OnLevelEnded;
+            _character.Get<IDamagable>().Died -= OnCharacterDied;
         }
 
         public void RestartLevel()
         {
+            _character.Get<Character>().ResetPosition();
             LevelRestarted?.Invoke();
         }
 
@@ -54,10 +64,21 @@ namespace Game.Controllers
             EndLevel(delay).Forget();
         }
 
+        private void OnCharacterDied()
+        {
+            RestartLevelAsync(LevelRestartDelay).Forget();
+        }
+
         private async UniTaskVoid EndLevel(float delay)
         {
             await UniTask.Delay(TimeSpan.FromSeconds(delay));
             _menu.LoadNextLevel();
+        }
+
+        private async UniTaskVoid RestartLevelAsync(float delay)
+        {
+            await UniTask.Delay(TimeSpan.FromSeconds(delay));
+            RestartLevel();
         }
     }
 }

@@ -3340,6 +3340,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _levelMenuPrefab: {fileID: 3985690915710119461, guid: b7aeec6cf7db4d4419d355f0affafea7, type: 3}
   _endLevelTrigger: {fileID: 636767302}
+  _player: {fileID: 4537522197855649037}
 --- !u!114 &1982916719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3769,6 +3770,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8540829326951820841, guid: cac7512a6f7200848a27f77683073607, type: 3}
   m_PrefabInstance: {fileID: 4537522197855649033}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4537522197855649037 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 712218775398529227, guid: cac7512a6f7200848a27f77683073607, type: 3}
+  m_PrefabInstance: {fileID: 4537522197855649033}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaf65d25164d4163b41ff3e6e5e269f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

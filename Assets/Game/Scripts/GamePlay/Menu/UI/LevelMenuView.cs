@@ -11,17 +11,20 @@ namespace Game.Menu.UI
         [SerializeField] private Button _continueButton;
         [SerializeField] private GameObject _menuPopup;
 
+        [SerializeField] private Button _restartButton;
         [SerializeField] private Button _exitButton;
 
         [SerializeField] private Button _settingsButton;
         [SerializeField] private GameObject _settingsPopup;
 
         private readonly ReactiveCommand _opened = new();
+        private readonly ReactiveCommand _restarted = new();
         private readonly ReactiveCommand _exited = new();
         private readonly ReactiveCommand _continued = new();
         private readonly CompositeDisposable _disposables = new();
 
         public IObservable<Unit> OpenButtonClicked => _opened;
+        public IObservable<Unit> RestartButtonClicked => _restarted;
         public IObservable<Unit> ExitButtonClicked => _exited;
         public IObservable<Unit> ContinueButtonClicked => _continued;
 
@@ -29,6 +32,8 @@ namespace Game.Menu.UI
         {
             _opened.BindToOnClick(_openButton, (_) => _menuPopup.SetActive(true)).AddTo(_disposables);
             _continued.BindToOnClick(_continueButton, (_) => _menuPopup.SetActive(false)).AddTo(_disposables);
+
+            _restarted.BindTo(_restartButton).AddTo(_disposables);
             _exited.BindTo(_exitButton).AddTo(_disposables);
 
             _settingsButton.onClick.AddListener(OnSettingsClicked);

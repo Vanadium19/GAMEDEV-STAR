@@ -7,9 +7,8 @@ using Zenject;
 
 namespace Game.Content.Player
 {
-    public class Character : IInitializable, ITickable, IDisposable, IMovable, IDamagable, IJumper
+    public class Character : IInitializable, ITickable, IDisposable, IMovable, IJumper
     {
-        private readonly ILevelRestarter _levelRestarter;
         private readonly ILevelProgressTracker _levelTracker;
 
         private readonly Health _health;
@@ -29,8 +28,7 @@ namespace Game.Content.Player
         private Transform _currentParent;
         private bool _isDead;
 
-        public Character(ILevelRestarter levelRestarter,
-            ILevelProgressTracker levelTracker,
+        public Character(ILevelProgressTracker levelTracker,
             GroundChecker groundChecker,
             Transform transform,
             Rotater rotater,
@@ -38,7 +36,6 @@ namespace Game.Content.Player
             Jumper jumper,
             Health health)
         {
-            _levelRestarter = levelRestarter;
             _levelTracker = levelTracker;
 
             _groundChecker = groundChecker;
@@ -99,20 +96,16 @@ namespace Game.Content.Player
             }
         }
 
-        public void TakeDamage(int damage)
+        public void ResetPosition()
         {
-            if (_isDead)
-                return;
-
-            _health.TakeDamage(damage);
+            _transform.position = _startPosition;
         }
 
         private void Die()
         {
-            _transform.position = _startPosition;
-
+            ResetPosition();
+            
             _health.ResetHealth();
-            _levelRestarter.RestartLevel();
             _mover.FreezePosition(false);
             _isDead = false;
         }
