@@ -223,9 +223,16 @@ MonoBehaviour:
   _rigidbody: {fileID: 5719633833217197449}
   _transform: {fileID: 8540829326951820841}
   _health: 5
-  _speed: 5
-  _jumpForce: 7
+  _moveParams:
+    _speed:
+      value: 5
+    _gravityScale:
+      value: 0.2
+    _fallFactor:
+      value: 0.1
   _jumpDelay: 0.5
+  _jumpForce:
+    value: 9.5
   _groundCheckParams:
     _point: {fileID: 5588491650108047060}
     _groundLayer:

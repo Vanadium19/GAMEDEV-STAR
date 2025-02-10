@@ -9,8 +9,6 @@ namespace Game.Content.Player
 {
     public class Character : IInitializable, ITickable, IDisposable, IMovable, IDamagable, IJumper
     {
-        private const float Lapping = 0.5f;
-
         private readonly ILevelRestarter _levelRestarter;
         private readonly ILevelProgressTracker _levelTracker;
 
@@ -53,7 +51,6 @@ namespace Game.Content.Player
             _startPosition = _transform.position;
         }
 
-        public Vector2 Position => _transform.position;
         public IReadOnlyReactiveProperty<bool> IsMoving => _isMoving;
         public IReadOnlyReactiveProperty<bool> IsFalling => _isFalling;
         public IObservable<Action> Died => _died;
@@ -67,9 +64,8 @@ namespace Game.Content.Player
 
         public void Tick()
         {
-            var velocity = _mover.Velocity;
-            _isMoving.Value = Mathf.Abs(velocity.x) > Lapping && !_isDead;
-            _isFalling.Value = velocity.y < -Lapping && !_isDead;
+            _isMoving.Value = _mover.IsMoving && !_isDead;
+            _isFalling.Value = _mover.IsFalling && !_isDead;
         }
 
         public void Dispose()

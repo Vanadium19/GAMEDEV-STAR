@@ -1,5 +1,6 @@
 using Game.Core.Components;
 using Game.View;
+using UniRx;
 using UnityEngine;
 using Zenject;
 
@@ -11,10 +12,11 @@ namespace Game.Content.Player
         [SerializeField] private Transform _transform;
 
         [Header("Main Settings")] [SerializeField] private int _health = 5;
-        [SerializeField] private float _speed = 5f;
 
-        [Header("Jump Settings")] [SerializeField] private float _jumpForce = 12;
-        [SerializeField] private float _jumpDelay = 0.5f;
+        [Header("Move Settings")] [SerializeField] private MoveParams _moveParams;
+
+        [Header("Jump Settings")] [SerializeField] private float _jumpDelay = 0.5f;
+        [SerializeField] private FloatReactiveProperty _jumpForce;
 
         [Header("Ground Check Settings")] [SerializeField] private GroundCheckParams _groundCheckParams;
 
@@ -30,7 +32,7 @@ namespace Game.Content.Player
             Container.Bind<Rigidbody2D>()
                 .FromInstance(_rigidbody)
                 .AsSingle();
-            
+
             Container.Bind<Transform>()
                 .FromInstance(_transform)
                 .AsSingle();
@@ -39,8 +41,20 @@ namespace Game.Content.Player
                 .AsSingle()
                 .WithArguments(_groundCheckParams);
 
-            StateComponentsInstaller.Install(Container, _groundCheckParams, _health);
-            MoveComponentsInstaller.Install(Container, _jumpForce, _jumpDelay, _speed);
+            Container.Bind<Health>()
+                .AsSingle()
+                .WithArguments(_health);
+
+            Container.Bind<Mover>()
+                .AsSingle()
+                .WithArguments(_moveParams);
+
+            Container.BindInterfacesAndSelfTo<Jumper>()
+                .AsSingle()
+                .WithArguments(_jumpForce, _jumpDelay);
+
+            Container.Bind<Rotater>()
+                .AsSingle();
 
             //Presenters
             Container.BindInterfacesTo<PlayerPresenter>()
