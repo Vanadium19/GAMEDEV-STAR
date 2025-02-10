@@ -7,7 +7,7 @@ namespace Game.Menu.Core
     {
         private readonly int _maxLevel = (int)SceneNumber.Level3;
 
-        private int _level = (int)SceneNumber.Level1;
+        private int _level = (int)SceneNumber.Level0;
 
         public int Level => _level;
 
