@@ -645,7 +645,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -2.07, y: 5.98}
+  m_Offset: {x: -2.0567799, y: 5.880851}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -656,7 +656,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.881021, y: 0.8017006}
   m_EdgeRadius: 0
 --- !u!61 &491878201
 BoxCollider2D:
@@ -690,7 +690,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 26.7, y: 1.9}
+  m_Offset: {x: 26.687307, y: 1.828056}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -701,7 +701,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.8222542, y: 0.85611176}
   m_EdgeRadius: 0
 --- !u!61 &491878202
 BoxCollider2D:
@@ -735,7 +735,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 2.29, y: 3.9}
+  m_Offset: {x: 2.247035, y: 3.8173754}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -746,7 +746,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.84797096, y: 0.83475065}
   m_EdgeRadius: 0
 --- !u!4 &491878207 stripped
 Transform:
@@ -3070,19 +3070,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1816377363879100197, guid: 5a4c52e86f7f4c1448dbea1efd3ad84d, type: 3}
       propertyPath: m_Size.x
-      value: 1.26
+      value: 1.0563617
       objectReference: {fileID: 0}
     - target: {fileID: 1816377363879100197, guid: 5a4c52e86f7f4c1448dbea1efd3ad84d, type: 3}
       propertyPath: m_Size.y
-      value: 1.23
+      value: 1.0833801
       objectReference: {fileID: 0}
     - target: {fileID: 1816377363879100197, guid: 5a4c52e86f7f4c1448dbea1efd3ad84d, type: 3}
       propertyPath: m_Offset.x
-      value: -0.74
+      value: -0.7522185
       objectReference: {fileID: 0}
     - target: {fileID: 1816377363879100197, guid: 5a4c52e86f7f4c1448dbea1efd3ad84d, type: 3}
       propertyPath: m_Offset.y
-      value: -0.21
+      value: -0.28330988
       objectReference: {fileID: 0}
     - target: {fileID: 4778350087273592193, guid: 5a4c52e86f7f4c1448dbea1efd3ad84d, type: 3}
       propertyPath: m_Name

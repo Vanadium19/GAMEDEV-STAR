@@ -508,6 +508,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7336960245945249330, guid: 3fa614fb1c83da34db573c1dbe2fd562, type: 3}
+      propertyPath: m_Size.x
+      value: 1.0798557
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336960245945249330, guid: 3fa614fb1c83da34db573c1dbe2fd562, type: 3}
+      propertyPath: m_Size.y
+      value: 1.1501632
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336960245945249330, guid: 3fa614fb1c83da34db573c1dbe2fd562, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.0021662712
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336960245945249330, guid: 3fa614fb1c83da34db573c1dbe2fd562, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.08741842
+      objectReference: {fileID: 0}
     - target: {fileID: 7863355614253766220, guid: 3fa614fb1c83da34db573c1dbe2fd562, type: 3}
       propertyPath: m_Name
       value: ActivatedTrap (2)
@@ -1449,6 +1465,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7336960245945249330, guid: 3fa614fb1c83da34db573c1dbe2fd562, type: 3}
+      propertyPath: m_Size.x
+      value: 0.95184004
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336960245945249330, guid: 3fa614fb1c83da34db573c1dbe2fd562, type: 3}
+      propertyPath: m_Size.y
+      value: 1.1304774
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336960245945249330, guid: 3fa614fb1c83da34db573c1dbe2fd562, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.037250042
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336960245945249330, guid: 3fa614fb1c83da34db573c1dbe2fd562, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.09726134
+      objectReference: {fileID: 0}
     - target: {fileID: 7863355614253766220, guid: 3fa614fb1c83da34db573c1dbe2fd562, type: 3}
       propertyPath: m_Name
       value: ActivatedTrap (1)
@@ -1570,6 +1602,22 @@ PrefabInstance:
     - target: {fileID: 6914917230279586926, guid: 3fa614fb1c83da34db573c1dbe2fd562, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336960245945249330, guid: 3fa614fb1c83da34db573c1dbe2fd562, type: 3}
+      propertyPath: m_Size.x
+      value: 1.0183016
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336960245945249330, guid: 3fa614fb1c83da34db573c1dbe2fd562, type: 3}
+      propertyPath: m_Size.y
+      value: 1.1111736
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336960245945249330, guid: 3fa614fb1c83da34db573c1dbe2fd562, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.014763534
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336960245945249330, guid: 3fa614fb1c83da34db573c1dbe2fd562, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.106913224
       objectReference: {fileID: 0}
     - target: {fileID: 7863355614253766220, guid: 3fa614fb1c83da34db573c1dbe2fd562, type: 3}
       propertyPath: m_Name
@@ -1796,6 +1844,22 @@ PrefabInstance:
     - target: {fileID: 6914917230279586926, guid: 3fa614fb1c83da34db573c1dbe2fd562, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336960245945249330, guid: 3fa614fb1c83da34db573c1dbe2fd562, type: 3}
+      propertyPath: m_Size.x
+      value: 1.0804291
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336960245945249330, guid: 3fa614fb1c83da34db573c1dbe2fd562, type: 3}
+      propertyPath: m_Size.y
+      value: 1.1220927
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336960245945249330, guid: 3fa614fb1c83da34db573c1dbe2fd562, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.021686077
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336960245945249330, guid: 3fa614fb1c83da34db573c1dbe2fd562, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.10145366
       objectReference: {fileID: 0}
     - target: {fileID: 7863355614253766220, guid: 3fa614fb1c83da34db573c1dbe2fd562, type: 3}
       propertyPath: m_Name
@@ -2163,19 +2227,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1816377363879100197, guid: 5a4c52e86f7f4c1448dbea1efd3ad84d, type: 3}
       propertyPath: m_Size.x
-      value: 0.91
+      value: 0.83277225
       objectReference: {fileID: 0}
     - target: {fileID: 1816377363879100197, guid: 5a4c52e86f7f4c1448dbea1efd3ad84d, type: 3}
       propertyPath: m_Size.y
-      value: 1.04
+      value: 0.86448336
       objectReference: {fileID: 0}
     - target: {fileID: 1816377363879100197, guid: 5a4c52e86f7f4c1448dbea1efd3ad84d, type: 3}
       propertyPath: m_Offset.x
-      value: -7.46
+      value: -7.4213862
       objectReference: {fileID: 0}
     - target: {fileID: 1816377363879100197, guid: 5a4c52e86f7f4c1448dbea1efd3ad84d, type: 3}
       propertyPath: m_Offset.y
-      value: 3.93
+      value: 3.7790554
       objectReference: {fileID: 0}
     - target: {fileID: 4778350087273592193, guid: 5a4c52e86f7f4c1448dbea1efd3ad84d, type: 3}
       propertyPath: m_Name
@@ -5793,7 +5857,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 3.54, y: 2.88}
+  m_Offset: {x: 3.5499206, y: 2.8056002}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -5804,7 +5868,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.78175926, y: 0.8512001}
   m_EdgeRadius: 0
 --- !u!1001 &4537522197855649033
 PrefabInstance:
