@@ -232,7 +232,7 @@ MonoBehaviour:
       value: 0.1
   _jumpDelay: 0.5
   _jumpForce:
-    value: 9.5
+    value: 10.2
   _groundCheckParams:
     _point: {fileID: 5588491650108047060}
     _groundLayer:

@@ -1,6 +1,7 @@
 ﻿using System;
 using UniRx;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Game.Menu.UI
@@ -30,10 +31,10 @@ namespace Game.Menu.UI
 
         private void OnEnable()
         {
-            _opened.BindToOnClick(_openButton, (_) => _menuPopup.SetActive(true)).AddTo(_disposables);
-            _continued.BindToOnClick(_continueButton, (_) => _menuPopup.SetActive(false)).AddTo(_disposables);
+            _opened.BindToOnClick(_openButton, (_) => OnOpenClicked()).AddTo(_disposables);
+            _continued.BindToOnClick(_continueButton, (_) => OnContinueClicked()).AddTo(_disposables);
+            _restarted.BindToOnClick(_restartButton, (_) => EventSystem.current.SetSelectedGameObject(null)).AddTo(_disposables);
 
-            _restarted.BindTo(_restartButton).AddTo(_disposables);
             _exited.BindTo(_exitButton).AddTo(_disposables);
 
             _settingsButton.onClick.AddListener(OnSettingsClicked);
@@ -46,10 +47,23 @@ namespace Game.Menu.UI
             _disposables.Clear();
         }
 
+        private void OnOpenClicked()
+        {
+            _menuPopup.SetActive(true);
+            EventSystem.current.SetSelectedGameObject(null);
+        }
+
+        private void OnContinueClicked()
+        {
+            _menuPopup.SetActive(false);
+            EventSystem.current.SetSelectedGameObject(null);
+        }
+
         private void OnSettingsClicked()
         {
             _menuPopup.SetActive(false);
             _settingsPopup.SetActive(true);
+            EventSystem.current.SetSelectedGameObject(null);
         }
     }
 }
