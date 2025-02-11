@@ -62,7 +62,7 @@ namespace Game.Content.Player
         public void Tick()
         {
             _isMoving.Value = _mover.IsMoving && !_isDead;
-            _isFalling.Value = _mover.IsFalling && !_isDead;
+            _isFalling.Value = _mover.IsFalling && !_groundChecker.IsGrounded && !_isDead;
         }
 
         public void Dispose()

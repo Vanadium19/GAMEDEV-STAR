@@ -1,14 +1,17 @@
 using UnityEngine;
+using Zenject;
 
 namespace Game.Core.Components
 {
-    public class GroundChecker
+    public class GroundChecker : ITickable
     {
         private const float OverlapAngle = 0;
 
         private readonly Transform _jumpPoint;
         private readonly Vector2 _overlapSize;
         private readonly int _layerMask;
+
+        private bool _isGrounded;
 
         public GroundChecker(GroundCheckParams checkParams)
         {
@@ -17,6 +20,11 @@ namespace Game.Core.Components
             _layerMask = checkParams.GroundLayer;
         }
 
-        public bool IsGrounded => Physics2D.OverlapBox(_jumpPoint.position, _overlapSize, OverlapAngle, _layerMask);
+        public bool IsGrounded => _isGrounded;
+
+        public void Tick()
+        {
+            _isGrounded = Physics2D.OverlapBox(_jumpPoint.position, _overlapSize, OverlapAngle, _layerMask);
+        }
     }
 }
