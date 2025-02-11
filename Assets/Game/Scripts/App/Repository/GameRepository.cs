@@ -7,7 +7,7 @@ namespace Game.App.Repository
 {
     public class GameRepository : IGameRepository
     {
-        private readonly string _filePath = $"{Application.persistentDataPath}/GameState.txt";
+        private readonly string _filePath = $"{Application.persistentDataPath}/State.txt";
 
         public void SetState(Dictionary<string, string> state)
         {
