@@ -20,10 +20,10 @@ namespace Game.View
 
         public void Initialize()
         {
-            _character.Died.Subscribe(OnCharacterDied).AddTo(_disposable);
+            _character.Died.Subscribe(_ => OnCharacterDied()).AddTo(_disposable);
             _character.IsMoving.Subscribe(SetMovingState).AddTo(_disposable);
             _character.IsFalling.Subscribe(SetFallingState).AddTo(_disposable);
-            _character.Jumped.Subscribe(unit => Jump()).AddTo(_disposable);
+            _character.Jumped.Subscribe(_ => Jump()).AddTo(_disposable);
         }
 
         public void Dispose()
@@ -31,9 +31,9 @@ namespace Game.View
             _disposable?.Dispose();
         }
 
-        private void OnCharacterDied(Action callback)
+        private void OnCharacterDied()
         {
-            _playerView.Die(callback);
+            _playerView.Die();
         }
 
         private void SetMovingState(bool value)

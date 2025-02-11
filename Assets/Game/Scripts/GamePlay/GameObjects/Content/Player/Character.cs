@@ -22,7 +22,7 @@ namespace Game.Content.Player
 
         private readonly ReactiveProperty<bool> _isMoving = new();
         private readonly ReactiveProperty<bool> _isFalling = new();
-        private readonly ReactiveCommand<Action> _died = new();
+        private readonly ReactiveCommand _died = new();
         private readonly ReactiveCommand _jumped = new();
 
         private Transform _currentParent;
@@ -50,7 +50,7 @@ namespace Game.Content.Player
 
         public IReadOnlyReactiveProperty<bool> IsMoving => _isMoving;
         public IReadOnlyReactiveProperty<bool> IsFalling => _isFalling;
-        public IObservable<Action> Died => _died;
+        public IObservable<Unit> Died => _died;
         public IObservable<Unit> Jumped => _jumped;
 
         public void Initialize()
@@ -96,15 +96,9 @@ namespace Game.Content.Player
             }
         }
 
-        public void ResetPosition()
+        public void ResetPlayer()
         {
             _transform.position = _startPosition;
-        }
-
-        private void Die()
-        {
-            ResetPosition();
-            
             _health.ResetHealth();
             _mover.FreezePosition(false);
             _isDead = false;
@@ -115,7 +109,7 @@ namespace Game.Content.Player
             _isDead = true;
             _mover.FreezePosition(true);
 
-            _died?.Execute(Die);
+            _died?.Execute();
         }
 
         private void OnCompleteLevel()

@@ -25,7 +25,7 @@ namespace Game.View
             _startColor = _spriteRenderer.color;
         }
 
-        public void Die(Action callback)
+        public void Die()
         {
             _audioSource.PlayOneShot(_deathSound);
             _animator.SetTrigger(AnimatorParams.Die);
@@ -34,11 +34,7 @@ namespace Game.View
             _spriteRenderer.DOColor(_color, _interval)
                 .SetLoops((int)(_duration / _interval), LoopType.Yoyo)
                 .SetEase(Ease.Linear)
-                .OnComplete(() =>
-                {
-                    callback?.Invoke();
-                    _spriteRenderer.color = _startColor;
-                });
+                .OnComplete(() => _spriteRenderer.color = _startColor);
         }
 
         public void SetMovingState(bool value)

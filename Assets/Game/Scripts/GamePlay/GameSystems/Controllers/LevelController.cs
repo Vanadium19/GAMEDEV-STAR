@@ -53,7 +53,7 @@ namespace Game.Controllers
 
         public void RestartLevel()
         {
-            _character.Get<Character>().ResetPosition();
+            _character.Get<Character>().ResetPlayer();
             LevelRestarted?.Invoke();
         }
 
