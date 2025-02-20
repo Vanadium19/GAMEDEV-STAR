@@ -22,7 +22,7 @@ namespace Game.Core.Components
 
             Quaternion rotation = Quaternion.LookRotation(direction);
 
-            _transform.rotation = Quaternion.Slerp(_transform.rotation, rotation, _speed.Value * Time.deltaTime);
+            _transform.rotation = Quaternion.Slerp(_transform.rotation, rotation, _speed.Value * Time.fixedDeltaTime);
         }
     }
 }
