@@ -13,6 +13,10 @@ namespace Game.Scripts.Gameplay.GameSystems
             Container.BindInterfacesTo<PlayerRotateController>()
                 .AsSingle()
                 .NonLazy();
+            
+            Container.BindInterfacesTo<PlayerAttackController>()
+                .AsSingle()
+                .NonLazy();
         }
     }
 }

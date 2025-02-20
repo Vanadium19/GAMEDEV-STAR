@@ -42,6 +42,9 @@ namespace Game.Content.Player
             Container.BindInterfacesAndSelfTo<HealthComponent>()
                 .AsSingle()
                 .WithArguments(_health);
+
+            Container.BindInterfacesAndSelfTo<AttackComponent>()
+                .AsSingle();
         }
     }
 }
