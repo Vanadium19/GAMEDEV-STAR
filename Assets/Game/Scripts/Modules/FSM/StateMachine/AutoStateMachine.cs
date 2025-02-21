@@ -8,7 +8,7 @@ namespace Game.Modules.FSM
         private static readonly EqualityComparer<TKey> _comparer = EqualityComparer<TKey>.Default;
 
         private readonly IStateMachine<TKey> _stateMachine;
-        private readonly List<StateTransition<TKey>> _transitions;
+        private readonly List<IStateTransition<TKey>> _transitions;
 
         public event Action<TKey> OnStateChanged
         {
@@ -28,37 +28,37 @@ namespace Game.Modules.FSM
             remove => _stateMachine.OnStateRemoved -= value;
         }
 
-        public event Action<StateTransition<TKey>> OnTransitionAdded;
-        public event Action<StateTransition<TKey>> OnTransitionRemoved;
+        public event Action<IStateTransition<TKey>> OnTransitionAdded;
+        public event Action<IStateTransition<TKey>> OnTransitionRemoved;
         
         public AutoStateMachine(TKey initialState,
             IEnumerable<(TKey, IState)> states,
-            IEnumerable<StateTransition<TKey>> transitions
+            IEnumerable<IStateTransition<TKey>> transitions
         )
         {
             _stateMachine = new StateMachine<TKey>(initialState, states);
-            _transitions = new List<StateTransition<TKey>>(transitions);
+            _transitions = new List<IStateTransition<TKey>>(transitions);
         }
 
         public AutoStateMachine(TKey initialState,
             IEnumerable<KeyValuePair<TKey, IState>> states,
-            IEnumerable<StateTransition<TKey>> transitions
+            IEnumerable<IStateTransition<TKey>> transitions
         )
         {
             _stateMachine = new StateMachine<TKey>(initialState, states);
-            _transitions = new List<StateTransition<TKey>>(transitions);
+            _transitions = new List<IStateTransition<TKey>>(transitions);
         }
 
-        public AutoStateMachine(IStateMachine<TKey> stateMachine, IEnumerable<StateTransition<TKey>> transitions)
+        public AutoStateMachine(IStateMachine<TKey> stateMachine, IEnumerable<IStateTransition<TKey>> transitions)
         {
             _stateMachine = stateMachine ?? throw new ArgumentNullException(nameof(stateMachine));
-            _transitions = new List<StateTransition<TKey>>(transitions);
+            _transitions = new List<IStateTransition<TKey>>(transitions);
         }
 
-        public AutoStateMachine(IStateMachine<TKey> stateMachine, params StateTransition<TKey>[] transitions)
+        public AutoStateMachine(IStateMachine<TKey> stateMachine, params IStateTransition<TKey>[] transitions)
         {
             _stateMachine = stateMachine ?? throw new ArgumentNullException(nameof(stateMachine));
-            _transitions = new List<StateTransition<TKey>>(transitions);
+            _transitions = new List<IStateTransition<TKey>>(transitions);
         }
 
         public int StateCount => _stateMachine.StateCount;
@@ -110,7 +110,7 @@ namespace Game.Modules.FSM
             _stateMachine.ChangeState(key);
         }
 
-        public bool AddTransition(StateTransition<TKey> transition)
+        public bool AddTransition(IStateTransition<TKey> transition)
         {
             if (transition == null)
                 throw new ArgumentNullException(nameof(transition));
@@ -135,7 +135,7 @@ namespace Game.Modules.FSM
             return true;
         }
 
-        public bool RemoveTransition(StateTransition<TKey> transition)
+        public bool RemoveTransition(IStateTransition<TKey> transition)
         {
             if (!_transitions.Remove(transition))
                 return false;
@@ -146,10 +146,10 @@ namespace Game.Modules.FSM
 
         public bool RemoveTransition(TKey from, TKey to)
         {
-            return FindTransition(from, to, out StateTransition<TKey> transition) && RemoveTransition(transition);
+            return FindTransition(from, to, out IStateTransition<TKey> transition) && RemoveTransition(transition);
         }
 
-        public bool ContainsTransition(StateTransition<TKey> transition)
+        public bool ContainsTransition(IStateTransition<TKey> transition)
         {
             return _transitions.Contains(transition);
         }
@@ -179,7 +179,7 @@ namespace Game.Modules.FSM
             }
         }
 
-        private bool FindTransition(TKey from, TKey to, out StateTransition<TKey> result)
+        private bool FindTransition(TKey from, TKey to, out IStateTransition<TKey> result)
         {
             foreach (var transition in _transitions)
             {
@@ -196,7 +196,7 @@ namespace Game.Modules.FSM
 
         private IEnumerable<(TKey, TKey)> GetTransitions()
         {
-            foreach (StateTransition<TKey> transition in _transitions)
+            foreach (var transition in _transitions)
                 yield return new ValueTuple<TKey, TKey>(transition.From, transition.To);
         }
     }

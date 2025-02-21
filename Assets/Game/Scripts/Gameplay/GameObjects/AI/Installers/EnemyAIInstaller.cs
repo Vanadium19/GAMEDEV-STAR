@@ -18,7 +18,7 @@ namespace Game.AI.Installers
             Container.Bind<TargetEnteredSensor>()
                 .FromInstance(_targetEnteredSensor)
                 .AsSingle();
-            
+
             Container.Bind<Blackboard>()
                 .AsSingle()
                 .NonLazy();
@@ -45,11 +45,11 @@ namespace Game.AI.Installers
                     (StateName.Follow, Container.Instantiate<TargetFollowState>(new object[] { _stoppingDistance })),
                     (StateName.Attack, Container.Instantiate<AttackState>()),
                 },
-                new StateTransition<StateName>[]
+                new List<IStateTransition<StateName>>
                 {
-                    new(StateName.Idle, StateName.Follow, () => blackboard.HasObject((int)BlackboardTag.Target)),
-                    new(StateName.Follow, StateName.Attack, () => blackboard.TryGetObject((int)BlackboardTag.Target, out Transform target) && (enemy.position - target.position).sqrMagnitude <= _stoppingDistance * _stoppingDistance),
-                    new(StateName.Attack, StateName.Follow, () => blackboard.TryGetObject((int)BlackboardTag.Target, out Transform target) && (enemy.position - target.position).sqrMagnitude > _stoppingDistance * _stoppingDistance),
+                    new StateTransition<StateName>(StateName.Idle, StateName.Follow, () => blackboard.HasObject((int)BlackboardTag.Target)),
+                    new StateTransition<StateName>(StateName.Follow, StateName.Attack, () => blackboard.TryGetObject((int)BlackboardTag.Target, out Transform target) && (enemy.position - target.position).sqrMagnitude <= _stoppingDistance * _stoppingDistance),
+                    new StateTransition<StateName>(StateName.Attack, StateName.Follow, () => blackboard.TryGetObject((int)BlackboardTag.Target, out Transform target) && (enemy.position - target.position).sqrMagnitude > _stoppingDistance * _stoppingDistance),
                 });
         }
     }

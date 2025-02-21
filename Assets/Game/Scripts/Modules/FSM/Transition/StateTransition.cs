@@ -2,11 +2,8 @@
 
 namespace Game.Modules.FSM
 {
-    public sealed class StateTransition<TKey>
+    public sealed class StateTransition<TKey> : IStateTransition<TKey>
     {
-        public readonly TKey From;
-        public readonly TKey To;
-
         private readonly Func<bool> _condition;
 
         public StateTransition(TKey from, TKey to, Func<bool> condition)
@@ -16,6 +13,9 @@ namespace Game.Modules.FSM
 
             _condition = condition;
         }
+        
+        public TKey From { get; }
+        public TKey To { get; }
 
         public bool CanPerform()
         {
