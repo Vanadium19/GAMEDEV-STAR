@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Game.AI.Sensors;
 using Game.AI.States;
+using Game.AI.Transitions;
 using Game.Modules.FSM;
 using Game.Scripts.Common;
 using UnityEngine;
@@ -48,8 +49,8 @@ namespace Game.AI.Installers
                 new List<IStateTransition<StateName>>
                 {
                     new StateTransition<StateName>(StateName.Idle, StateName.Follow, () => blackboard.HasObject((int)BlackboardTag.Target)),
-                    new StateTransition<StateName>(StateName.Follow, StateName.Attack, () => blackboard.TryGetObject((int)BlackboardTag.Target, out Transform target) && (enemy.position - target.position).sqrMagnitude <= _stoppingDistance * _stoppingDistance),
-                    new StateTransition<StateName>(StateName.Attack, StateName.Follow, () => blackboard.TryGetObject((int)BlackboardTag.Target, out Transform target) && (enemy.position - target.position).sqrMagnitude > _stoppingDistance * _stoppingDistance),
+                    container.Instantiate<FollowToAttackTransition>(new object[] { _stoppingDistance }),
+                    container.Instantiate<AttackToFollowTransition>(new object[] { _stoppingDistance }),
                 });
         }
     }
