@@ -1,6 +1,5 @@
-﻿using Game.Content.Projectiles;
+﻿using System.Collections.Generic;
 using Game.Core.Components;
-using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
@@ -8,6 +7,7 @@ namespace Game.Scripts.Gameplay.GameSystems
 {
     public class CollisionController : MonoBehaviour
     {
+        [SerializeField] private List<string> _tags;
         private IAttacker _attacker;
 
         [Inject]
@@ -18,7 +18,7 @@ namespace Game.Scripts.Gameplay.GameSystems
 
         private void OnCollisionEnter(Collision collision)
         {
-            if(collision.collider.TryGetComponent(out Bullet bullet))
+            if(_tags.Contains(collision.collider.tag))
             {
                 _attacker.Attack();
             }
