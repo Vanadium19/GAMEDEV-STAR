@@ -16,8 +16,8 @@ namespace Game.Core.Components
             _currentHealth.Value = maxHealth;
         }
 
+        public int MaxHealth => _maxHealth;
         public ReadOnlyReactiveProperty<int> CurrentHealth => _currentHealth;
-
         public ReadOnlyReactiveProperty<bool> IsDead => _isDead;
 
         public void TakeDamage(int damage)
