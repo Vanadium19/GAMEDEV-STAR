@@ -11,8 +11,10 @@ namespace Game.Content.Enemies
         [SerializeField] private Transform _transform;
 
         [Header("Main Settings")] [SerializeField] private int _health = 100;
-        [SerializeField] private float _attackDelay = 1f;
+
+        // [SerializeField] private float _attackDelay = 1f;
         [SerializeField] private SerializableReactiveProperty<float> _moveSpeed = new(5f);
+        [SerializeField] private SerializableReactiveProperty<float> _rotationSpeed = new(3f);
 
         public override void InstallBindings()
         {
@@ -34,14 +36,21 @@ namespace Game.Content.Enemies
             Container.BindInterfacesAndSelfTo<MoveComponent>()
                 .AsSingle()
                 .WithArguments(_moveSpeed);
+            
+            Container.BindInterfacesAndSelfTo<RotationComponent>()
+                .AsSingle()
+                .WithArguments(_rotationSpeed);
 
             Container.BindInterfacesAndSelfTo<HealthComponent>()
                 .AsSingle()
                 .WithArguments(_health);
 
-            Container.BindInterfacesAndSelfTo<MeleeAttackComponent>()
-                .AsSingle()
-                .WithArguments(_attackDelay);
+            // Container.BindInterfacesAndSelfTo<MeleeAttackComponent>()
+            //     .AsSingle()
+            //     .WithArguments(_attackDelay);
+
+            Container.BindInterfacesAndSelfTo<AttackComponent>()
+                .AsSingle();
         }
     }
 }
