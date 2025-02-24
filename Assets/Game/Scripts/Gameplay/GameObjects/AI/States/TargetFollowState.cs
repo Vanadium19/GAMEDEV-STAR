@@ -8,6 +8,7 @@ namespace Game.AI.States
     public class TargetFollowState : IState
     {
         private readonly IMovable _movable;
+        private readonly IRotater _rotater;
         private readonly Transform _transform;
         private readonly Blackboard _blackboard;
         private readonly float _squaredStoppingDistance;
@@ -16,12 +17,14 @@ namespace Game.AI.States
         private float _currentTime;
 
         public TargetFollowState(IMovable movable,
+            IRotater rotater,
             Transform transform,
             Blackboard blackboard,
             float stoppingDistance,
             float enteredDelay = 0.5f)
         {
             _movable = movable;
+            _rotater = rotater;
             _transform = transform;
             _blackboard = blackboard;
             _enteredDelay = enteredDelay;
@@ -31,7 +34,7 @@ namespace Game.AI.States
         public void OnEnter()
         {
             _currentTime = _enteredDelay;
-            
+
             Debug.Log("Вошел в состояние преследования");
         }
 
@@ -42,7 +45,7 @@ namespace Game.AI.States
                 _currentTime -= deltaTime;
                 return;
             }
-            
+
             if (!_blackboard.TryGetObject((int)BlackboardTag.Target, out Transform target))
             {
                 _movable.Move(Vector3.zero);
@@ -58,13 +61,15 @@ namespace Game.AI.States
             }
 
             Vector3 direction = Vector3.ProjectOnPlane(distanceVector, Vector3.up).normalized;
+            
             _movable.Move(direction);
+            _rotater.Rotate(target.position);
         }
 
         public void OnExit()
         {
             _movable.Move(Vector3.zero);
-            
+
             Debug.Log("Вышел из состояния преследования");
         }
     }
