@@ -9,6 +9,7 @@ namespace Game.Core.Components
 
         private readonly Rigidbody _rigidbody;
         private readonly ReactiveProperty<float> _speed;
+        private readonly ReactiveProperty<float> _speedMultipler;
 
         private ReactiveProperty<bool> _isMoving = new();
 
@@ -16,9 +17,12 @@ namespace Game.Core.Components
         {
             _rigidbody = rigidbody;
             _speed = speed;
+            _speedMultipler = new(1);
         }
 
         public ReadOnlyReactiveProperty<bool> IsMoving => _isMoving;
+
+
 
         public void Move(Vector3 direction)
         {
@@ -28,7 +32,7 @@ namespace Game.Core.Components
                 return;
             }
 
-            Vector3 velocity = direction * _speed.Value + Vector3.up * _rigidbody.velocity.y;
+            Vector3 velocity = direction * (_speed.Value * _speedMultipler.Value) + Vector3.up * _rigidbody.velocity.y;
 
             _isMoving.Value = Mathf.Abs(velocity.x) > Lapping || Mathf.Abs(velocity.z) > Lapping;
             _rigidbody.velocity = velocity;
@@ -43,6 +47,16 @@ namespace Game.Core.Components
             }
 
             _rigidbody.isKinematic = value;
+        }
+
+        public void SetSpeedMultipler(float value)
+        {
+            _speedMultipler.Value = value;
+        }
+
+        public void NormalizeSpeedMultipler()
+        {
+            _speedMultipler.Value = 1;
         }
     }
 }
