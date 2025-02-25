@@ -10,11 +10,13 @@ namespace Game.Content.Enemies
     {
         [Header("Unity Components")] [SerializeField] private Rigidbody _rigidbody;
         [SerializeField] private Transform _transform;
+        [SerializeField] private GameObject _gameObject;
 
         [Header("Main Settings")] [SerializeField] private int _health = 100;
         [SerializeField] private SerializableReactiveProperty<float> _moveSpeed = new(5f);
         [SerializeField] private SerializableReactiveProperty<float> _rotationSpeed = new(3f);
         [SerializeField] private TeamType _team = TeamType.Enemy;
+
         // [SerializeField] private float _attackDelay = 1f;
 
         public override void InstallBindings()
@@ -25,6 +27,10 @@ namespace Game.Content.Enemies
                 .NonLazy();
 
             //MonoBehaviors
+            Container.Bind<GameObject>()
+                .FromInstance(_gameObject)
+                .AsSingle();
+
             Container.Bind<Rigidbody>()
                 .FromInstance(_rigidbody)
                 .AsSingle();
