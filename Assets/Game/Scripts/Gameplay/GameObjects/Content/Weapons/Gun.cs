@@ -1,4 +1,5 @@
 ﻿using Game.Content.Projectiles;
+using Game.Scripts.Common;
 using UnityEngine;
 using Zenject;
 
@@ -8,6 +9,7 @@ namespace Game.Content.Weapons
     {
         private readonly BulletSpawner _bulletSpawner;
         private readonly Transform _shootPoint;
+        private readonly TeamType _team;
 
         private readonly float _speed;
         private readonly float _delay;
@@ -15,11 +17,17 @@ namespace Game.Content.Weapons
 
         private float _currentTime;
 
-        public Gun(BulletSpawner bulletSpawner, Transform shootPoint, float speed, float delay, int damage)
+        public Gun(BulletSpawner bulletSpawner,
+            Transform shootPoint,
+            TeamType team,
+            float speed,
+            float delay,
+            int damage)
         {
             _bulletSpawner = bulletSpawner;
             _shootPoint = shootPoint;
             _damage = damage;
+            _team = team;
             _speed = speed;
             _delay = delay;
         }
@@ -35,7 +43,7 @@ namespace Game.Content.Weapons
             if (_currentTime > 0)
                 return;
 
-            _bulletSpawner.Spawn(_damage, _speed, _shootPoint);
+            _bulletSpawner.Spawn(_damage, _speed, _shootPoint, _team);
             _currentTime = _delay;
         }
     }
