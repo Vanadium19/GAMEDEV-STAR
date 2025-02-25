@@ -1,4 +1,5 @@
 ﻿using Game.Core.Components;
+using Game.Scripts.Common;
 using R3;
 using UnityEngine;
 using Zenject;
@@ -9,10 +10,14 @@ namespace Game.Content.Enemies
     {
         [Header("Unity Components")] [SerializeField] private Rigidbody _rigidbody;
         [SerializeField] private Transform _transform;
+        [SerializeField] private GameObject _gameObject;
 
         [Header("Main Settings")] [SerializeField] private int _health = 100;
-        [SerializeField] private float _attackDelay = 1f;
         [SerializeField] private SerializableReactiveProperty<float> _moveSpeed = new(5f);
+        [SerializeField] private SerializableReactiveProperty<float> _rotationSpeed = new(3f);
+        [SerializeField] private TeamType _team = TeamType.Enemy;
+
+        // [SerializeField] private float _attackDelay = 1f;
 
         public override void InstallBindings()
         {
@@ -22,6 +27,10 @@ namespace Game.Content.Enemies
                 .NonLazy();
 
             //MonoBehaviors
+            Container.Bind<GameObject>()
+                .FromInstance(_gameObject)
+                .AsSingle();
+
             Container.Bind<Rigidbody>()
                 .FromInstance(_rigidbody)
                 .AsSingle();
@@ -35,13 +44,24 @@ namespace Game.Content.Enemies
                 .AsSingle()
                 .WithArguments(_moveSpeed);
 
+            Container.BindInterfacesAndSelfTo<RotationComponent>()
+                .AsSingle()
+                .WithArguments(_rotationSpeed);
+
             Container.BindInterfacesAndSelfTo<HealthComponent>()
                 .AsSingle()
                 .WithArguments(_health);
 
-            Container.BindInterfacesAndSelfTo<MeleeAttackComponent>()
-                .AsSingle()
-                .WithArguments(_attackDelay);
+            Container.Bind<TeamType>()
+                .FromInstance(_team)
+                .AsSingle();
+
+            // Container.BindInterfacesAndSelfTo<MeleeAttackComponent>()
+            //     .AsSingle()
+            //     .WithArguments(_attackDelay);
+
+            Container.BindInterfacesAndSelfTo<AttackComponent>()
+                .AsSingle();
         }
     }
 }

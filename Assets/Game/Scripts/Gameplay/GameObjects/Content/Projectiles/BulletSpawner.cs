@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Game.Scripts.Common;
+using UnityEngine;
 
 namespace Game.Content.Projectiles
 {
@@ -11,9 +12,9 @@ namespace Game.Content.Projectiles
             _bulletPool = bulletPool;
         }
 
-        public void Spawn(int damage, float speed, Transform point)
+        public void Spawn(int damage, float speed, Transform point, TeamType team)
         {
-            Bullet bullet = _bulletPool.Spawn(damage, speed, point);
+            Bullet bullet = _bulletPool.Spawn(damage, speed, point, team);
 
             bullet.Destroyed += OnBulletDestroyed;
         }

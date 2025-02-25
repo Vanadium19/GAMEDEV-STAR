@@ -1,44 +1,41 @@
 ﻿using System;
 using Game.Core.Components;
+using Game.UI;
 using R3;
-using UnityEngine;
 using Zenject;
 
-namespace Game.Content.Enemies
+namespace Game.View
 {
-    public class Enemy : IInitializable, IDisposable
+    public class PlayerPresenter : IInitializable, IDisposable
     {
-        private readonly GameObject _gameObject;
         private readonly IDamagable _health;
+        private readonly HealthView _heathView;
 
         private IDisposable _disposables;
 
-        public Enemy(GameObject gameObject, IDamagable health)
+        public PlayerPresenter(IDamagable health, HealthView heathView)
         {
-            _gameObject = gameObject;
             _health = health;
+            _heathView = heathView;
         }
 
         public void Initialize()
         {
             var disposableBuilder = Disposable.CreateBuilder();
 
-            _health.IsDead.Subscribe(OnDeathStatusChanged).AddTo(ref disposableBuilder);
+            _health.CurrentHealth.Subscribe(OnHealthChanged).AddTo(ref disposableBuilder);
 
             _disposables = disposableBuilder.Build();
         }
 
         public void Dispose()
         {
-            Debug.Log("Dead");
-
             _disposables.Dispose();
         }
 
-        public void OnDeathStatusChanged(bool value)
+        private void OnHealthChanged(int health)
         {
-            if (value)
-                GameObject.Destroy(_gameObject);
+            _heathView.SetHealth(health, _health.MaxHealth);
         }
     }
 }

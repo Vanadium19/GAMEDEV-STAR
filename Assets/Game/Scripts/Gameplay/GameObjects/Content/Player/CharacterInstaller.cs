@@ -1,4 +1,7 @@
 ﻿using Game.Core.Components;
+using Game.Scripts.Common;
+using Game.UI;
+using Game.View;
 using R3;
 using UnityEngine;
 using Zenject;
@@ -13,6 +16,9 @@ namespace Game.Content.Player
         [Header("Main Settings")] [SerializeField] private int _health = 100;
         [SerializeField] private SerializableReactiveProperty<float> _moveSpeed = new(3f);
         [SerializeField] private SerializableReactiveProperty<float> _rotationSpeed = new(3f);
+        [SerializeField] private TeamType _team = TeamType.Player;
+
+        [Header("View")] [SerializeField] private HealthView _healthView;
 
         public override void InstallBindings()
         {
@@ -43,7 +49,21 @@ namespace Game.Content.Player
                 .AsSingle()
                 .WithArguments(_health);
 
+            Container.Bind<TeamType>()
+                .FromInstance(_team)
+                .AsSingle();
+
             Container.BindInterfacesAndSelfTo<AttackComponent>()
+                .AsSingle();
+
+            //Presenter
+            Container.BindInterfacesTo<PlayerPresenter>()
+                .AsSingle()
+                .NonLazy();
+
+            //View
+            Container.Bind<HealthView>()
+                .FromInstance(_healthView)
                 .AsSingle();
         }
     }

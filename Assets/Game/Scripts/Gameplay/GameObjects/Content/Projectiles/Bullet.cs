@@ -1,6 +1,7 @@
 ﻿using System;
 using Game.Core;
 using Game.Core.Components;
+using Game.Scripts.Common;
 using UnityEngine;
 
 namespace Game.Content.Projectiles
@@ -9,6 +10,7 @@ namespace Game.Content.Projectiles
     public class Bullet : MonoBehaviour
     {
         private Rigidbody _rigidbody;
+        private TeamType _team;
         private int _damage;
 
         public event Action<Bullet> Destroyed;
@@ -20,14 +22,19 @@ namespace Game.Content.Projectiles
 
         private void OnCollisionEnter(Collision other)
         {
-            if (other.collider.TryGetComponent(out IEntity entity) && entity.TryGet(out IDamagable target))
+            if (other.collider.TryGetComponent(out IEntity entity)
+                && entity.TryGet(out IDamagable target)
+                && _team != target.Team)
+            {
                 target.TakeDamage(_damage);
+            }
 
             Destroyed?.Invoke(this);
         }
 
-        public void Initialize(int damage, Vector3 velocity)
+        public void Initialize(int damage, TeamType team, Vector3 velocity)
         {
+            _team = team;
             _damage = damage;
             _rigidbody.velocity = velocity;
         }
