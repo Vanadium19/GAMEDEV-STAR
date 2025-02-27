@@ -28,8 +28,8 @@ namespace Game.Content.Projectiles
             {
                 target.TakeDamage(_damage);
             }
-
-            Destroyed?.Invoke(this);
+            if(!other.collider.TryGetComponent(out Bullet bullet))
+                Destroyed?.Invoke(this);
         }
 
         public void Initialize(int damage, TeamType team, Vector3 velocity)
