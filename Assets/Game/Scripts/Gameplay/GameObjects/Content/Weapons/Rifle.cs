@@ -1,4 +1,5 @@
 using Game.Content.Projectiles;
+using Game.Scripts.Common;
 using UnityEngine;
 using Zenject;
 
@@ -40,10 +41,10 @@ namespace Game.Content.Weapons
             if (_currentTime > 0 || _ammoCount <= 0)
                 return;
           
-            _bulletSpawner.Spawn(_damage, _speed, _shootPoint);
+            _bulletSpawner.Spawn(_damage, _speed, _shootPoint, TeamType.Default);
             _currentTime = _delay;
             _ammoCount -= 1;
-            Debug.Log($"патронов осталось : {_ammoCount}");
+            Debug.Log($"пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ : {_ammoCount}");
         }
     }
 }

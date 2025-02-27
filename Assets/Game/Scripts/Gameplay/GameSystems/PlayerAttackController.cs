@@ -2,7 +2,7 @@
 using UnityEngine;
 using Zenject;
 
-namespace Game.Scripts.Gameplay.GameSystems
+namespace Game.GameSystems
 {
     public class PlayerAttackController : ITickable
     {

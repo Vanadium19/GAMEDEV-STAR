@@ -1,7 +1,7 @@
 using Zenject;
 using UnityEngine;
 using Game.Core.Components;
-using Game.Scripts.Gameplay.GameSystems;
+using Game.GameSystems;
 
 namespace Game.Content.Traps
 {
