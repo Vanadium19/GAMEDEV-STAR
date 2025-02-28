@@ -2,6 +2,6 @@
 {
     public interface IWeapon
     {
-        public void Shoot();
+        public bool Shoot();
     }
 }

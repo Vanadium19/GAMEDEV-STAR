@@ -9,7 +9,7 @@ namespace Game.Content.Traps
     {
         [Header("UnityComponents")]
         [SerializeField] private Transform _transform;
-        [SerializeField] private CollisionController _collisionController;
+        [SerializeField] private AttackCollisionController _collisionController;
         [Header("Parameters")]
         [SerializeField] private float _radius;
         [SerializeField] private int _damage;
@@ -25,7 +25,7 @@ namespace Game.Content.Traps
 
         private void BindCollisionController()
         {
-            Container.Bind<CollisionController>()
+            Container.Bind<AttackCollisionController>()
                 .FromInstance(_collisionController)
                 .AsSingle();
         }

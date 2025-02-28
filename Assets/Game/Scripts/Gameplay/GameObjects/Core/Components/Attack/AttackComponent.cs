@@ -1,4 +1,5 @@
-﻿using Game.Content.Weapons;
+﻿using System;
+using Game.Content.Weapons;
 using UnityEngine;
 
 namespace Game.Core.Components
@@ -7,6 +8,8 @@ namespace Game.Core.Components
     {
         private readonly IWeapon _weapon;
 
+        public event Action Attacked;
+
         public AttackComponent(IWeapon weapon)
         {
             _weapon = weapon;
@@ -14,7 +17,8 @@ namespace Game.Core.Components
 
         public void Attack()
         {
-            _weapon.Shoot();
+            if (_weapon.Shoot())
+                Attacked?.Invoke();
         }
     }
 }
