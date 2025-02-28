@@ -1,10 +1,9 @@
-﻿using System;
-using Game.Content.Traps;
+﻿using Game.Content.Traps;
 using Game.Core;
 using UnityEngine;
 using Zenject;
 
-namespace Game.GameSystems
+namespace Game.GameSystems.Traps
 {
     public class SlowZoneCollisionController : MonoBehaviour
     {

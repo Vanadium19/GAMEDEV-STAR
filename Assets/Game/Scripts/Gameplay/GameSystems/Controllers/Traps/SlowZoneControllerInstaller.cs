@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Zenject;
 
-namespace Game.GameSystems
+namespace Game.GameSystems.Traps
 {
     public class SlowZoneControllerInstaller : MonoInstaller
     {

@@ -1,7 +1,7 @@
 using Zenject;
 using UnityEngine;
 using Game.Core.Components;
-using Game.GameSystems;
+using Game.GameSystems.Traps;
 
 namespace Game.Content.Traps
 {
@@ -17,7 +17,7 @@ namespace Game.Content.Traps
             Container.Bind<Mine>()
                 .AsSingle()
                 .NonLazy();
-           
+
             Container.Bind<Transform>()
                 .FromInstance(_transform)
                 .AsSingle();
@@ -30,10 +30,6 @@ namespace Game.Content.Traps
             Container.Bind<MineCollisionController>()
                 .FromInstance(_mineCollisionController)
                 .AsSingle();
-
-                
         }
-
     }
 }
-
