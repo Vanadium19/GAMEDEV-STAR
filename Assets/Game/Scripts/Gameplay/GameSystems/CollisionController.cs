@@ -3,7 +3,7 @@ using Game.Core.Components;
 using UnityEngine;
 using Zenject;
 
-namespace Game.Scripts.Gameplay.GameSystems
+namespace Game.GameSystems
 {
     public class CollisionController : MonoBehaviour
     {

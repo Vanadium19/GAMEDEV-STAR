@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Game.Scripts.Gameplay.GameSystems
+namespace Game.GameSystems
 {
     [RequireComponent(typeof(BoxCollider))]
     public class TriggerController : MonoBehaviour
