@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-namespace Game.GameSystems
+namespace Game.GameSystems.Traps
 {
     [RequireComponent(typeof(BoxCollider))]
     public class MineCollisionController : MonoBehaviour
