@@ -10,6 +10,12 @@ namespace Game.Core.Components
 
         private bool _isRunning;
 
+        public event Action Attacked
+        {
+            add => _attacker.Attacked += value;
+            remove => _attacker.Attacked -= value;
+        }
+
         public DelayAttackDecorator(IAttacker attacker, float delay)
         {
             _attacker = attacker;

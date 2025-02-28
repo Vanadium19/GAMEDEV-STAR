@@ -38,13 +38,14 @@ namespace Game.Content.Weapons
                 _currentTime -= Time.deltaTime;
         }
 
-        public void Shoot()
+        public bool Shoot()
         {
             if (_currentTime > 0)
-                return;
+                return false;
 
             _bulletSpawner.Spawn(_damage, _speed, _shootPoint, _team);
             _currentTime = _delay;
+            return true;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using Zenject;
 
 namespace Game.Core.Components
@@ -8,6 +9,8 @@ namespace Game.Core.Components
         private readonly float _delay;
 
         private float _currentTime;
+
+        public event Action Attacked;
 
         public MeleeAttackComponent(float delay)
         {
@@ -26,6 +29,7 @@ namespace Game.Core.Components
                 return;
 
             Debug.Log("Атака!!!");
+            Attacked?.Invoke();
             _currentTime = _delay;
         }
     }
