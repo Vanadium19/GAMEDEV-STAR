@@ -8,7 +8,7 @@ using Zenject;
 
 namespace Game.Content.Traps
 {
-    public class SlowZone : IInitializable, IDisposable
+    public class SlowZone : IInitializable, IDisposable, IInteractableArea
     {
         private readonly GameObject _gameObject;
         private readonly HealthComponent _health;

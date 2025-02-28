@@ -3,13 +3,13 @@ using Zenject;
 
 namespace Game.GameSystems.Traps
 {
-    public class SlowZoneControllerInstaller : MonoInstaller
+    public class InteractableAreaControllerInstaller : MonoInstaller
     {
-        [SerializeField] private SlowZoneCollisionController _controller;
+        [SerializeField] private InteractableAreaCollisionController _controller;
 
         public override void InstallBindings()
         {
-            Container.Bind<SlowZoneCollisionController>()
+            Container.Bind<InteractableAreaCollisionController>()
                 .FromInstance(_controller)
                 .AsSingle()
                 .NonLazy();
