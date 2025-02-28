@@ -13,7 +13,6 @@ namespace Game.Content.Weapons
 
         private readonly float _speed;
         private readonly float _delay;
-        private readonly int _maxAmmoCount;
         private readonly int _damage;
 
         private float _currentTime;
@@ -29,10 +28,9 @@ namespace Game.Content.Weapons
             _team = teamType;
             _speed = speed;
             _delay = delay;
-            _maxAmmoCount = maxAmmoCount;
             _damage = damage;
 
-            _ammoCount = _maxAmmoCount;
+            _ammoCount = maxAmmoCount;
         }
 
         public void Tick()
@@ -44,9 +42,10 @@ namespace Game.Content.Weapons
         public void Shoot()
         {
             Quaternion rotation = _shootPoint.rotation;
-            if (_currentTime > 0)
+            
+            if (_currentTime > 0 || _ammoCount <= 0)
                 return;
-            //SpawnBulletWithOffSet(0);
+            
             SpawnBulletWithOffSet(10);
             SpawnBulletWithOffSet(-10);
             SpawnBulletWithOffSet(20);
@@ -63,7 +62,5 @@ namespace Game.Content.Weapons
             _bulletSpawner.Spawn(_damage, _speed, _shootPoint, _team);
             _shootPoint.rotation = Quaternion.Euler(_shootPoint.rotation.x, offset, _shootPoint.rotation.z);
         }
-
     }
 }
-
