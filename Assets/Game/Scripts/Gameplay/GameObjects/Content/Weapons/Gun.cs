@@ -38,7 +38,7 @@ namespace Game.Content.Weapons
             if (_currentTime > 0)
                 return false;
 
-            _bulletSpawner.Spawn(_damage, _speed, _shootPoint, _team);
+            _bulletSpawner.Spawn(_damage, _speed * _shootPoint.forward, _shootPoint, _team);
             _currentTime = _delay;
             return true;
         }

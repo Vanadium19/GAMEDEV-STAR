@@ -12,9 +12,9 @@ namespace Game.Content.Projectiles
             _bulletPool = bulletPool;
         }
 
-        public void Spawn(int damage, float speed, Transform point, TeamType team)
+        public void Spawn(int damage, Vector3 velocity, Transform point, TeamType team)
         {
-            Bullet bullet = _bulletPool.Spawn(damage, speed, point, team);
+            Bullet bullet = _bulletPool.Spawn(damage, velocity, point, team);
 
             bullet.Destroyed += OnBulletDestroyed;
         }

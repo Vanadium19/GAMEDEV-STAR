@@ -60,8 +60,9 @@ namespace Game.Content.Weapons
 
         private void SpawnBulletWithOffSet(float offset)
         {
-            _bulletSpawner.Spawn(_damage, _speed, _shootPoint, _team);
-            _shootPoint.rotation = Quaternion.Euler(_shootPoint.rotation.x, offset, _shootPoint.rotation.z);
+            Vector3 direction = Quaternion.Euler(_shootPoint.rotation.x, offset, _shootPoint.rotation.z) * _shootPoint.forward;
+
+            _bulletSpawner.Spawn(_damage, _speed * direction, _shootPoint, _team);
         }
     }
 }

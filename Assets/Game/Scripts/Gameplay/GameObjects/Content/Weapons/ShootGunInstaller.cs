@@ -6,9 +6,6 @@ namespace Game.Content.Weapons
 {
     public class ShootGunInstaller : MonoInstaller
     {
-        [SerializeField] private Transform _transform;
-        [SerializeField] private Transform _shootPoint;
-
         [SerializeField] private WeaponParams _params;
         [SerializeField] private int _maxAmmoCount;
 
