@@ -7,7 +7,6 @@ namespace Game.Core.Components
     { 
         public void Move(Vector3 direction);
 
-        public void SetSpeedMultipler(float value);
-        public void NormalizeSpeedMultipler();
+        public void ChangeSpeed(float multiplier);
     }
 }
