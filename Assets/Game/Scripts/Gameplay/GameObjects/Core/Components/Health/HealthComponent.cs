@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Game.Core.Components
 {
-    public class HealthComponent : EntityComponent, IDamagable
+    public class HealthComponent : EntityComponent, IDamagable, IHealable
     {
         private readonly TeamType _team;
         private readonly int _maxHealth;
@@ -36,6 +36,17 @@ namespace Game.Core.Components
 
             if (_currentHealth.Value <= 0)
                 _isDead.Value = true;
+        }
+
+        public void TakeHeal(int heal)
+        {
+            if (heal <= 0)
+                return;
+
+            if (_currentHealth.Value <= 0)
+                return;
+
+            _currentHealth.Value = Mathf.Max(_maxHealth, _currentHealth.Value + heal);
         }
 
         public void ResetHealth()
