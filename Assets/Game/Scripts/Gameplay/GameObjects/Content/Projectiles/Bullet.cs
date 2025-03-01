@@ -20,15 +20,16 @@ namespace Game.Content.Projectiles
             _rigidbody = GetComponent<Rigidbody>();
         }
 
-        private void OnCollisionEnter(Collision other)
+        private void OnTriggerEnter(Collider other)
         {
-            if (other.collider.TryGetComponent(out IEntity entity)
+            if (other.TryGetComponent(out IEntity entity)
                 && entity.TryGet(out IDamagable target)
                 && _team != target.Team)
             {
                 target.TakeDamage(_damage);
             }
-            if(!other.collider.TryGetComponent(out Bullet bullet))
+
+            if (!other.TryGetComponent(out Bullet bullet))
                 Destroyed?.Invoke(this);
         }
 

@@ -5,7 +5,7 @@ using Zenject;
 
 namespace Game.Content.Weapons
 {
-    public class Gun : IWeapon, ITickable
+    public class Gun : RangeWeapon, ITickable
     {
         private readonly BulletSpawner _bulletSpawner;
         private readonly Transform _shootPoint;
@@ -17,19 +17,14 @@ namespace Game.Content.Weapons
 
         private float _currentTime;
 
-        public Gun(BulletSpawner bulletSpawner,
-            Transform shootPoint,
-            TeamType team,
-            float speed,
-            float delay,
-            int damage)
+        public Gun(WeaponParams weaponParams, BulletSpawner bulletSpawner) : base(weaponParams.Handle)
         {
             _bulletSpawner = bulletSpawner;
-            _shootPoint = shootPoint;
-            _damage = damage;
-            _team = team;
-            _speed = speed;
-            _delay = delay;
+            _shootPoint = weaponParams.ShootPoint;
+            _damage = weaponParams.Damage;
+            _team = weaponParams.Team;
+            _speed = weaponParams.Speed;
+            _delay = weaponParams.Delay;
         }
 
         public void Tick()
@@ -38,7 +33,7 @@ namespace Game.Content.Weapons
                 _currentTime -= Time.deltaTime;
         }
 
-        public bool Shoot()
+        public override bool Shoot()
         {
             if (_currentTime > 0)
                 return false;
