@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Game.Core.Components
 {
-    public class HealthComponent : EntityComponent, IDamagable, IHealable
+    public class HealthComponent : EntityComponent, IDamagable, IHealable, IHealth
     {
         private readonly TeamType _team;
         private readonly int _maxHealth;
