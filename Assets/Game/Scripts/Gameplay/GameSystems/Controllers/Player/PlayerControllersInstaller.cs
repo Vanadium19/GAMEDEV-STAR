@@ -1,6 +1,6 @@
 ﻿using Zenject;
 
-namespace Game.Scripts.Gameplay.GameSystems
+namespace Game.GameSystems.Player
 {
     public class PlayerControllersInstaller : MonoInstaller
     {

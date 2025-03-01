@@ -30,7 +30,7 @@ namespace Game.View
 
         public void Dispose()
         {
-            _disposables.Dispose();
+            _disposables?.Dispose();
         }
 
         private void OnHealthChanged(int health)
