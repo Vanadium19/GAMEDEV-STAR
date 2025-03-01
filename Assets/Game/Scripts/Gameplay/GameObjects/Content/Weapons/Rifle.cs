@@ -5,7 +5,7 @@ using Zenject;
 
 namespace Game.Content.Weapons
 {
-    public class Rifle : IWeapon, ITickable
+    public class Rifle : RangeWeapon, ITickable
     {
         private readonly BulletSpawner _bulletSpawner;
         private readonly Transform _shootPoint;
@@ -13,18 +13,21 @@ namespace Game.Content.Weapons
         private readonly float _speed;
         private readonly float _delay;
         private readonly int _damage;
-        
+
         private int _ammoCount;
         private float _currentTime;
 
-        public Rifle(BulletSpawner bulletSpawner,Transform transform,TeamType team,float speed, float delay, int damage, int maxAmmoCount)
+        public Rifle(WeaponParams weaponParams,
+            BulletSpawner bulletSpawner,
+            int maxAmmoCount)
+            : base(weaponParams.Handle)
         {
             _bulletSpawner = bulletSpawner;
-            _shootPoint = transform;
-            _team = team;
-            _speed = speed;
-            _delay = delay;
-            _damage = damage;
+            _shootPoint = weaponParams.ShootPoint;
+            _damage = weaponParams.Damage;
+            _team = weaponParams.Team;
+            _speed = weaponParams.Speed;
+            _delay = weaponParams.Delay;
 
             _ammoCount = maxAmmoCount;
         }
@@ -35,12 +38,12 @@ namespace Game.Content.Weapons
                 _currentTime -= Time.deltaTime;
         }
 
-        public bool Shoot()
+        public override bool Shoot()
         {
             if (_currentTime > 0 || _ammoCount <= 0)
                 return false;
-          
-            _bulletSpawner.Spawn(_damage, _speed, _shootPoint,_team);
+
+            _bulletSpawner.Spawn(_damage, _speed * _shootPoint.forward, _shootPoint, _team);
             _currentTime = _delay;
             _ammoCount -= 1;
             return true;

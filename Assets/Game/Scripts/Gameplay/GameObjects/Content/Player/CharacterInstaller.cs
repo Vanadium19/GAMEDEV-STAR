@@ -1,4 +1,6 @@
-﻿using Game.Core.Components;
+﻿using Game.Core;
+using Game.Core.Components;
+using Game.Core.Inventories;
 using Game.Scripts.Common;
 using Game.UI;
 using Game.View;
@@ -11,7 +13,9 @@ namespace Game.Content.Player
     public class CharacterInstaller : MonoInstaller
     {
         [Header("Unity Components")] [SerializeField] private Rigidbody _rigidbody;
+        [SerializeField] private Transform _weaponHandler;
         [SerializeField] private Transform _transform;
+        [SerializeField] private Entity _entity;
 
         [Header("Main Settings")] [SerializeField] private int _health = 100;
         [SerializeField] private SerializableReactiveProperty<float> _moveSpeed = new(3f);
@@ -48,6 +52,16 @@ namespace Game.Content.Player
             Container.BindInterfacesAndSelfTo<HealthComponent>()
                 .AsSingle()
                 .WithArguments(_health);
+
+            Container.BindInterfacesAndSelfTo<Inventory>()
+                .AsSingle()
+                .WithArguments(_weaponHandler)
+                .NonLazy();
+
+            Container.BindInterfacesAndSelfTo<PickUpList>()
+                .AsSingle()
+                .WithArguments(_entity)
+                .NonLazy();
 
             Container.Bind<TeamType>()
                 .FromInstance(_team)
