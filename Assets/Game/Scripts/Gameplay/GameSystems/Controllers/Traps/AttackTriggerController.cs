@@ -3,7 +3,7 @@ using Game.Core;
 using UnityEngine;
 using Zenject;
 
-namespace Game.GameSystems
+namespace Game.GameSystems.Traps
 {
     public class AttackTriggerController : MonoBehaviour
     {

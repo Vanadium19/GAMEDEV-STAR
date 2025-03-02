@@ -3,13 +3,13 @@ using Game.Content.Weapons;
 
 namespace Game.Core.Components
 {
-    public class AttackComponent : EntityComponent, IAttacker
+    public class RangeAttackComponent : EntityComponent, IAttacker
     {
         private IWeapon _weapon;
 
         public event Action Attacked;
 
-        public AttackComponent(IWeapon weapon)
+        public RangeAttackComponent(IWeapon weapon)
         {
             _weapon = weapon;
         }

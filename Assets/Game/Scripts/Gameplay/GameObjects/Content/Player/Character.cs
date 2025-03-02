@@ -9,11 +9,11 @@ namespace Game.Content.Player
     public class Character : IInitializable, IDisposable
     {
         private readonly IInventory _inventory;
-        private readonly AttackComponent _attackComponent;
+        private readonly RangeAttackComponent _attackComponent;
 
         private IDisposable _disposables;
 
-        public Character(AttackComponent attackComponent, IInventory inventory)
+        public Character(RangeAttackComponent attackComponent, IInventory inventory)
         {
             _attackComponent = attackComponent;
             _inventory = inventory;

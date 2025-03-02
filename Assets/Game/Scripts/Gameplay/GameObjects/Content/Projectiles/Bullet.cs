@@ -29,6 +29,8 @@ namespace Game.Content.Projectiles
                 target.TakeDamage(_damage);
             }
 
+            Debug.Log(other.gameObject.name);
+
             if (!other.TryGetComponent(out Bullet bullet))
                 Destroyed?.Invoke(this);
         }

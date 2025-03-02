@@ -1,8 +1,4 @@
-﻿using System.Collections.Generic;
-using Game.AI.Sensors;
-using Game.AI.States;
-using Game.AI.Transitions;
-using Game.Gameplay.AI;
+﻿using Game.AI.Sensors;
 using Game.Modules.FSM;
 using Game.Scripts.Common;
 using UnityEngine;
@@ -12,13 +8,8 @@ namespace Game.AI.Installers
 {
     public class EnemyAIInstaller : MonoInstaller
     {
-        [SerializeField] private float _stoppingDistance;
         [SerializeField] private TargetEnteredSensor _targetEnteredSensor;
-        [Header("Patrol")]
-        [SerializeField] private float _minDistanceToPoint;
-        [SerializeField] private float _delayTimeBetweenPoint;
-        [SerializeField] private float _maxDistanceToPlayer;
-        [SerializeField] private List<Transform> _patrolPoints;
+        [SerializeField] private StateMachinePrototype _stateMachine;
 
         public override void InstallBindings()
         {
@@ -35,32 +26,7 @@ namespace Game.AI.Installers
                 .NonLazy();
 
             Container.Bind<IStateMachine<StateName>>()
-                .FromMethod(CreateStateMachine);
-        }
-
-        private IStateMachine<StateName> CreateStateMachine(InjectContext context)
-        {
-            DiContainer container = context.Container;
-
-            Blackboard blackboard = container.Resolve<Blackboard>();
-            Transform enemy = container.Resolve<Transform>();
-
-            return new AutoStateMachine<StateName>(StateName.Idle,
-                new List<(StateName, IState)>
-                {
-                    (StateName.Idle, new BaseState()),
-                    (StateName.Follow, Container.Instantiate<TargetFollowState>(new object[] { _stoppingDistance })),
-                    (StateName.Attack, Container.Instantiate<AttackState>()),
-                    (StateName.Patrol, Container.Instantiate<PatrolState>(new object[] { _minDistanceToPoint, _delayTimeBetweenPoint, _patrolPoints}))
-                },
-                new List<IStateTransition<StateName>>
-                {
-                    new StateTransition<StateName>(StateName.Idle, StateName.Patrol,() => _patrolPoints.Count > 0),
-                    container.Instantiate<FollowToAttackTransition>(new object[] { _stoppingDistance }),
-                    container.Instantiate<AttackToFollowTransition>(new object[] { _stoppingDistance }),
-                    container.Instantiate<PatrolToFollowTransition>(new object[] { _maxDistanceToPlayer}),
-                    container.Instantiate<FollowToPatrolTransition>(new object[] {_maxDistanceToPlayer })
-                }) ;
+                .FromMethod(_stateMachine.CreateStateMachine);
         }
     }
 }
