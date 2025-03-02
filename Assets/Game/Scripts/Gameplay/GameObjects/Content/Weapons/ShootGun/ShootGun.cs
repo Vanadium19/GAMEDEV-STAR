@@ -11,7 +11,7 @@ namespace Game.Content.Weapons
         private readonly BulletSpawner _bulletSpawner;
         private readonly List<Transform> _shootPoints;
 
-        private readonly int _ammoCount;
+        private int _ammoCount;
         private readonly float _speed;
         private readonly float _delay;
         private readonly int _damage;
@@ -53,6 +53,7 @@ namespace Game.Content.Weapons
             }
 
             _currentTime = _delay;
+            _ammoCount -= shootedAmmoCount;
             return true;
         }
     }
