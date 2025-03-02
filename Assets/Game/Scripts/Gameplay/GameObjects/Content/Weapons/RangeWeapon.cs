@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
+using Game.Scripts.Common;
 
 namespace Game.Content.Weapons
 {
     public abstract class RangeWeapon : IWeapon
-    {
+    { 
+        
         private readonly Transform _transform;
 
         protected RangeWeapon(Transform transform)
@@ -11,7 +13,7 @@ namespace Game.Content.Weapons
             _transform = transform;
         }
 
-        public abstract bool Shoot();
+        public abstract bool Shoot(TeamType team, out int shootedAmmoCount);
 
         public void PickUp(Transform parent)
         {

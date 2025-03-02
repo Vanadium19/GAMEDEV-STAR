@@ -1,10 +1,11 @@
-﻿using UnityEngine;
+﻿using Game.Scripts.Common;
+using UnityEngine;
 
 namespace Game.Content.Weapons
 {
     public interface IWeapon
     {
-        public bool Shoot();
+        public bool Shoot(TeamType team, out int shootedAmmoCount);
         public void PickUp(Transform parent);
         public void Drop();
         public void Enable(bool value);

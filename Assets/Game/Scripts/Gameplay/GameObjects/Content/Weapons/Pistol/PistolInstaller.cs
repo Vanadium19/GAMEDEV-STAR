@@ -9,7 +9,7 @@ namespace Game.Content.Weapons
 
         public override void InstallBindings()
         {
-            Container.BindInterfacesTo<Gun>()
+            Container.BindInterfacesTo<Pistol>()
                 .AsSingle()
                 .WithArguments(_params);
         }

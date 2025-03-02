@@ -1,35 +1,31 @@
-using Game.Content.Projectiles;
+﻿using Game.Content.Projectiles;
 using Game.Scripts.Common;
 using UnityEngine;
 using Zenject;
 
 namespace Game.Content.Weapons
 {
-    public class Rifle : RangeWeapon, ITickable
+    public class Pistol : RangeWeapon, ITickable
     {
         private readonly BulletSpawner _bulletSpawner;
         private readonly Transform _shootPoint;
-        private readonly TeamType _team;
+
         private readonly float _speed;
         private readonly float _delay;
         private readonly int _damage;
 
-        private int _ammoCount;
-        private float _currentTime;
+        private bool _isReloading;
 
-        public Rifle(WeaponParams weaponParams,
-            BulletSpawner bulletSpawner,
-            int maxAmmoCount)
-            : base(weaponParams.Handle)
+        private float _currentTime;
+        
+
+        public Pistol(WeaponParams weaponParams, BulletSpawner bulletSpawner) : base(weaponParams.Handle)
         {
             _bulletSpawner = bulletSpawner;
             _shootPoint = weaponParams.ShootPoint;
             _damage = weaponParams.Damage;
-            _team = weaponParams.Team;
             _speed = weaponParams.Speed;
             _delay = weaponParams.Delay;
-
-            _ammoCount = maxAmmoCount;
         }
 
         public void Tick()
@@ -38,14 +34,17 @@ namespace Game.Content.Weapons
                 _currentTime -= Time.deltaTime;
         }
 
-        public override bool Shoot()
+        public override bool Shoot(TeamType team, out int shootedAmmo)
         {
-            if (_currentTime > 0 || _ammoCount <= 0)
+            if (_currentTime > 0 || _isReloading)
+            {
+                shootedAmmo = 0;
                 return false;
+            }
 
-            _bulletSpawner.Spawn(_damage, _speed * _shootPoint.forward, _shootPoint, _team);
+            _bulletSpawner.Spawn(_damage, _speed * _shootPoint.forward, _shootPoint, team);
             _currentTime = _delay;
-            _ammoCount -= 1;
+            shootedAmmo = 1;
             return true;
         }
     }
