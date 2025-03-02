@@ -4,6 +4,7 @@
     {
         Idle = 0,
         Follow,
+        Patrol,
         Attack,
     }
 }
