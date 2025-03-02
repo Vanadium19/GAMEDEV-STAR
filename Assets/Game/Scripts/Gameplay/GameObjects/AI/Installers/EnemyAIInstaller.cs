@@ -2,6 +2,7 @@
 using Game.AI.Sensors;
 using Game.AI.States;
 using Game.AI.Transitions;
+using Game.Gameplay.AI;
 using Game.Modules.FSM;
 using Game.Scripts.Common;
 using UnityEngine;
@@ -13,6 +14,11 @@ namespace Game.AI.Installers
     {
         [SerializeField] private float _stoppingDistance;
         [SerializeField] private TargetEnteredSensor _targetEnteredSensor;
+        [Header("Patrol")]
+        [SerializeField] private float _minDistanceToPoint;
+        [SerializeField] private float _delayTimeBetweenPoint;
+        [SerializeField] private float _maxDistanceToPlayer;
+        [SerializeField] private List<Transform> _patrolPoints;
 
         public override void InstallBindings()
         {
@@ -45,13 +51,16 @@ namespace Game.AI.Installers
                     (StateName.Idle, new BaseState()),
                     (StateName.Follow, Container.Instantiate<TargetFollowState>(new object[] { _stoppingDistance })),
                     (StateName.Attack, Container.Instantiate<AttackState>()),
+                    (StateName.Patrol, Container.Instantiate<PatrolState>(new object[] { _minDistanceToPoint, _delayTimeBetweenPoint, _patrolPoints}))
                 },
                 new List<IStateTransition<StateName>>
                 {
-                    new StateTransition<StateName>(StateName.Idle, StateName.Follow, () => blackboard.HasObject((int)BlackboardTag.Target)),
+                    new StateTransition<StateName>(StateName.Idle, StateName.Patrol,() => _patrolPoints.Count > 0),
                     container.Instantiate<FollowToAttackTransition>(new object[] { _stoppingDistance }),
                     container.Instantiate<AttackToFollowTransition>(new object[] { _stoppingDistance }),
-                });
+                    container.Instantiate<PatrolToFollowTransition>(new object[] { _maxDistanceToPlayer}),
+                    container.Instantiate<FollowToPatrolTransition>(new object[] {_maxDistanceToPlayer })
+                }) ;
         }
     }
 }

@@ -12,7 +12,7 @@ namespace Game.AI.States
         private readonly IRotater _rotater;
         private readonly Transform _transform;
         private readonly float _sqrMinDistanceToPoint;
-        private readonly float _delayBetweenPatrolPoint;
+        private readonly float _delayTimeBetweenPoint;
         private readonly float _enteredDelay;
         private readonly List<Transform> _patrolPoints;
 
@@ -28,7 +28,7 @@ namespace Game.AI.States
             _rotater = rotater;
             _transform = transform;
             _sqrMinDistanceToPoint = minDistanceToPoint * minDistanceToPoint;
-            _delayBetweenPatrolPoint = delayBetweenPatrolPoint;
+            _delayTimeBetweenPoint = delayBetweenPatrolPoint;
             _enteredDelay = enteredDelay;
             _patrolPoints = patrolPoints;
         }
@@ -36,7 +36,6 @@ namespace Game.AI.States
         public void OnEnter()
         {
             _remainsDelayEnteredTime = _enteredDelay;
-            _remainsDelayBetweenPatrolPoint = _delayBetweenPatrolPoint;
             Debug.Log("PatrolState: Enter");
         }
 
@@ -48,7 +47,10 @@ namespace Game.AI.States
 
         public void OnUpdate(float deltaTime)
         {
-            if (_remainsDelayEnteredTime > 0 || _remainsDelayBetweenPatrolPoint > 0)
+            _remainsDelayEnteredTime -= deltaTime;
+            _remainsDelayBetweenPatrolPoint -= deltaTime;
+            
+            if (_remainsDelayBetweenPatrolPoint > 0 || _remainsDelayEnteredTime > 0)
                 return;
             
             Transform point = _patrolPoints[_currentPointIndex];
@@ -59,14 +61,16 @@ namespace Game.AI.States
             _movable.Move(direction);
             _rotater.Rotate(point.position);
 
-            if (point.position.sqrMagnitude <= _sqrMinDistanceToPoint)
+            if ((point.position - _transform.position).sqrMagnitude <= _sqrMinDistanceToPoint)
             {
-                _currentPointIndex++;
-                _remainsDelayBetweenPatrolPoint = _delayBetweenPatrolPoint;
+                _movable.Move(Vector3.zero);
+                _remainsDelayBetweenPatrolPoint = _delayTimeBetweenPoint;
+               
+                if (_currentPointIndex >= _patrolPoints.Count - 1)
+                    _currentPointIndex = 0;
+                else
+                    _currentPointIndex++;
             }
-            
-            _remainsDelayEnteredTime -= deltaTime;
-            _remainsDelayBetweenPatrolPoint -= deltaTime;
         }
     }
 }
