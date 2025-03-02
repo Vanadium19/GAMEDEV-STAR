@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Game.Content.Weapons
 {
@@ -11,6 +12,8 @@ namespace Game.Content.Weapons
             _transform = transform;
         }
 
+        public event Action Emptied;
+        
         public abstract bool Shoot();
 
         public void PickUp(Transform parent)
@@ -28,6 +31,13 @@ namespace Game.Content.Weapons
         public void Enable(bool value)
         {
             _transform.gameObject.SetActive(value);
+        }
+
+        protected void Destroy()
+        {
+            Emptied?.Invoke();
+            
+            GameObject.Destroy(_transform.gameObject);
         }
     }
 }

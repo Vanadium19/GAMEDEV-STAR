@@ -46,6 +46,10 @@ namespace Game.Content.Weapons
             _bulletSpawner.Spawn(_damage, _speed * _shootPoint.forward, _shootPoint, _team);
             _currentTime = _delay;
             _ammoCount -= 1;
+
+            if (_ammoCount == 0)
+                Destroy();
+
             return true;
         }
     }
