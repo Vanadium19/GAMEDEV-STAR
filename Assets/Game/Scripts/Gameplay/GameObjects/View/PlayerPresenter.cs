@@ -8,12 +8,12 @@ namespace Game.View
 {
     public class PlayerPresenter : IInitializable, IDisposable
     {
-        private readonly IDamagable _health;
+        private readonly IHealth _health;
         private readonly HealthView _heathView;
 
         private IDisposable _disposables;
 
-        public PlayerPresenter(IDamagable health, HealthView heathView)
+        public PlayerPresenter(IHealth health, HealthView heathView)
         {
             _health = health;
             _heathView = heathView;

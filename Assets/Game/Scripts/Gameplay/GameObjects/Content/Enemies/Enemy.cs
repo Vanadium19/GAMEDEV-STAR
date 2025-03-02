@@ -9,11 +9,11 @@ namespace Game.Content.Enemies
     public class Enemy : IInitializable, IDisposable
     {
         private readonly GameObject _gameObject;
-        private readonly IDamagable _health;
+        private readonly IHealth _health;
 
         private IDisposable _disposables;
 
-        public Enemy(GameObject gameObject, IDamagable health)
+        public Enemy(GameObject gameObject, IHealth health)
         {
             _gameObject = gameObject;
             _health = health;
