@@ -1,5 +1,6 @@
-﻿using System;
+using System;
 using UnityEngine;
+using Game.Scripts.Common;
 
 namespace Game.Content.Weapons
 {
@@ -7,14 +8,14 @@ namespace Game.Content.Weapons
     {
         private readonly Transform _transform;
 
+        public event Action Emptied;
+        
         protected RangeWeapon(Transform transform)
         {
             _transform = transform;
         }
 
-        public event Action Emptied;
-        
-        public abstract bool Shoot();
+        public abstract bool Shoot(TeamType team, out int shootedAmmoCount);
 
         public void PickUp(Transform parent)
         {

@@ -1,33 +1,34 @@
 using Game.Content.Projectiles;
 using Game.Scripts.Common;
 using UnityEngine;
+using System.Collections.Generic;
 using Zenject;
 
 namespace Game.Content.Weapons
 {
-    public class Rifle : RangeWeapon, ITickable
+    public class ShootGun : RangeWeapon, ITickable
     {
         private readonly BulletSpawner _bulletSpawner;
-        private readonly Transform _shootPoint;
-        private readonly TeamType _team;
+        private readonly List<Transform> _shootPoints;
+
+        private int _ammoCount;
         private readonly float _speed;
         private readonly float _delay;
         private readonly int _damage;
 
-        private int _ammoCount;
         private float _currentTime;
 
-        public Rifle(WeaponParams weaponParams,
+        public ShootGun(WeaponParams weaponParams,
             BulletSpawner bulletSpawner,
-            int maxAmmoCount)
+            int maxAmmoCount, List<Transform> shootPoints)
             : base(weaponParams.Handle)
         {
             _bulletSpawner = bulletSpawner;
-            _shootPoint = weaponParams.ShootPoint;
+
             _damage = weaponParams.Damage;
-            _team = weaponParams.Team;
             _speed = weaponParams.Speed;
             _delay = weaponParams.Delay;
+            _shootPoints = shootPoints;
 
             _ammoCount = maxAmmoCount;
         }
@@ -38,18 +39,21 @@ namespace Game.Content.Weapons
                 _currentTime -= Time.deltaTime;
         }
 
-        public override bool Shoot()
+        public override bool Shoot(TeamType team, out int shootedAmmoCount)
         {
-            if (_currentTime > 0 || _ammoCount <= 0)
+            shootedAmmoCount = 0;
+            
+            if (_currentTime > 0 || Mathf.Max(_ammoCount, 0) == 0)
                 return false;
 
-            _bulletSpawner.Spawn(_damage, _speed * _shootPoint.forward, _shootPoint, _team);
+            foreach(var shootPoint in _shootPoints)
+            {
+                _bulletSpawner.Spawn(_damage, _speed * shootPoint.forward, shootPoint, team);
+                shootedAmmoCount += 1;
+            }
+
             _currentTime = _delay;
-            _ammoCount -= 1;
-
-            if (_ammoCount == 0)
-                Destroy();
-
+            _ammoCount -= shootedAmmoCount;
             return true;
         }
     }

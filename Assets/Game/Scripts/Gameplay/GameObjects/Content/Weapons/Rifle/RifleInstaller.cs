@@ -1,7 +1,4 @@
 using Game.Content.Weapons;
-using Game.Scripts.Common;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 

@@ -5,24 +5,25 @@ using Zenject;
 
 namespace Game.Content.Weapons
 {
-    public class Gun : RangeWeapon, ITickable
+    public class Pistol : RangeWeapon, ITickable
     {
         private readonly BulletSpawner _bulletSpawner;
         private readonly Transform _shootPoint;
-        private readonly TeamType _team;
 
         private readonly float _speed;
         private readonly float _delay;
         private readonly int _damage;
 
-        private float _currentTime;
+        private bool _isReloading;
 
-        public Gun(WeaponParams weaponParams, BulletSpawner bulletSpawner) : base(weaponParams.Handle)
+        private float _currentTime;
+        
+
+        public Pistol(WeaponParams weaponParams, BulletSpawner bulletSpawner) : base(weaponParams.Handle)
         {
             _bulletSpawner = bulletSpawner;
             _shootPoint = weaponParams.ShootPoint;
             _damage = weaponParams.Damage;
-            _team = weaponParams.Team;
             _speed = weaponParams.Speed;
             _delay = weaponParams.Delay;
         }
@@ -33,13 +34,17 @@ namespace Game.Content.Weapons
                 _currentTime -= Time.deltaTime;
         }
 
-        public override bool Shoot()
+        public override bool Shoot(TeamType team, out int shootedAmmo)
         {
-            if (_currentTime > 0)
+            if (_currentTime > 0 || _isReloading)
+            {
+                shootedAmmo = 0;
                 return false;
+            }
 
-            _bulletSpawner.Spawn(_damage, _speed * _shootPoint.forward, _shootPoint, _team);
+            _bulletSpawner.Spawn(_damage, _speed * _shootPoint.forward, _shootPoint, team);
             _currentTime = _delay;
+            shootedAmmo = 1;
             return true;
         }
     }
