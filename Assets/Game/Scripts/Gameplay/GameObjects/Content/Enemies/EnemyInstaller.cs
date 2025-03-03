@@ -17,8 +17,6 @@ namespace Game.Content.Enemies
         [SerializeField] private SerializableReactiveProperty<float> _rotationSpeed = new(3f);
         [SerializeField] private TeamType _team = TeamType.Enemy;
 
-        // [SerializeField] private float _attackDelay = 1f;
-
         public override void InstallBindings()
         {
             //Main
@@ -54,13 +52,6 @@ namespace Game.Content.Enemies
 
             Container.Bind<TeamType>()
                 .FromInstance(_team)
-                .AsSingle();
-
-            // Container.BindInterfacesAndSelfTo<MeleeAttackComponent>()
-            //     .AsSingle()
-            //     .WithArguments(_attackDelay);
-
-            Container.BindInterfacesAndSelfTo<AttackComponent>()
                 .AsSingle();
         }
     }

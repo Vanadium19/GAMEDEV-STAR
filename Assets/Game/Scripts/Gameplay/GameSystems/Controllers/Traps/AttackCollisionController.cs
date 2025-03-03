@@ -3,7 +3,7 @@ using Game.Core.Components;
 using UnityEngine;
 using Zenject;
 
-namespace Game.GameSystems
+namespace Game.GameSystems.Traps
 {
     public class AttackCollisionController : MonoBehaviour
     {

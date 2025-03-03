@@ -67,7 +67,7 @@ namespace Game.Content.Player
                 .FromInstance(_team)
                 .AsSingle();
 
-            Container.BindInterfacesAndSelfTo<AttackComponent>()
+            Container.BindInterfacesAndSelfTo<RangeAttackComponent>()
                 .AsSingle();
 
             //Presenter

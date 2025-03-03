@@ -28,7 +28,7 @@ namespace Game.Core.Components
             if (_currentTime > 0)
                 return;
 
-            Debug.Log("Атака!!!");
+            Debug.Log("Рукопашная атака!!!");
             Attacked?.Invoke();
             _currentTime = _delay;
         }

@@ -36,18 +36,20 @@ namespace Game.Content.Weapons
 
         public override bool Shoot(TeamType team, out int shootedAmmoCount)
         {
+            shootedAmmoCount = 0;
+            
             if (_currentTime > 0 || Mathf.Max(_ammoCount, 0) == 0)
-            {
-                shootedAmmoCount = 0;
                 return false;
-            }
 
             _bulletSpawner.Spawn(_damage, _speed * _shootPoint.forward, _shootPoint, team);
             _currentTime = _delay;
             shootedAmmoCount = 1;
             _ammoCount -= shootedAmmoCount;
+            
+            if (_ammoCount == 0)
+                Destroy();
+            
             return true;
         }
-
     }
 }

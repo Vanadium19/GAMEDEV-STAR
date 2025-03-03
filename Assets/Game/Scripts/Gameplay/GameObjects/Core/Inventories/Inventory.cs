@@ -33,6 +33,8 @@ namespace Game.Core.Inventories
 
             weapon.Enable(false);
             weapon.PickUp(_handle);
+            weapon.Emptied += DropWeapon;
+            
             _weapons[ExtraWeaponIndex] = weapon;
         }
 
@@ -46,6 +48,7 @@ namespace Game.Core.Inventories
             _currentIndex = DefaultWeaponIndex;
             _weapons[ExtraWeaponIndex] = null;
 
+            weapon.Emptied -= DropWeapon;
             weapon.Enable(true);
             weapon.Drop();
         }

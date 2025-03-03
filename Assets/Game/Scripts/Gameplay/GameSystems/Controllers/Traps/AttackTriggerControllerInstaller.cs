@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Zenject;
 
-namespace Game.GameSystems.Controllers
+namespace Game.GameSystems.Traps
 {
     public class AttackTriggerControllerInstaller : MonoInstaller
     {
@@ -11,7 +11,7 @@ namespace Game.GameSystems.Controllers
         {
             Container.Bind<AttackTriggerController>()
                 .FromInstance(_controller)
-                .AsCached()
+                .AsSingle()
                 .NonLazy();
         }
     }

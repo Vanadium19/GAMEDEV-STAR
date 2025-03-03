@@ -1,13 +1,15 @@
-﻿using UnityEngine;
+using System;
+using UnityEngine;
 using Game.Scripts.Common;
 
 namespace Game.Content.Weapons
 {
     public abstract class RangeWeapon : IWeapon
-    { 
-        
+    {
         private readonly Transform _transform;
 
+        public event Action Emptied;
+        
         protected RangeWeapon(Transform transform)
         {
             _transform = transform;
@@ -30,6 +32,13 @@ namespace Game.Content.Weapons
         public void Enable(bool value)
         {
             _transform.gameObject.SetActive(value);
+        }
+
+        protected void Destroy()
+        {
+            Emptied?.Invoke();
+            
+            GameObject.Destroy(_transform.gameObject);
         }
     }
 }

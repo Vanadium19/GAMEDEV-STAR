@@ -4,14 +4,15 @@ using Game.Scripts.Common;
 
 namespace Game.Core.Components
 {
-    public class AttackComponent : EntityComponent, IAttacker
+    public class RangeAttackComponent : EntityComponent, IAttacker
     {
+        private readonly TeamType _team;
+        
         private IWeapon _weapon;
-        private TeamType _team;
 
         public event Action Attacked;
 
-        public AttackComponent(IWeapon weapon, TeamType team)
+        public RangeAttackComponent(IWeapon weapon, TeamType team)
         {
             _weapon = weapon;
             _team = team;
