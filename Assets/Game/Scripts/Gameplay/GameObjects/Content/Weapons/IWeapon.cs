@@ -8,7 +8,7 @@ namespace Game.Content.Weapons
     {
         public event Action Emptied;
         
-        public bool Shoot(TeamType team, out int shootedAmmoCount);
+        public bool Shoot(TeamType team);
         public void PickUp(Transform parent);
         public void Drop();
         public void Enable(bool value);

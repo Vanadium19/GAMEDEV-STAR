@@ -20,7 +20,7 @@ namespace Game.Core.Components
 
         public void Attack()
         {
-            if (_weapon.Shoot(_team, out int shootedAmmo))
+            if (_weapon.Shoot(_team))
                 Attacked?.Invoke();
         }
 

@@ -15,7 +15,7 @@ namespace Game.Content.Weapons
         {
             Container.BindInterfacesAndSelfTo<ShootGun>()
                 .AsSingle()
-                .WithArguments(_params, _maxAmmoCount, _shootPoints);
+                .WithArguments(_params, _shootPoints);
         }
     }
 }

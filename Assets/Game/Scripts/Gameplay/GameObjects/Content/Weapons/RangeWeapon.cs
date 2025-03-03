@@ -9,13 +9,29 @@ namespace Game.Content.Weapons
         private readonly Transform _transform;
 
         public event Action Emptied;
+
+        private int _ammoCount;
         
-        protected RangeWeapon(Transform transform)
+        protected RangeWeapon(Transform transform, int ammoCount)
         {
             _transform = transform;
+            _ammoCount = ammoCount;
         }
 
-        public abstract bool Shoot(TeamType team, out int shootedAmmoCount);
+        public bool Shoot(TeamType team)
+        {
+            if(SpawnBullet(team) == 0)
+                return false;
+
+            _ammoCount -= SpawnBullet(team);
+
+            if(IsGunEmpty())
+                Destroy();
+            
+            return true;
+        }
+        protected bool IsGunEmpty() => Mathf.Max(_ammoCount, 0) == 0;
+        protected abstract int SpawnBullet(TeamType team);
 
         public void PickUp(Transform parent)
         {
@@ -34,7 +50,7 @@ namespace Game.Content.Weapons
             _transform.gameObject.SetActive(value);
         }
 
-        protected void Destroy()
+        private void Destroy()
         {
             Emptied?.Invoke();
             

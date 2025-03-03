@@ -11,7 +11,6 @@ namespace Game.Content.Weapons
         private readonly BulletSpawner _bulletSpawner;
         private readonly List<Transform> _shootPoints;
 
-        private int _ammoCount;
         private readonly float _speed;
         private readonly float _delay;
         private readonly int _damage;
@@ -19,18 +18,14 @@ namespace Game.Content.Weapons
         private float _currentTime;
 
         public ShootGun(WeaponParams weaponParams,
-            BulletSpawner bulletSpawner,
-            int maxAmmoCount, List<Transform> shootPoints)
-            : base(weaponParams.Handle)
+            BulletSpawner bulletSpawner, List<Transform> shootPoints)
+            : base(weaponParams.Handle, weaponParams.AmmoCount)
         {
             _bulletSpawner = bulletSpawner;
-
             _damage = weaponParams.Damage;
             _speed = weaponParams.Speed;
             _delay = weaponParams.Delay;
             _shootPoints = shootPoints;
-
-            _ammoCount = maxAmmoCount;
         }
 
         public void Tick()
@@ -39,22 +34,21 @@ namespace Game.Content.Weapons
                 _currentTime -= Time.deltaTime;
         }
 
-        public override bool Shoot(TeamType team, out int shootedAmmoCount)
+        protected override int SpawnBullet(TeamType team)
         {
-            shootedAmmoCount = 0;
-            
-            if (_currentTime > 0 || Mathf.Max(_ammoCount, 0) == 0)
-                return false;
+            int shootedAmmo = 0;
+
+            if (_currentTime > 0 || IsGunEmpty())
+                return shootedAmmo;
 
             foreach(var shootPoint in _shootPoints)
             {
-                _bulletSpawner.Spawn(_damage, _speed * shootPoint.forward, shootPoint, team);
-                shootedAmmoCount += 1;
+                _bulletSpawner.Spawn(_damage, shootPoint.forward * _speed, shootPoint, team);
+                shootedAmmo++;
             }
 
             _currentTime = _delay;
-            _ammoCount -= shootedAmmoCount;
-            return true;
+            return shootedAmmo;
         }
     }
 }

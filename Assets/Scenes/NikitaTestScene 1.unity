@@ -187,10 +187,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddff5980510ec314d8f364cc44e3b3ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transform: {fileID: 112796748}
-  _collisionController: {fileID: 112796746}
-  _radius: 5
-  _damage: 2
 --- !u!4 &112796748
 Transform:
   m_ObjectHideFlags: 0

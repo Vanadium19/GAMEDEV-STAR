@@ -14,12 +14,9 @@ namespace Game.Content.Weapons
         private readonly float _delay;
         private readonly int _damage;
 
-        private bool _isReloading;
-
         private float _currentTime;
-        
 
-        public Pistol(WeaponParams weaponParams, BulletSpawner bulletSpawner) : base(weaponParams.Handle)
+        public Pistol(WeaponParams weaponParams, BulletSpawner bulletSpawner) : base(weaponParams.Handle, weaponParams.AmmoCount)
         {
             _bulletSpawner = bulletSpawner;
             _shootPoint = weaponParams.ShootPoint;
@@ -34,18 +31,14 @@ namespace Game.Content.Weapons
                 _currentTime -= Time.deltaTime;
         }
 
-        public override bool Shoot(TeamType team, out int shootedAmmo)
+        protected override int SpawnBullet(TeamType team)
         {
-            if (_currentTime > 0 || _isReloading)
-            {
-                shootedAmmo = 0;
-                return false;
-            }
-
-            _bulletSpawner.Spawn(_damage, _speed * _shootPoint.forward, _shootPoint, team);
+            if(_currentTime > 0)
+                return 0;
+            
+            _bulletSpawner.Spawn(_damage, _shootPoint.forward * _speed, _shootPoint, team);
             _currentTime = _delay;
-            shootedAmmo = 1;
-            return true;
+            return 1;
         }
     }
 }
