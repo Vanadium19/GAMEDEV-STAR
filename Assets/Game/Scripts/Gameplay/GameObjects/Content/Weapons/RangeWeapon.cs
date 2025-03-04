@@ -7,15 +7,16 @@ namespace Game.Content.Weapons
 {
     public abstract class RangeWeapon : IWeapon, ITickable
     {
+        private const int InfiniteAmmo = -1;
+
         private readonly Transform _transform;
+        private readonly float _delay;
+
+        private int _ammoCount;
+        private float _currentTime;
 
         public event Action Emptied;
 
-        private int _ammoCount;
-        private float _delay;
-
-        private float _currentTime;
-        
         protected RangeWeapon(Transform transform, int ammoCount, float delay)
         {
             _transform = transform;
@@ -23,30 +24,27 @@ namespace Game.Content.Weapons
             _delay = delay;
         }
 
+        private bool IsGunEmpty => _ammoCount == 0;
+
         public void Tick()
         {
-            _currentTime -= Time.deltaTime; 
+            _currentTime -= Time.deltaTime;
         }
 
         public bool Shoot(TeamType team)
         {
-            if(_currentTime > 0)
+            if (_currentTime > 0)
                 return false;
 
-            if (IsGunEmpty())
-            {
-                Destroy();
+            if (IsGunEmpty)
                 return false;
-            }
-
 
             SpawnBullet(team);
-            _ammoCount = Mathf.Max(-1, _ammoCount - 1);
+            SubtractAmmo();
+
             _currentTime = _delay;
             return true;
         }
-        
-        protected abstract void SpawnBullet(TeamType team);
 
         public void PickUp(Transform parent)
         {
@@ -55,24 +53,27 @@ namespace Game.Content.Weapons
             _transform.localRotation = Quaternion.identity;
         }
 
-        public void Drop()
-        {
-            _transform.SetParent(null);
-        }
-
         public void Enable(bool value)
         {
             _transform.gameObject.SetActive(value);
         }
 
-        private void Destroy()
+        public void Drop()
         {
-            Emptied?.Invoke();
-            
-            GameObject.Destroy(_transform.gameObject);
+            _transform.SetParent(null);
         }
 
-        protected bool IsGunEmpty() => _ammoCount <= 0 && _ammoCount != -1;
+        protected abstract void SpawnBullet(TeamType team);
 
+        private void SubtractAmmo()
+        {
+            _ammoCount = Mathf.Max(InfiniteAmmo, _ammoCount - 1);
+
+            if (!IsGunEmpty)
+                return;
+
+            Emptied?.Invoke();
+            GameObject.Destroy(_transform.gameObject);
+        }
     }
 }

@@ -9,6 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e46e48fec0954d39bb27148fa28424d4, type: 3}
+  m_Script: {fileID: 11500000, guid: bb971c1b23750164fa68d1d6fe3a6ad3, type: 3}
   m_Name: WeaponCollectorInstaller
   m_EditorClassIdentifier: 

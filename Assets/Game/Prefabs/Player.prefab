@@ -50,10 +50,10 @@ MonoBehaviour:
   _params:
     _transform: {fileID: 8200990535209740089}
     _shootPoint: {fileID: 5302803821973417476}
-    _team: 1
     _speed: 10
     _delay: 0.5
     _damage: 2
+    _ammoCount: -1
 --- !u!1 &3640314488288680425
 GameObject:
   m_ObjectHideFlags: 0

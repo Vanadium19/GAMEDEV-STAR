@@ -263,6 +263,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rifle
       objectReference: {fileID: 0}
+    - target: {fileID: 6103000828445395375, guid: b3758e7df0828f8409ebfa227b31cf59,
+        type: 3}
+      propertyPath: _params._speed
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -683,7 +688,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &630396126
 Transform:
   m_ObjectHideFlags: 0
@@ -1456,16 +1461,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 7536977690762697722, guid: a16478d27df5f9146904f455be8e9221,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8146612357117770395, guid: a16478d27df5f9146904f455be8e9221,
-        type: 3}
-      propertyPath: _params._ammoCount
-      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 9080290443360849351, guid: a16478d27df5f9146904f455be8e9221,
         type: 3}

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1121689918337802239}
-  - component: {fileID: 5690704559798732415}
+  - component: {fileID: 4380962730760622054}
   - component: {fileID: 6103000828445395375}
   m_Layer: 0
   m_Name: Rifle
@@ -36,7 +36,7 @@ Transform:
   - {fileID: 7466212794370572968}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5690704559798732415
+--- !u!114 &4380962730760622054
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -68,12 +68,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _params:
-    _transform: {fileID: 0}
-    _shootPoint: {fileID: 0}
-    _speed: 0
-    _delay: 0
-    _damage: 0
-    _ammoCount: 0
+    _transform: {fileID: 1121689918337802239}
+    _shootPoint: {fileID: 6246326883618414369}
+    _speed: 2
+    _delay: 0.2
+    _damage: 2
+    _ammoCount: 20
 --- !u!1 &2715642617727506991
 GameObject:
   m_ObjectHideFlags: 0
@@ -258,7 +258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cac5ef26525d8848b5319e5904f2897, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _context: {fileID: 5690704559798732415}
+  _context: {fileID: 4380962730760622054}
 --- !u!1 &7339798536309801876
 GameObject:
   m_ObjectHideFlags: 0

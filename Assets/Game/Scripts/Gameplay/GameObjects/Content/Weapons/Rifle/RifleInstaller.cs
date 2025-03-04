@@ -1,15 +1,17 @@
-using Game.Content.Weapons;
 using UnityEngine;
 using Zenject;
 
-public class RifleInstaller : MonoInstaller
+namespace Game.Content.Weapons
 {
-    [SerializeField] private WeaponParams _params;
-
-    public override void InstallBindings()
+    public class RifleInstaller : MonoInstaller
     {
-        Container.BindInterfacesTo<Rifle>()
-            .AsSingle()
-            .WithArguments(_params);
+        [SerializeField] private WeaponParams _params;
+
+        public override void InstallBindings()
+        {
+            Container.BindInterfacesTo<Rifle>()
+                .AsSingle()
+                .WithArguments(_params);
+        }
     }
 }

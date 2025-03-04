@@ -7,7 +7,7 @@ namespace Game.Content.Weapons
     public interface IWeapon
     {
         public event Action Emptied;
-        
+
         public bool Shoot(TeamType team);
         public void PickUp(Transform parent);
         public void Drop();

@@ -15,7 +15,3 @@ namespace Game.Content.Weapons
         }
     }
 }
-
-
-    
-

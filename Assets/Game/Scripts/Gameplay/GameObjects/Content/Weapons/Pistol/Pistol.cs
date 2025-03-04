@@ -2,7 +2,6 @@
 using Game.Scripts.Common;
 using UnityEngine;
 
-
 namespace Game.Content.Weapons
 {
     public class Pistol : RangeWeapon
@@ -13,8 +12,9 @@ namespace Game.Content.Weapons
         private readonly float _speed;
         private readonly int _damage;
 
-        public Pistol(WeaponParams weaponParams, BulletSpawner bulletSpawner)
-            :base(weaponParams.Handle, weaponParams.AmmoCount, weaponParams.Delay)
+        public Pistol(WeaponParams weaponParams,
+            BulletSpawner bulletSpawner)
+            : base(weaponParams.Handle, weaponParams.AmmoCount, weaponParams.Delay)
         {
             _bulletSpawner = bulletSpawner;
             _shootPoint = weaponParams.ShootPoint;
@@ -26,6 +26,5 @@ namespace Game.Content.Weapons
         {
             _bulletSpawner.Spawn(_damage, _shootPoint.forward * _speed, _shootPoint, team);
         }
-
     }
 }
