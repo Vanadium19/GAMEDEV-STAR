@@ -10,8 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2026597349197421194}
   - component: {fileID: 2723912979342437321}
-  - component: {fileID: 8699812658121858289}
-  - component: {fileID: 5066887791133201881}
   m_Layer: 0
   m_Name: Pistol
   m_TagString: Untagged
@@ -49,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 941e8c2bdeba461a98205168d9376d3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _entity: {fileID: 8699812658121858289}
+  _entity: {fileID: 1026244362005484018}
   _params:
     _transform: {fileID: 2026597349197421194}
     _shootPoint: {fileID: 6786360800262224936}
@@ -57,36 +55,6 @@ MonoBehaviour:
     _delay: 0.5
     _damage: 2
     _ammoCount: -1
---- !u!114 &8699812658121858289
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 230662122772845559}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cac5ef26525d8848b5319e5904f2897, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _context: {fileID: 5066887791133201881}
---- !u!114 &5066887791133201881
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 230662122772845559}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08eca9f7688a0a24685b89133b020c8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _scriptableObjectInstallers: []
-  _monoInstallers: []
-  _installerPrefabs: []
-  _autoRun: 1
-  _kernel: {fileID: 0}
 --- !u!1 &1183193990751489337
 GameObject:
   m_ObjectHideFlags: 0
@@ -460,6 +428,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 148986319528496025}
+  - component: {fileID: 1026244362005484018}
   m_Layer: 0
   m_Name: Tank
   m_TagString: Untagged
@@ -485,6 +454,19 @@ Transform:
   - {fileID: 6553457805630070884}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1026244362005484018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7044869218124382744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cac5ef26525d8848b5319e5904f2897, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _context: {fileID: 3658265856133695296}
 --- !u!1 &7592176616872491225
 GameObject:
   m_ObjectHideFlags: 0
@@ -503,7 +485,7 @@ GameObject:
   - component: {fileID: 5480442547847204787}
   - component: {fileID: 8027421203207978254}
   - component: {fileID: 2313779656599737073}
-  - component: {fileID: 7934818837713419633}
+  - component: {fileID: 2031180196614236594}
   m_Layer: 0
   m_Name: Shooter
   m_TagString: Untagged
@@ -697,7 +679,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 1585026552654354589}
   _transform: {fileID: 8709183112624850980}
-  _gameObject: {fileID: 7592176616872491225}
+  _entity: {fileID: 1026244362005484018}
   _health: 10
   _moveSpeed:
     value: 2.5
@@ -716,7 +698,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73a383147e4049c5812ff13aa1041b4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7934818837713419633
+--- !u!114 &2031180196614236594
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -725,10 +707,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7592176616872491225}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cac5ef26525d8848b5319e5904f2897, type: 3}
+  m_Script: {fileID: 11500000, guid: 192ad02d223e4742bd80096e2954ab88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _context: {fileID: 3658265856133695296}
+  _entity: {fileID: 1026244362005484018}
 --- !u!1 &8944487205004473438
 GameObject:
   m_ObjectHideFlags: 0

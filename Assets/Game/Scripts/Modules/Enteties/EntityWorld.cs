@@ -12,7 +12,7 @@ namespace Game.Modules.Entities
         private readonly Transform _container;
 
         private readonly Dictionary<string, Queue<IEntity>> _pools = new();
-        
+
         private List<IEntity> _entities;
 
         public event Action<IEntity> EntityAdded;
@@ -48,6 +48,9 @@ namespace Game.Modules.Entities
             _pools[entity.Id].Enqueue(entity);
 
             entity.OnDestroyed -= Despawn;
+
+            // foreach (var pool in _pools)
+            //     Debug.Log($"Despawning entity {pool.Key} count {pool.Value.Count}");
         }
 
         public void Spawn(string id, Vector3 position, Quaternion rotation)

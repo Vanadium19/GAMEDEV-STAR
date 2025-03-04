@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ad61eaf81c64c32ab8b98ff41d88fb1, type: 3}
   m_Name: Rifle
   m_EditorClassIdentifier: 
-  <Prefab>k__BackingField: {fileID: 0}
-  <Name>k__BackingField: 
+  <Prefab>k__BackingField: {fileID: 4099134745965265185, guid: b3758e7df0828f8409ebfa227b31cf59,
+    type: 3}
+  <Name>k__BackingField: Rifle

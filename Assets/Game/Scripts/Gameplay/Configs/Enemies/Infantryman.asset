@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ad61eaf81c64c32ab8b98ff41d88fb1, type: 3}
-  m_Name: Shotgun
+  m_Name: Infantryman
   m_EditorClassIdentifier: 
-  <Prefab>k__BackingField: {fileID: 6506923054526169144, guid: 01683182bea1fa446aff95a4d78569ff,
+  <Prefab>k__BackingField: {fileID: 8976051938741261000, guid: cf496a961280e0a4eb301d6107ef85bf,
     type: 3}
-  <Name>k__BackingField: ShootGun
+  <Name>k__BackingField: Infantryman

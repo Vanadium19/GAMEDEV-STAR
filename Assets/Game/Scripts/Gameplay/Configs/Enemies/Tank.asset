@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ad61eaf81c64c32ab8b98ff41d88fb1, type: 3}
-  m_Name: Shotgun
+  m_Name: Tank
   m_EditorClassIdentifier: 
-  <Prefab>k__BackingField: {fileID: 6506923054526169144, guid: 01683182bea1fa446aff95a4d78569ff,
+  <Prefab>k__BackingField: {fileID: 1026244362005484018, guid: 0de20bfd2231bee4b94b735cd4d16b68,
     type: 3}
-  <Name>k__BackingField: ShootGun
+  <Name>k__BackingField: Tank

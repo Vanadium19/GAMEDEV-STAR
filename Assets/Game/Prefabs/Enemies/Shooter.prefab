@@ -115,8 +115,6 @@ GameObject:
   m_Component:
   - component: {fileID: 528531971133727633}
   - component: {fileID: 176694749954376340}
-  - component: {fileID: 8607582211567121895}
-  - component: {fileID: 4137707448865228838}
   m_Layer: 0
   m_Name: Pistol
   m_TagString: Untagged
@@ -154,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 941e8c2bdeba461a98205168d9376d3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _entity: {fileID: 8607582211567121895}
+  _entity: {fileID: 2815761549829913407}
   _params:
     _transform: {fileID: 528531971133727633}
     _shootPoint: {fileID: 408090755560550958}
@@ -162,36 +160,6 @@ MonoBehaviour:
     _delay: 0.5
     _damage: 2
     _ammoCount: -1
---- !u!114 &8607582211567121895
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3302581005524419742}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cac5ef26525d8848b5319e5904f2897, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _context: {fileID: 4137707448865228838}
---- !u!114 &4137707448865228838
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3302581005524419742}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08eca9f7688a0a24685b89133b020c8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _scriptableObjectInstallers: []
-  _monoInstallers: []
-  _installerPrefabs: []
-  _autoRun: 1
-  _kernel: {fileID: 0}
 --- !u!1 &3375608606243654134
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,7 +366,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 8814604563756988268}
   _transform: {fileID: 7841454733653045906}
-  _gameObject: {fileID: 3375608606243654134}
+  _entity: {fileID: 2815761549829913407}
   _health: 10
   _moveSpeed:
     value: 2.5
