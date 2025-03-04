@@ -1,5 +1,6 @@
 using System;
 using Game.Core.Components;
+using Game.Modules.Entities;
 using UnityEngine;
 using Zenject;
 
@@ -7,13 +8,13 @@ namespace Game.Content.Traps
 {
     public class Mine : IInitializable, IDisposable
     {
+        private readonly IEntity _entity;
         private readonly IAttacker _attacker;
-        private readonly GameObject _gameObject;
 
-        public Mine(IAttacker attacker, GameObject gameObject)
+        public Mine(IAttacker attacker, IEntity entity)
         {
+            _entity = entity;
             _attacker = attacker;
-            _gameObject = gameObject;
         }
 
         public void Initialize()
@@ -28,7 +29,7 @@ namespace Game.Content.Traps
 
         private void OnAttacked()
         {
-            GameObject.Destroy(_gameObject);
+            _entity.Destroy();
         }
     }
 }

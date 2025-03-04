@@ -2,6 +2,7 @@ using Game.Content.Projectiles;
 using Game.Scripts.Common;
 using UnityEngine;
 using System.Collections.Generic;
+using Game.Modules.Entities;
 
 namespace Game.Content.Weapons
 {
@@ -10,15 +11,18 @@ namespace Game.Content.Weapons
         private readonly BulletSpawner _bulletSpawner;
         private readonly List<Transform> _shootPoints;
 
+        private readonly string _bulletId;
         private readonly float _speed;
         private readonly int _damage;
 
-        public ShootGun(WeaponParams weaponParams,
+        public ShootGun(IEntity entity,
+            WeaponParams weaponParams,
             BulletSpawner bulletSpawner,
             List<Transform> shootPoints)
-            : base(weaponParams.Handle, weaponParams.AmmoCount, weaponParams.Delay)
+            : base(entity, weaponParams.Handle, weaponParams.AmmoCount, weaponParams.Delay)
         {
             _bulletSpawner = bulletSpawner;
+            _bulletId = weaponParams.BulletId;
             _damage = weaponParams.Damage;
             _speed = weaponParams.Speed;
             _shootPoints = shootPoints;
@@ -27,7 +31,7 @@ namespace Game.Content.Weapons
         protected override void SpawnBullet(TeamType team)
         {
             foreach (var shootPoint in _shootPoints)
-                _bulletSpawner.Spawn(_damage, shootPoint.forward * _speed, shootPoint, team);
+                _bulletSpawner.Spawn(_bulletId, _damage, shootPoint.forward * _speed, shootPoint, team);
         }
     }
 }

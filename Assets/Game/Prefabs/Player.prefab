@@ -47,7 +47,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 941e8c2bdeba461a98205168d9376d3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _entity: {fileID: 79968405635332019}
   _params:
+    _bulletConfig: {fileID: 11400000, guid: c831e7502c6ff114aa070bd880bb76e9, type: 2}
     _transform: {fileID: 8200990535209740089}
     _shootPoint: {fileID: 5302803821973417476}
     _speed: 10

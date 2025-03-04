@@ -1,38 +1,20 @@
-﻿using System;
-using Game.Core;
-using Game.Core.Components;
+﻿using Game.Core.Components;
+using Game.Modules.Entities;
 using Game.Scripts.Common;
 using UnityEngine;
 
 namespace Game.Content.Projectiles
 {
-    [RequireComponent(typeof(Rigidbody))]
-    public class Bullet : MonoBehaviour
+    public class Bullet : IBullet
     {
-        private Rigidbody _rigidbody;
+        private readonly Rigidbody _rigidbody;
+        
         private TeamType _team;
         private int _damage;
 
-        public event Action<Bullet> Destroyed;
-
-        private void Awake()
+        public Bullet(Rigidbody rigidbody)
         {
-            _rigidbody = GetComponent<Rigidbody>();
-        }
-
-        private void OnTriggerEnter(Collider other)
-        {
-            if (other.TryGetComponent(out IEntity entity)
-                && entity.TryGet(out IDamagable target)
-                && _team != target.Team)
-            {
-                target.TakeDamage(_damage);
-            }
-
-            Debug.Log(other.gameObject.name);
-
-            if (!other.TryGetComponent(out Bullet bullet))
-                Destroyed?.Invoke(this);
+            _rigidbody = rigidbody;
         }
 
         public void Initialize(int damage, TeamType team, Vector3 velocity)
@@ -40,6 +22,12 @@ namespace Game.Content.Projectiles
             _team = team;
             _damage = damage;
             _rigidbody.velocity = velocity;
+        }
+        
+        public void Attack(IEntity entity)
+        {
+            if (entity.TryGet(out IDamagable target) && _team != target.Team)
+                target.TakeDamage(_damage);
         }
     }
 }

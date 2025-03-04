@@ -1,29 +1,27 @@
-﻿using Game.Scripts.Common;
+﻿using System;
+using Game.Modules.Entities;
+using Game.Scripts.Common;
 using UnityEngine;
 
 namespace Game.Content.Projectiles
 {
     public class BulletSpawner
     {
-        private readonly BulletPool _bulletPool;
+        private readonly EntityWorld _entityWorld;
 
-        public BulletSpawner(BulletPool bulletPool)
+        public BulletSpawner(EntityWorld entityWorld)
         {
-            _bulletPool = bulletPool;
+            _entityWorld = entityWorld;
         }
 
-        public void Spawn(int damage, Vector3 velocity, Transform point, TeamType team)
+        public void Spawn(string id, int damage, Vector3 velocity, Transform point, TeamType team)
         {
-            Bullet bullet = _bulletPool.Spawn(damage, velocity, point, team);
+            IEntity entity = _entityWorld.Spawn(id, point.position, point.rotation);
 
-            bullet.Destroyed += OnBulletDestroyed;
-        }
+            if (!entity.TryGet(out IBullet bullet))
+                throw new ArgumentException($"Invalid bullet id: {id}");
 
-        private void OnBulletDestroyed(Bullet bullet)
-        {
-            _bulletPool.Despawn(bullet);
-
-            bullet.Destroyed -= OnBulletDestroyed;
+            bullet.Initialize(damage, team, velocity);
         }
     }
 }

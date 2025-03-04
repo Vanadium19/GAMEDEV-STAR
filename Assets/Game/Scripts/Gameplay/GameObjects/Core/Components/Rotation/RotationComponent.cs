@@ -1,4 +1,5 @@
-﻿using R3;
+﻿using Game.Modules.Entities;
+using R3;
 using UnityEngine;
 
 namespace Game.Core.Components

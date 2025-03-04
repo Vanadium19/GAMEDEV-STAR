@@ -1,7 +1,9 @@
 ﻿using Game.Core.Components;
+using Game.Modules.Entities;
 using Game.Scripts.Common;
 using R3;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Zenject;
 
 namespace Game.Content.Enemies
@@ -10,7 +12,7 @@ namespace Game.Content.Enemies
     {
         [Header("Unity Components")] [SerializeField] private Rigidbody _rigidbody;
         [SerializeField] private Transform _transform;
-        [SerializeField] private GameObject _gameObject;
+        [SerializeField] private Entity _entity;
 
         [Header("Main Settings")] [SerializeField] private int _health = 100;
         [SerializeField] private SerializableReactiveProperty<float> _moveSpeed = new(5f);
@@ -25,8 +27,8 @@ namespace Game.Content.Enemies
                 .NonLazy();
 
             //MonoBehaviors
-            Container.Bind<GameObject>()
-                .FromInstance(_gameObject)
+            Container.BindInterfacesTo<Entity>()
+                .FromInstance(_entity)
                 .AsSingle();
 
             Container.Bind<Rigidbody>()

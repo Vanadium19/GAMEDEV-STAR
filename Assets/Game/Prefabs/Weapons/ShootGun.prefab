@@ -125,6 +125,7 @@ GameObject:
   - component: {fileID: 161973335804239666}
   - component: {fileID: 3366099831121416536}
   - component: {fileID: 8608602100217309513}
+  - component: {fileID: 6506923054526169144}
   m_Layer: 0
   m_Name: ShootGun
   m_TagString: Untagged
@@ -181,7 +182,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaf1d207688e9824ea4dab19dd632678, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _entity: {fileID: 6506923054526169144}
   _params:
+    _bulletConfig: {fileID: 11400000, guid: 90eb366f882038449836bba07ca7d2f6, type: 2}
     _transform: {fileID: 161973335804239666}
     _shootPoint: {fileID: 5283280379137565693}
     _speed: 2
@@ -194,6 +197,19 @@ MonoBehaviour:
   - {fileID: 5660143411877597950}
   - {fileID: 3710260341342194439}
   - {fileID: 5678865518468162906}
+--- !u!114 &6506923054526169144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3639233931371019955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cac5ef26525d8848b5319e5904f2897, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _context: {fileID: 3366099831121416536}
 --- !u!1 &4004703874031883003
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,7 +412,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2461702662065258728}
   - component: {fileID: 6556876291323932665}
-  - component: {fileID: 6685878611829759978}
+  - component: {fileID: 7610123251330090688}
   m_Layer: 7
   m_Name: Trigger
   m_TagString: Untagged
@@ -440,7 +456,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6685878611829759978
+--- !u!114 &7610123251330090688
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -449,7 +465,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8988555679261581047}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cac5ef26525d8848b5319e5904f2897, type: 3}
+  m_Script: {fileID: 11500000, guid: 192ad02d223e4742bd80096e2954ab88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _context: {fileID: 3366099831121416536}
+  _entity: {fileID: 6506923054526169144}

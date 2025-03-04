@@ -14,8 +14,7 @@ GameObject:
   - component: {fileID: 1020610584640975144}
   - component: {fileID: 318385290312884269}
   - component: {fileID: 6005764682872972890}
-  - component: {fileID: 7062021075636636901}
-  - component: {fileID: 2085201240422101640}
+  - component: {fileID: 6149349348428097239}
   m_Layer: 0
   m_Name: Barrel
   m_TagString: Untagged
@@ -124,7 +123,6 @@ MonoBehaviour:
   _scriptableObjectInstallers: []
   _monoInstallers:
   - {fileID: 6005764682872972890}
-  - {fileID: 2085201240422101640}
   _installerPrefabs: []
   _autoRun: 1
   _kernel: {fileID: 0}
@@ -140,14 +138,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70d427b993624f6bbe8891f2d7f287a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameObject: {fileID: 3776946379043170720}
+  _entity: {fileID: 3021631934604392479}
   _barrel: {fileID: 3379739661747818181}
   _fire: {fileID: 7428740118094746802}
   _transform: {fileID: 3043616470172934501}
   _damage: 5
   _radius: 3
   _fireTime: 2
---- !u!114 &7062021075636636901
+--- !u!114 &6149349348428097239
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -156,22 +154,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3379739661747818181}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be11dead43564955ae874a9d42ead07b, type: 3}
+  m_Script: {fileID: 11500000, guid: 192ad02d223e4742bd80096e2954ab88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2085201240422101640
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3379739661747818181}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bfad3f30a7443a2b2f1be8a32178203, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _controller: {fileID: 7062021075636636901}
+  _entity: {fileID: 3021631934604392479}
 --- !u!1 &3776946379043170720
 GameObject:
   m_ObjectHideFlags: 0
@@ -181,6 +167,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3043616470172934501}
+  - component: {fileID: 3021631934604392479}
   m_Layer: 0
   m_Name: BarrelTrap
   m_TagString: Untagged
@@ -205,6 +192,19 @@ Transform:
   - {fileID: 7304092123589267994}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3021631934604392479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3776946379043170720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cac5ef26525d8848b5319e5904f2897, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _context: {fileID: 318385290312884269}
 --- !u!1001 &4134416832343588857
 PrefabInstance:
   m_ObjectHideFlags: 0

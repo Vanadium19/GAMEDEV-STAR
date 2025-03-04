@@ -250,8 +250,8 @@ GameObject:
   - component: {fileID: 903202474555153682}
   - component: {fileID: 4693379753872448567}
   - component: {fileID: 5467339028749783557}
-  - component: {fileID: 8345241014801094741}
   - component: {fileID: 6361737824503074158}
+  - component: {fileID: 8329348684856864817}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -442,26 +442,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 5461045532589655178}
   _transform: {fileID: 1614483760129073033}
-  _gameObject: {fileID: 8008786233472392618}
+  _entity: {fileID: 1781472574305705377}
   _health: 1
   _moveSpeed:
     value: 2.5
   _rotationSpeed:
     value: 9
   _team: 2
---- !u!114 &8345241014801094741
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8008786233472392618}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cac5ef26525d8848b5319e5904f2897, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _context: {fileID: 4701784242688450831}
 --- !u!114 &6361737824503074158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -477,6 +464,19 @@ MonoBehaviour:
   _damage: 5
   _radius: 3
   _delay: 1
+--- !u!114 &8329348684856864817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8008786233472392618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 192ad02d223e4742bd80096e2954ab88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _entity: {fileID: 1781472574305705377}
 --- !u!1 &8922999873174799941
 GameObject:
   m_ObjectHideFlags: 0
@@ -486,6 +486,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 637195572155372515}
+  - component: {fileID: 1781472574305705377}
   m_Layer: 0
   m_Name: Kamikaze
   m_TagString: Untagged
@@ -511,3 +512,16 @@ Transform:
   - {fileID: 5097198832786925659}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1781472574305705377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8922999873174799941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cac5ef26525d8848b5319e5904f2897, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _context: {fileID: 4701784242688450831}

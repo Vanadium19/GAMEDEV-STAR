@@ -2,13 +2,14 @@ using Zenject;
 using UnityEngine;
 using Game.Core.Components;
 using Game.GameSystems.Traps;
+using Game.Modules.Entities;
 
 namespace Game.Content.Traps
 {
     public class MineInstaller : MonoInstaller
     {
-        [SerializeField] private GameObject _gameObject;
         [SerializeField] private Transform _transform;
+        [SerializeField] private Entity _entity;
 
         [SerializeField] private int _damage = 5;
         [SerializeField] private float _radius = 3f;
@@ -22,12 +23,12 @@ namespace Game.Content.Traps
                 .NonLazy();
 
             //MonoBehaviors
-            Container.Bind<GameObject>()
-                .FromInstance(_gameObject)
-                .AsSingle();
-
             Container.Bind<Transform>()
                 .FromInstance(_transform)
+                .AsSingle();
+
+            Container.BindInterfacesTo<Entity>()
+                .FromInstance(_entity)
                 .AsSingle();
 
             //Components

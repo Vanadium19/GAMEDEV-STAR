@@ -1,5 +1,6 @@
 ﻿using System;
 using Game.Content.Weapons;
+using Game.Modules.Entities;
 using Game.Scripts.Common;
 
 namespace Game.Core.Components

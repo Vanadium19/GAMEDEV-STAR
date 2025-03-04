@@ -1,4 +1,5 @@
 ﻿using System;
+using Game.Modules.Entities;
 using UnityEngine;
 using Zenject;
 
