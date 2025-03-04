@@ -30,6 +30,10 @@ namespace Game.GameSystems.Player
                 .FromInstance(_collisionController)
                 .AsSingle()
                 .NonLazy();
+
+            Container.BindInterfacesAndSelfTo<PlayerReloadController>()
+                .AsSingle()
+                .NonLazy();
         }
     }
 }

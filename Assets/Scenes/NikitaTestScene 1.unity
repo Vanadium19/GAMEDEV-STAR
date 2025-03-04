@@ -1281,6 +1281,11 @@ PrefabInstance:
       propertyPath: _monoInstallers.Array.data[2]
       value: 
       objectReference: {fileID: 430025859}
+    - target: {fileID: 8146612357117770395, guid: a16478d27df5f9146904f455be8e9221,
+        type: 3}
+      propertyPath: _maxReloadAmmo
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 9080290443360849351, guid: a16478d27df5f9146904f455be8e9221,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -11,6 +11,7 @@ namespace Game.View
         private readonly IHealth _health;
         private readonly HealthView _heathView;
 
+
         private IDisposable _disposables;
 
         public PlayerPresenter(IHealth health, HealthView heathView)
