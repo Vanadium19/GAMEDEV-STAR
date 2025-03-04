@@ -2,6 +2,7 @@
 using Cysharp.Threading.Tasks;
 using Game.Core.Components;
 using Game.Modules.Entities;
+using R3;
 using UnityEngine;
 using Zenject;
 
@@ -9,6 +10,7 @@ namespace Game.Content.Traps
 {
     public class Barrel : IInitializable, IDisposable
     {
+        private readonly HealthComponent _health;
         private readonly IAttacker _attacker;
         private readonly IEntity _entity;
         private readonly float _delay;
@@ -16,9 +18,10 @@ namespace Game.Content.Traps
         private readonly GameObject _barrel;
         private readonly GameObject _fire;
 
-        private bool _isFired;
+        private IDisposable _disposables;
 
-        public Barrel(IAttacker attacker,
+        public Barrel(HealthComponent health,
+            IAttacker attacker,
             IEntity entity,
             GameObject barrel,
             GameObject fire,
@@ -29,32 +32,43 @@ namespace Game.Content.Traps
             _barrel = barrel;
             _fire = fire;
             _delay = delay;
+            _health = health;
         }
 
         public void Initialize()
         {
-            _attacker.Attacked += OnAttacked;
+            var disposableBuilder = Disposable.CreateBuilder();
+
+            _health.IsDead.Subscribe(OnDied).AddTo(ref disposableBuilder);
+
+            _disposables = disposableBuilder.Build();
         }
 
         public void Dispose()
         {
-            _attacker.Attacked -= OnAttacked;
+            _disposables?.Dispose();
         }
 
-        private void OnAttacked()
+        private void Explode()
         {
-            if (_isFired)
-                return;
+            _attacker.Attack();
 
             _barrel.SetActive(false);
             _fire.SetActive(true);
+
             Destroy().Forget();
+        }
+
+        private void OnDied(bool value)
+        {
+            if (value)
+                Explode();
         }
 
         private async UniTaskVoid Destroy()
         {
             await UniTask.Delay(TimeSpan.FromSeconds(_delay));
-            
+
             _barrel.SetActive(true);
             _fire.SetActive(false);
             _entity.Destroy();

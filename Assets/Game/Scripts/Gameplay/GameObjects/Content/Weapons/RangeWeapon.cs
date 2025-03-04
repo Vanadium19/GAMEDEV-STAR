@@ -31,7 +31,8 @@ namespace Game.Content.Weapons
 
         public void Tick()
         {
-            _currentTime -= Time.deltaTime;
+            if (_currentTime > 0)
+                _currentTime -= Time.deltaTime;
         }
 
         public bool Shoot(TeamType team)

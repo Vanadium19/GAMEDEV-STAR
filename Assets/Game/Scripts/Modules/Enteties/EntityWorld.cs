@@ -11,9 +11,9 @@ namespace Game.Modules.Entities
         private readonly DiContainer _diContainer;
         private readonly Transform _container;
 
-        private readonly Dictionary<string, Queue<IEntity>> _pools = new();
+        private readonly Dictionary<string, Queue<Entity>> _pools = new();
 
-        private List<IEntity> _entities;
+        private List<Entity> _entities;
 
         public event Action<IEntity> EntityAdded;
         public event Action<IEntity> EntityRemoved;
@@ -29,13 +29,13 @@ namespace Game.Modules.Entities
 
         public void Initialize()
         {
-            _entities = new List<IEntity>(GameObject.FindObjectsOfType<Entity>());
+            _entities = new List<Entity>(GameObject.FindObjectsOfType<Entity>());
 
             foreach (var entity in _entities)
                 entity.OnDestroyed += Despawn;
         }
 
-        private void Despawn(IEntity entity)
+        private void Despawn(Entity entity)
         {
             if (!_entities.Remove(entity))
                 return;
@@ -43,7 +43,7 @@ namespace Game.Modules.Entities
             EntityRemoved?.Invoke(entity);
 
             if (!_pools.ContainsKey(entity.Id))
-                _pools.Add(entity.Id, new Queue<IEntity>());
+                _pools.Add(entity.Id, new Queue<Entity>());
 
             _pools[entity.Id].Enqueue(entity);
 
@@ -53,22 +53,41 @@ namespace Game.Modules.Entities
             //     Debug.Log($"Despawning entity {pool.Key} count {pool.Value.Count}");
         }
 
-        public void Spawn(string id, Vector3 position, Quaternion rotation)
+        public IEntity Spawn(string id, Vector3 position, Quaternion rotation)
         {
             if (!_entityCatalog.FindConfig(id, out EntityConfig config))
-                return;
+                throw new ArgumentException("Entity with id " + id + " does not exist");
 
             if (!_pools.ContainsKey(config.Name))
-                _pools.Add(config.Name, new Queue<IEntity>());
+                _pools.Add(config.Name, new Queue<Entity>());
 
-            IEntity entity = _pools[id].Count > 0
-                ? _pools[id].Dequeue()
-                : _diContainer.InstantiatePrefab(config.Prefab, position, rotation, _container).GetComponent<Entity>();
+            Entity entity = _pools[id].Count > 0
+                ? GetEntity(id, position, rotation)
+                : Instantiate(position, rotation, config);
 
             entity.OnDestroyed += Despawn;
 
             _entities.Add(entity);
             EntityAdded?.Invoke(entity);
+            return entity;
+        }
+
+        private Entity GetEntity(string id, Vector3 position, Quaternion rotation)
+        {
+            Entity entity = _pools[id].Dequeue();
+
+            entity.gameObject.SetActive(true);
+            entity.transform.SetPositionAndRotation(position, rotation);
+
+            return entity;
+        }
+
+        private Entity Instantiate(Vector3 position, Quaternion rotation, EntityConfig config)
+        {
+            GameObject gameObject = _diContainer.InstantiatePrefab(config.Prefab, position, rotation, _container);
+            gameObject.name = config.Name;
+
+            return gameObject.GetComponent<Entity>();
         }
     }
 }

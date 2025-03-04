@@ -10,8 +10,6 @@ namespace Game.UI
 
         public void SetHealth(int health, int maxHealth)
         {
-            Debug.Log($"Health changed to {health} / {maxHealth}");
-
             _healthBar.fillAmount = Mathf.Clamp01(Convert.ToSingle(health) / maxHealth);
         }
     }

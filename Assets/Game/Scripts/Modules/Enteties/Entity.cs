@@ -10,7 +10,7 @@ namespace Game.Modules.Entities
 
         private DiContainer _container;
 
-        public event Action<IEntity> OnDestroyed;
+        public event Action<Entity> OnDestroyed;
 
         private void Awake()
         {

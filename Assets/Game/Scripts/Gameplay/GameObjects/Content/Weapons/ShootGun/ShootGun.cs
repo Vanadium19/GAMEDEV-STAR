@@ -29,7 +29,7 @@ namespace Game.Content.Weapons
         protected override void SpawnBullet(TeamType team)
         {
             foreach (var shootPoint in _shootPoints)
-                _bulletSpawner.Spawn(_damage, shootPoint.forward * _speed, shootPoint, team);
+                _bulletSpawner.Spawn("Bullet", _damage, shootPoint.forward * _speed, shootPoint, team);
         }
     }
 }

@@ -7,7 +7,7 @@ namespace Game.Modules.Entities
     {
         [SerializeField] private Entity _entity;
 
-        public event Action<IEntity> OnDestroyed
+        public event Action<Entity> OnDestroyed
         {
             add => _entity.OnDestroyed += value;
             remove => _entity.OnDestroyed -= value;

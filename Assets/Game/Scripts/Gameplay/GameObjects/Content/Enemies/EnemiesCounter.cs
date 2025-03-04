@@ -23,9 +23,6 @@ namespace Game.Content.Enemies
 
         public void Initialize()
         {
-            foreach (var entity in _entityWorld.Entities.Where(_ => _.TryGet(out Enemy enemy)))
-                Debug.Log(entity.Get<Transform>().position);
-            
             int enemiesCount = _entityWorld.Entities.Count(entity => entity.TryGet(out Enemy enemy));
             _currentEnemiesCount = new ReactiveProperty<int>(enemiesCount);
 

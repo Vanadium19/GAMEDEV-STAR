@@ -13,9 +13,6 @@ namespace Game.Scripts.Gameplay
         [SerializeField] private Entity _player;
         [SerializeField] private EnemiesCountView _enemiesCountView;
 
-        [Header("Bullets")] [SerializeField] private Bullet _bulletPrefab;
-        [SerializeField] private Transform _bulletsContainer;
-
         [SerializeField] private Transform _container;
         [SerializeField] private EntityCatalog _catalog;
 
@@ -34,7 +31,9 @@ namespace Game.Scripts.Gameplay
                 .NonLazy();
 
             //Bullets
-            BulletsInstaller.Install(Container, _bulletPrefab, _bulletsContainer);
+            Container.Bind<BulletSpawner>()
+                .AsSingle()
+                .NonLazy();
 
             //Presenters
             Container.BindInterfacesTo<EntityWorldPresenter>()

@@ -26,7 +26,7 @@ namespace Game.Content.Weapons
 
         protected override void SpawnBullet(TeamType team)
         {
-            _bulletSpawner.Spawn(_damage, _shootPoint.forward * _speed, _shootPoint, team);
+            _bulletSpawner.Spawn("Bullet", _damage, _shootPoint.forward * _speed, _shootPoint, team);
         }
     }
 }
