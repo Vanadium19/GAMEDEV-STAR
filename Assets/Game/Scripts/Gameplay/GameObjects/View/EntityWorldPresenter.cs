@@ -1,5 +1,5 @@
 ﻿using System;
-using Game.GameObjects;
+using Game.Content.Enemies;
 using R3;
 using Zenject;
 
@@ -7,14 +7,14 @@ namespace Game.View
 {
     public class EntityWorldPresenter : IInitializable, IDisposable
     {
-        private readonly EntityWorld _entityWorld;
+        private readonly EnemiesCounter _enemiesCounter;
         private readonly EnemiesCountView _view;
 
         private IDisposable _disposables;
 
-        public EntityWorldPresenter(EntityWorld entityWorld, EnemiesCountView view)
+        public EntityWorldPresenter(EnemiesCounter enemiesCounter, EnemiesCountView view)
         {
-            _entityWorld = entityWorld;
+            _enemiesCounter = enemiesCounter;
             _view = view;
         }
 
@@ -22,7 +22,7 @@ namespace Game.View
         {
             var disposableBuilder = Disposable.CreateBuilder();
 
-            _entityWorld.CurrentEnemiesCount.Subscribe(OnEnemiesCountChanged).AddTo(ref disposableBuilder);
+            _enemiesCounter.CurrentEnemiesCount.Subscribe(OnEnemiesCountChanged).AddTo(ref disposableBuilder);
 
             _disposables = disposableBuilder.Build();
         }

@@ -1,6 +1,6 @@
-﻿using Game.Core;
-using Game.Core.Components;
+﻿using Game.Core.Components;
 using Game.Core.Inventories;
+using Game.Modules.Entities;
 
 namespace Game.Content.Weapons
 {

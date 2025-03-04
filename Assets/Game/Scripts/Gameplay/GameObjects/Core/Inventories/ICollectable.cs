@@ -1,4 +1,6 @@
-﻿namespace Game.Core.Components
+﻿using Game.Modules.Entities;
+
+namespace Game.Core.Components
 {
     public interface ICollectable
     {

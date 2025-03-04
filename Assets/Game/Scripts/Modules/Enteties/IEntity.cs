@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Game.Core
+namespace Game.Modules.Entities
 {
     public interface IEntity
     {

@@ -1,5 +1,5 @@
-﻿using Game.Core;
-using Game.Core.Components;
+﻿using Game.Core.Components;
+using Game.Modules.Entities;
 using UnityEngine;
 
 namespace Game.Content.PickUp
@@ -15,7 +15,7 @@ namespace Game.Content.PickUp
 
         public void Collect(IEntity collector)
         {
-            if(collector.TryGet(out IHealable healable))
+            if (collector.TryGet(out IHealable healable))
             {
                 healable.TakeHeal(_heal);
                 Debug.Log("Heal");

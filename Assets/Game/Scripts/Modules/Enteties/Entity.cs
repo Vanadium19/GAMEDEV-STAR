@@ -2,7 +2,7 @@
 using UnityEngine;
 using Zenject;
 
-namespace Game.Core
+namespace Game.Modules.Entities
 {
     public class Entity : MonoBehaviour, IEntity
     {

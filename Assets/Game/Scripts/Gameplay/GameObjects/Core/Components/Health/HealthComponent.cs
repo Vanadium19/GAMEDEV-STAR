@@ -1,4 +1,5 @@
-﻿using Game.Scripts.Common;
+﻿using Game.Modules.Entities;
+using Game.Scripts.Common;
 using R3;
 using UnityEngine;
 

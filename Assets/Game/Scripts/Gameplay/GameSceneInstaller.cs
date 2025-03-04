@@ -1,7 +1,7 @@
-﻿using Game.Content.Player;
+﻿using Game.Content.Enemies;
+using Game.Content.Player;
 using Game.Content.Projectiles;
-using Game.Core;
-using Game.GameObjects;
+using Game.Modules.Entities;
 using Game.View;
 using UnityEngine;
 using Zenject;
@@ -23,6 +23,10 @@ namespace Game.Scripts.Gameplay
                 .WithArguments(_player);
 
             Container.BindInterfacesAndSelfTo<EntityWorld>()
+                .AsSingle()
+                .NonLazy();
+            
+            Container.BindInterfacesAndSelfTo<EnemiesCounter>()
                 .AsSingle()
                 .NonLazy();
 

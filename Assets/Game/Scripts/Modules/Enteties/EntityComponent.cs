@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Game.Core.Components
+namespace Game.Modules.Entities
 {
     public abstract class EntityComponent
     {

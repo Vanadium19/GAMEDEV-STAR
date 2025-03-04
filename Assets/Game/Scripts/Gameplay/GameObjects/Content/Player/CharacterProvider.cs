@@ -1,4 +1,4 @@
-﻿using Game.Core;
+﻿using Game.Modules.Entities;
 
 namespace Game.Content.Player
 {

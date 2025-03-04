@@ -1,6 +1,6 @@
 ﻿using System;
-using Game.Core;
 using Game.Core.Components;
+using Game.Modules.Entities;
 using Game.Scripts.Common;
 using UnityEngine;
 

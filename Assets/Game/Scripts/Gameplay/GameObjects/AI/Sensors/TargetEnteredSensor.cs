@@ -1,5 +1,5 @@
 ﻿using Game.Content.Player;
-using Game.Core;
+using Game.Modules.Entities;
 using Game.Scripts.Common;
 using UnityEngine;
 using Zenject;

@@ -1,5 +1,5 @@
 ﻿using Game.Content.Traps;
-using Game.Core;
+using Game.Modules.Entities;
 using UnityEngine;
 using Zenject;
 
