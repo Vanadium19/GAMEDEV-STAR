@@ -1,37 +1,56 @@
 using System;
 using UnityEngine;
 using Game.Scripts.Common;
+using Zenject;
 
 namespace Game.Content.Weapons
 {
-    public abstract class RangeWeapon : IWeapon
+    public abstract class RangeWeapon : IWeapon, ITickable
     {
         private readonly Transform _transform;
 
         public event Action Emptied;
 
         private int _ammoCount;
+        private float _delay;
+        private bool _autoDestroy;
+
+        private float _currentTime;
         
-        protected RangeWeapon(Transform transform, int ammoCount)
+        protected RangeWeapon(Transform transform, int ammoCount, float delay, bool autoDestroy = true)
         {
             _transform = transform;
             _ammoCount = ammoCount;
+            _delay = delay;
+            _autoDestroy = autoDestroy;
+        }
+
+        public void Tick()
+        {
+            _currentTime -= Time.deltaTime; 
         }
 
         public bool Shoot(TeamType team)
         {
-            if(SpawnBullet(team) == 0)
+            if(_currentTime > 0)
                 return false;
 
-            _ammoCount -= SpawnBullet(team);
+            if (IsGunEmpty())
+            {
+                if (_autoDestroy)
+                    Destroy();
 
-            if(IsGunEmpty())
-                Destroy();
-            
+                return false;
+            }
+
+
+            SpawnBullet(team);
+            _ammoCount = Mathf.Max(-1, _ammoCount - 1);
+            _currentTime = _delay;
             return true;
         }
-        protected bool IsGunEmpty() => Mathf.Max(_ammoCount, 0) == 0;
-        protected abstract int SpawnBullet(TeamType team);
+        
+        protected abstract void SpawnBullet(TeamType team);
 
         public void PickUp(Transform parent)
         {
@@ -56,5 +75,8 @@ namespace Game.Content.Weapons
             
             GameObject.Destroy(_transform.gameObject);
         }
+
+        protected bool IsGunEmpty() => _ammoCount <= 0 && _ammoCount != -1;
+
     }
 }

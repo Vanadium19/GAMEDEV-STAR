@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using Zenject;
 
 namespace Game.Content.Weapons
@@ -15,3 +15,7 @@ namespace Game.Content.Weapons
         }
     }
 }
+
+
+    
+

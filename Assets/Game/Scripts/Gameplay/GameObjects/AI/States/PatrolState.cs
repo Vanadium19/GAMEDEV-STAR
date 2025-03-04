@@ -69,7 +69,7 @@ namespace Game.AI.States
             _movable.Move(direction);
             _rotater.Rotate(point.position);
 
-            Debug.Log($"{(point.position - _transform.position).sqrMagnitude} magn {_sqrMinDistanceToPoint}");
+            //Debug.Log($"{(point.position - _transform.position).sqrMagnitude} magn {_sqrMinDistanceToPoint}");
 
             if ((point.position - _transform.position).sqrMagnitude <= _sqrMinDistanceToPoint)
             {
