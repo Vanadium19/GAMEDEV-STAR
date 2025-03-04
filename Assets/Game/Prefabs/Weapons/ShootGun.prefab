@@ -157,7 +157,8 @@ MonoBehaviour:
     _delay: 0
     _damage: 0
     _ammoCount: 0
-  _shootPoints: []
+  _shootPoints:
+  - {fileID: 5283280379137565693}
 --- !u!1 &4004703874031883003
 GameObject:
   m_ObjectHideFlags: 0
