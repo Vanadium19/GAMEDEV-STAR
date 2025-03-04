@@ -184,6 +184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _entity: {fileID: 6506923054526169144}
   _params:
+    _bulletConfig: {fileID: 11400000, guid: 90eb366f882038449836bba07ca7d2f6, type: 2}
     _transform: {fileID: 161973335804239666}
     _shootPoint: {fileID: 5283280379137565693}
     _speed: 2

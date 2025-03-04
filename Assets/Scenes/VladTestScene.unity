@@ -185,6 +185,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tank
       objectReference: {fileID: 0}
+    - target: {fileID: 7044869218124382744, guid: 0de20bfd2231bee4b94b735cd4d16b68,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -625,9 +630,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 4122722036810095377}
   _enemiesCountView: {fileID: 1602358048}
-  _bulletPrefab: {fileID: 8957498771988591285, guid: 677c68640b68cea41bbb4718767a3351,
-    type: 3}
-  _bulletsContainer: {fileID: 0}
   _container: {fileID: 1059596345}
   _catalog: {fileID: 11400000, guid: 0f7d245cfef6fb64aa24ca94e958a344, type: 2}
 --- !u!1 &571122994
@@ -1844,11 +1846,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 8146612357117770395, guid: a16478d27df5f9146904f455be8e9221,
-        type: 3}
-      propertyPath: _entity
-      value: 
-      objectReference: {fileID: 4122722036810095377}
     - target: {fileID: 9080290443360849351, guid: a16478d27df5f9146904f455be8e9221,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2188,6 +2185,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Kamikaze
+      objectReference: {fileID: 0}
+    - target: {fileID: 8922999873174799941, guid: 51e1988e9c082424582d325c521ab659,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

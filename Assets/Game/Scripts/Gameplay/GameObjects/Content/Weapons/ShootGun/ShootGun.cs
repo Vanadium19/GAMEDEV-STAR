@@ -11,6 +11,7 @@ namespace Game.Content.Weapons
         private readonly BulletSpawner _bulletSpawner;
         private readonly List<Transform> _shootPoints;
 
+        private readonly string _bulletId;
         private readonly float _speed;
         private readonly int _damage;
 
@@ -21,6 +22,7 @@ namespace Game.Content.Weapons
             : base(entity, weaponParams.Handle, weaponParams.AmmoCount, weaponParams.Delay)
         {
             _bulletSpawner = bulletSpawner;
+            _bulletId = weaponParams.BulletId;
             _damage = weaponParams.Damage;
             _speed = weaponParams.Speed;
             _shootPoints = shootPoints;
@@ -29,7 +31,7 @@ namespace Game.Content.Weapons
         protected override void SpawnBullet(TeamType team)
         {
             foreach (var shootPoint in _shootPoints)
-                _bulletSpawner.Spawn("Bullet", _damage, shootPoint.forward * _speed, shootPoint, team);
+                _bulletSpawner.Spawn(_bulletId, _damage, shootPoint.forward * _speed, shootPoint, team);
         }
     }
 }
