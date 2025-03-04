@@ -14,7 +14,7 @@ namespace Game.Content.Weapons
         private readonly int _damage;
 
         public Pistol(WeaponParams weaponParams, BulletSpawner bulletSpawner)
-            :base(weaponParams.Handle, weaponParams.AmmoCount, weaponParams.Delay, false)
+            :base(weaponParams.Handle, weaponParams.AmmoCount, weaponParams.Delay)
         {
             _bulletSpawner = bulletSpawner;
             _shootPoint = weaponParams.ShootPoint;

@@ -13,16 +13,14 @@ namespace Game.Content.Weapons
 
         private int _ammoCount;
         private float _delay;
-        private bool _autoDestroy;
 
         private float _currentTime;
         
-        protected RangeWeapon(Transform transform, int ammoCount, float delay, bool autoDestroy = true)
+        protected RangeWeapon(Transform transform, int ammoCount, float delay)
         {
             _transform = transform;
             _ammoCount = ammoCount;
             _delay = delay;
-            _autoDestroy = autoDestroy;
         }
 
         public void Tick()
@@ -37,9 +35,7 @@ namespace Game.Content.Weapons
 
             if (IsGunEmpty())
             {
-                if (_autoDestroy)
-                    Destroy();
-
+                Destroy();
                 return false;
             }
 
