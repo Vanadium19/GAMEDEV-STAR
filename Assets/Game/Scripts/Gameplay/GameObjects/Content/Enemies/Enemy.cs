@@ -35,7 +35,7 @@ namespace Game.Content.Enemies
             _disposables.Dispose();
         }
 
-        public void OnDeathStatusChanged(bool value)
+        private void OnDeathStatusChanged(bool value)
         {
             if (value)
                 GameObject.Destroy(_gameObject);

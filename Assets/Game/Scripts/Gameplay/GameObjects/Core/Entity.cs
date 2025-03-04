@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using Zenject;
 
 namespace Game.Core
@@ -9,9 +10,16 @@ namespace Game.Core
 
         private DiContainer _container;
 
+        public event Action<IEntity> OnDestroyed;
+
         private void Awake()
         {
             _container = _context.Container;
+        }
+
+        private void OnDestroy()
+        {
+            OnDestroyed?.Invoke(this);
         }
 
         public T Get<T>()
