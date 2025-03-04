@@ -1,4 +1,5 @@
 ﻿using Game.Core.Components;
+using Game.Modules.Entities;
 using Game.Scripts.Common;
 using UnityEngine;
 using Zenject;
@@ -7,7 +8,7 @@ namespace Game.Content.Traps
 {
     public class SlowZoneInstaller : MonoInstaller
     {
-        [SerializeField] private GameObject _gameObject;
+        [SerializeField] private Entity _entity;
         [SerializeField] private float _multiplier;
         [SerializeField] private int _health = 5;
 
@@ -19,8 +20,8 @@ namespace Game.Content.Traps
                 .WithArguments(_multiplier);
 
             //MonoBehaviors
-            Container.Bind<GameObject>()
-                .FromInstance(_gameObject)
+            Container.BindInterfacesTo<Entity>()
+                .FromInstance(_entity)
                 .AsSingle();
 
             //Components

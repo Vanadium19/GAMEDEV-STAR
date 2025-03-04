@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 722260188168946272}
   - component: {fileID: 1409796610271486118}
   - component: {fileID: 1528556547600360016}
+  - component: {fileID: 6786647856225489233}
   m_Layer: 0
   m_Name: Fire
   m_TagString: Untagged
@@ -165,5 +166,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2ad60f1a80d45c8b7d09db5a399f6c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _entity: {fileID: 0}
   _delay: 0.5
   _damage: 3
+--- !u!114 &6786647856225489233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6807272145040124747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cac5ef26525d8848b5319e5904f2897, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _context: {fileID: 2533816122631981835}

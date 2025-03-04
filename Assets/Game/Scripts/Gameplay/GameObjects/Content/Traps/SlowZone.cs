@@ -10,7 +10,7 @@ namespace Game.Content.Traps
 {
     public class SlowZone : IInitializable, IDisposable, IInteractableArea
     {
-        private readonly GameObject _gameObject;
+        private readonly IEntity _entity;
         private readonly HealthComponent _health;
         private readonly float _multiplier;
 
@@ -18,9 +18,9 @@ namespace Game.Content.Traps
 
         private IDisposable _disposables;
 
-        public SlowZone(GameObject gameObject, HealthComponent health, float multiplier)
+        public SlowZone(IEntity entity, HealthComponent health, float multiplier)
         {
-            _gameObject = gameObject;
+            _entity = entity;
             _health = health;
             _multiplier = multiplier;
         }
@@ -63,7 +63,7 @@ namespace Game.Content.Traps
                 return;
 
             ClearMovables();
-            GameObject.Destroy(_gameObject);
+            _entity.Destroy();
         }
 
         private void ClearMovables()
