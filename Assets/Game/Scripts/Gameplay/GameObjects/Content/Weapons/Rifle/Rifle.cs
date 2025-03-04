@@ -1,4 +1,5 @@
 using Game.Content.Projectiles;
+using Game.Modules.Entities;
 using Game.Scripts.Common;
 using UnityEngine;
 
@@ -12,9 +13,10 @@ namespace Game.Content.Weapons
         private readonly float _speed;
         private readonly int _damage;
 
-        public Rifle(WeaponParams weaponParams,
+        public Rifle(IEntity entity,
+            WeaponParams weaponParams,
             BulletSpawner bulletSpawner)
-            : base(weaponParams.Handle, weaponParams.AmmoCount, weaponParams.Delay)
+            : base(entity, weaponParams.Handle, weaponParams.AmmoCount, weaponParams.Delay)
         {
             _bulletSpawner = bulletSpawner;
             _shootPoint = weaponParams.ShootPoint;

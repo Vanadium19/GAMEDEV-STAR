@@ -1,4 +1,5 @@
 using System;
+using Game.Modules.Entities;
 using UnityEngine;
 using Game.Scripts.Common;
 using Zenject;
@@ -9,6 +10,7 @@ namespace Game.Content.Weapons
     {
         private const int InfiniteAmmo = -1;
 
+        private readonly IEntity _entity;
         private readonly Transform _transform;
         private readonly float _delay;
 
@@ -17,8 +19,9 @@ namespace Game.Content.Weapons
 
         public event Action Emptied;
 
-        protected RangeWeapon(Transform transform, int ammoCount, float delay)
+        protected RangeWeapon(IEntity entity, Transform transform, int ammoCount, float delay)
         {
+            _entity = entity;
             _transform = transform;
             _ammoCount = ammoCount;
             _delay = delay;
@@ -73,7 +76,7 @@ namespace Game.Content.Weapons
                 return;
 
             Emptied?.Invoke();
-            GameObject.Destroy(_transform.gameObject);
+            _entity.Destroy();
         }
     }
 }

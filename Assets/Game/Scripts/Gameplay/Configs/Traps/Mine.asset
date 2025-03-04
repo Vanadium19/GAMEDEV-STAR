@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7759bbf3b3744bc7997a4e71918c3515, type: 3}
-  m_Name: EntityCatalog
+  m_Script: {fileID: 11500000, guid: 7ad61eaf81c64c32ab8b98ff41d88fb1, type: 3}
+  m_Name: Mine
   m_EditorClassIdentifier: 
-  _configs:
-  - {fileID: 11400000, guid: 31084df13818ee64cbe8bc85f62da536, type: 2}
-  - {fileID: 11400000, guid: 1f145daa8e124c441a386f7db913ffef, type: 2}
+  <Prefab>k__BackingField: {fileID: 3063366414700761626, guid: 7a9cc4667c2bc1640b491c76f8cd1fe6,
+    type: 3}
+  <Name>k__BackingField: Mine

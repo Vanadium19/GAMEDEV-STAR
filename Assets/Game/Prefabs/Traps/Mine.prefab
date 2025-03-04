@@ -115,8 +115,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 270cdfa961dfab2409f73df3e08a490d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameObject: {fileID: 916426856670703819}
   _transform: {fileID: 6430782962699611322}
+  _entity: {fileID: 3063366414700761626}
   _damage: 5
   _radius: 3
   _delay: 1

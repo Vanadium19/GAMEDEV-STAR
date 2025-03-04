@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1121689918337802239}
   - component: {fileID: 4380962730760622054}
   - component: {fileID: 6103000828445395375}
+  - component: {fileID: 4099134745965265185}
   m_Layer: 0
   m_Name: Rifle
   m_TagString: Untagged
@@ -67,13 +68,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 189f3c4f5b6362940a2420ba09f7f8d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _entity: {fileID: 4099134745965265185}
   _params:
     _transform: {fileID: 1121689918337802239}
     _shootPoint: {fileID: 6246326883618414369}
-    _speed: 2
+    _speed: 5
     _delay: 0.2
     _damage: 2
     _ammoCount: 20
+--- !u!114 &4099134745965265185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1134296763766136308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cac5ef26525d8848b5319e5904f2897, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _context: {fileID: 4380962730760622054}
 --- !u!1 &2715642617727506991
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,7 +217,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7466212794370572968}
   - component: {fileID: 2391833690309388394}
-  - component: {fileID: 3747022173311543858}
+  - component: {fileID: 6179509628805728678}
   m_Layer: 7
   m_Name: Trigger
   m_TagString: Untagged
@@ -246,7 +261,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3747022173311543858
+--- !u!114 &6179509628805728678
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -255,10 +270,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6825521882599930762}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cac5ef26525d8848b5319e5904f2897, type: 3}
+  m_Script: {fileID: 11500000, guid: 192ad02d223e4742bd80096e2954ab88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _context: {fileID: 4380962730760622054}
+  _entity: {fileID: 4099134745965265185}
 --- !u!1 &7339798536309801876
 GameObject:
   m_ObjectHideFlags: 0

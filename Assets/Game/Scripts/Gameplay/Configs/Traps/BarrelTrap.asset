@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ad61eaf81c64c32ab8b98ff41d88fb1, type: 3}
   m_Name: BarrelTrap
   m_EditorClassIdentifier: 
-  <Prefab>k__BackingField: {fileID: 0}
-  <Name>k__BackingField: 
+  <Prefab>k__BackingField: {fileID: 3021631934604392479, guid: c6b50ddfc88da0b409e8c3fea5e69dd0,
+    type: 3}
+  <Name>k__BackingField: BarrelTrap
