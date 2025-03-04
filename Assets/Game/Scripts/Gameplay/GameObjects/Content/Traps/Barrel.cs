@@ -1,6 +1,7 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
 using Game.Core.Components;
+using Game.Modules.Entities;
 using UnityEngine;
 using Zenject;
 
@@ -9,22 +10,22 @@ namespace Game.Content.Traps
     public class Barrel : IInitializable, IDisposable
     {
         private readonly IAttacker _attacker;
+        private readonly IEntity _entity;
         private readonly float _delay;
 
-        private readonly GameObject _gameObject;
         private readonly GameObject _barrel;
         private readonly GameObject _fire;
 
         private bool _isFired;
 
         public Barrel(IAttacker attacker,
-            GameObject gameObject,
+            IEntity entity,
             GameObject barrel,
             GameObject fire,
             float delay)
         {
             _attacker = attacker;
-            _gameObject = gameObject;
+            _entity = entity;
             _barrel = barrel;
             _fire = fire;
             _delay = delay;
@@ -53,8 +54,10 @@ namespace Game.Content.Traps
         private async UniTaskVoid Destroy()
         {
             await UniTask.Delay(TimeSpan.FromSeconds(_delay));
-
-            GameObject.Destroy(_gameObject);
+            
+            _barrel.SetActive(true);
+            _fire.SetActive(false);
+            _entity.Destroy();
         }
     }
 }

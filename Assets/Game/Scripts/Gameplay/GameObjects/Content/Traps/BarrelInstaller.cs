@@ -1,4 +1,5 @@
 ﻿using Game.Core.Components;
+using Game.Modules.Entities;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Zenject;
@@ -7,7 +8,7 @@ namespace Game.Content.Traps
 {
     public class BarrelInstaller : MonoInstaller
     {
-        [SerializeField] private GameObject _gameObject;
+        [FormerlySerializedAs("_gameObject")] [SerializeField] private Entity _entity;
         [SerializeField] private GameObject _barrel;
         [SerializeField] private GameObject _fire;
         [SerializeField] private Transform _transform;
@@ -21,12 +22,12 @@ namespace Game.Content.Traps
             //Main
             Container.BindInterfacesAndSelfTo<Barrel>()
                 .AsSingle()
-                .WithArguments(_gameObject, _barrel, _fire, _fireTime)
+                .WithArguments(_barrel, _fire, _fireTime)
                 .NonLazy();
 
             //MonoBehaviors
-            Container.Bind<GameObject>()
-                .FromInstance(_gameObject)
+            Container.BindInterfacesTo<Entity>()
+                .FromInstance(_entity)
                 .AsSingle();
 
             Container.Bind<Transform>()

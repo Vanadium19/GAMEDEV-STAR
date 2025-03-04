@@ -16,6 +16,9 @@ namespace Game.Scripts.Gameplay
         [Header("Bullets")] [SerializeField] private Bullet _bulletPrefab;
         [SerializeField] private Transform _bulletsContainer;
 
+        [SerializeField] private Transform _container;
+        [SerializeField] private EntityCatalog _catalog;
+
         public override void InstallBindings()
         {
             Container.Bind<CharacterProvider>()
@@ -24,8 +27,8 @@ namespace Game.Scripts.Gameplay
 
             Container.BindInterfacesAndSelfTo<EntityWorld>()
                 .AsSingle()
-                .NonLazy();
-            
+                .WithArguments(_catalog, Container, _container);
+
             Container.BindInterfacesAndSelfTo<EnemiesCounter>()
                 .AsSingle()
                 .NonLazy();
