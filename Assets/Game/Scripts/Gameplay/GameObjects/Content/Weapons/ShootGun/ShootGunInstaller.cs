@@ -8,14 +8,13 @@ namespace Game.Content.Weapons
     public class ShootGunInstaller : MonoInstaller
     {
         [SerializeField] private WeaponParams _params;
-        [SerializeField] private int _maxAmmoCount;
         [SerializeField] private List<Transform> _shootPoints;
 
         public override void InstallBindings()
         {
             Container.BindInterfacesAndSelfTo<ShootGun>()
                 .AsSingle()
-                .WithArguments(_params, _maxAmmoCount, _shootPoints);
+                .WithArguments(_params, _shootPoints);
         }
     }
 }

@@ -93,7 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 161973335804239666}
   - component: {fileID: 5070092486745438205}
-  - component: {fileID: 4338961822009419930}
+  - component: {fileID: 8608602100217309513}
   m_Layer: 0
   m_Name: ShootGun
   m_TagString: Untagged
@@ -134,11 +134,11 @@ MonoBehaviour:
   _scriptableObjectInstallers:
   - {fileID: 11400000, guid: 9351b648fb8351942ac97f0b697c2741, type: 2}
   _monoInstallers:
-  - {fileID: 4338961822009419930}
+  - {fileID: 8608602100217309513}
   _installerPrefabs: []
   _autoRun: 1
   _kernel: {fileID: 0}
---- !u!114 &4338961822009419930
+--- !u!114 &8608602100217309513
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -147,17 +147,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 3639233931371019955}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2602968e72f1a9248befa2b4a530affc, type: 3}
+  m_Script: {fileID: 11500000, guid: eaf1d207688e9824ea4dab19dd632678, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _params:
-    _transform: {fileID: 161973335804239666}
-    _shootPoint: {fileID: 5283280379137565693}
-    _team: 1
-    _speed: 8
-    _delay: 0.5
-    _damage: 1
-  _maxAmmoCount: 25
+    _transform: {fileID: 0}
+    _shootPoint: {fileID: 0}
+    _speed: 0
+    _delay: 0
+    _damage: 0
+    _ammoCount: 0
+  _shootPoints:
+  - {fileID: 5283280379137565693}
 --- !u!1 &4004703874031883003
 GameObject:
   m_ObjectHideFlags: 0

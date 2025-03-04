@@ -11,11 +11,13 @@ namespace Game.Content.Weapons
         [SerializeField] private float _speed;
         [SerializeField] private float _delay;
         [SerializeField] private int _damage;
+        [SerializeField] private int _ammoCount;
 
         public Transform Handle => _transform;
         public Transform ShootPoint => _shootPoint;
         public float Speed => _speed;
         public float Delay => _delay;
         public int Damage => _damage;
+        public int AmmoCount => _ammoCount;
     }
 }

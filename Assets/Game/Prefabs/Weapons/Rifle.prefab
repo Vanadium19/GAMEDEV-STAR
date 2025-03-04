@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1121689918337802239}
   - component: {fileID: 5690704559798732415}
-  - component: {fileID: 5427590389747814480}
+  - component: {fileID: 6103000828445395375}
   m_Layer: 0
   m_Name: Rifle
   m_TagString: Untagged
@@ -51,11 +51,11 @@ MonoBehaviour:
   _scriptableObjectInstallers:
   - {fileID: 11400000, guid: 9351b648fb8351942ac97f0b697c2741, type: 2}
   _monoInstallers:
-  - {fileID: 5427590389747814480}
+  - {fileID: 6103000828445395375}
   _installerPrefabs: []
   _autoRun: 1
   _kernel: {fileID: 0}
---- !u!114 &5427590389747814480
+--- !u!114 &6103000828445395375
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -64,17 +64,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1134296763766136308}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e2a38afd1b0feb4f936ba64cdd8c6a6, type: 3}
+  m_Script: {fileID: 11500000, guid: 189f3c4f5b6362940a2420ba09f7f8d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _params:
-    _transform: {fileID: 1121689918337802239}
-    _shootPoint: {fileID: 6246326883618414369}
-    _team: 1
-    _speed: 7.2
-    _delay: 0.15
-    _damage: 2
-  _maxAmmoCount: 20
+    _transform: {fileID: 0}
+    _shootPoint: {fileID: 0}
+    _speed: 0
+    _delay: 0
+    _damage: 0
+    _ammoCount: 0
 --- !u!1 &2715642617727506991
 GameObject:
   m_ObjectHideFlags: 0
