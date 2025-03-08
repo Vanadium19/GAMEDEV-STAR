@@ -5,16 +5,18 @@ namespace Game.Menu.Core
 {
     public class LevelLoader : ILevelLoader
     {
-        private const int MAX_LEVEL_NUMBER = (int)SceneNumbers.Level6;
+        private const int MaxLevelNumber = (int)SceneNumber.Level6;
 
-        private int _level;
+        private int _level = (int)SceneNumber.Level1;
+
+        public int Level => _level;
 
         public void LoadLevel()
         {
-            if (_level > MAX_LEVEL_NUMBER)
+            if (_level > MaxLevelNumber)
             {
-                _level = (int)SceneNumbers.Level1;
-                SceneManager.LoadScene((int)SceneNumbers.Menu);
+                _level = (int)SceneNumber.Level1;
+                SceneManager.LoadScene((int)SceneNumber.Menu);
                 return;
             }
 
@@ -25,6 +27,10 @@ namespace Game.Menu.Core
         {
             _level++;
         }
-    }
 
+        public void SetLevel(int level)
+        {
+            _level = level;
+        }
+    }
 }

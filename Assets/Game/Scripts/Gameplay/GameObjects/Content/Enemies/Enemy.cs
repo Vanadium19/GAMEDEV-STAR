@@ -24,7 +24,9 @@ namespace Game.Content.Enemies
         {
             var disposableBuilder = Disposable.CreateBuilder();
 
-            _health.IsDead.Subscribe(OnDeathStatusChanged).AddTo(ref disposableBuilder);
+            _health.IsDead.Where(value => value)
+                .Subscribe(OnDeathStatusChanged)
+                .AddTo(ref disposableBuilder);
 
             _disposables = disposableBuilder.Build();
         }
@@ -36,8 +38,9 @@ namespace Game.Content.Enemies
 
         private void OnDeathStatusChanged(bool value)
         {
-            if (value)
-                _entity.Destroy();
+            _entity.Destroy();
+
+            Debug.Log("Враг умер!");
         }
     }
 }

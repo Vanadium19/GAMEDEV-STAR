@@ -1,6 +1,6 @@
 ﻿namespace Game.Scripts.Common
 {
-    public enum SceneNumbers
+    public enum SceneNumber
     {
         Menu = 0,
         Level1,

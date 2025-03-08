@@ -15,15 +15,15 @@ namespace Game.Installers
 
         private void BindManagers()
         {
-            Container.BindInterfacesAndSelfTo<GameSettings>()
+            Container.BindInterfacesTo<VolumeSettings>()
                 .AsSingle()
                 .NonLazy();
 
-            Container.BindInterfacesAndSelfTo<LevelLoader>()
+            Container.BindInterfacesTo<LevelLoader>()
                 .AsSingle()
                 .NonLazy();
 
-            Container.BindInterfacesAndSelfTo<MenuFacade>()
+            Container.Bind<MenuFacade>()
                 .AsSingle()
                 .NonLazy();
         }

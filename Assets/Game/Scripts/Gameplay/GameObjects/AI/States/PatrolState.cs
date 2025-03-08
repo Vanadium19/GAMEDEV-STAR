@@ -41,13 +41,11 @@ namespace Game.AI.States
         public void OnEnter()
         {
             _remainsDelayEnteredTime = _enteredDelay;
-            Debug.Log("PatrolState: Enter");
         }
 
         public void OnExit()
         {
             _movable.Move(Vector3.zero);
-            Debug.Log("PatrolState: Exit");
         }
 
         public void OnUpdate(float deltaTime)

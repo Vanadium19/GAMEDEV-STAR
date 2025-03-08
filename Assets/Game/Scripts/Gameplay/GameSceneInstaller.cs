@@ -1,6 +1,8 @@
 ﻿using Game.Content.Enemies;
 using Game.Content.Player;
 using Game.Content.Projectiles;
+using Game.GameSystems.Controllers;
+using Game.Menu.UI;
 using Game.Modules.Entities;
 using Game.View;
 using UnityEngine;
@@ -16,8 +18,12 @@ namespace Game.Scripts.Gameplay
         [SerializeField] private Transform _container;
         [SerializeField] private EntityCatalog _catalog;
 
+        [SerializeField] private Transform _levelMenuPrefab;
+        [SerializeField] private Transform _canvas;
+
         public override void InstallBindings()
         {
+            //Others
             Container.Bind<CharacterProvider>()
                 .AsSingle()
                 .WithArguments(_player);
@@ -29,6 +35,20 @@ namespace Game.Scripts.Gameplay
             Container.BindInterfacesAndSelfTo<EnemiesCounter>()
                 .AsSingle()
                 .NonLazy();
+
+            //Controllers
+            Container.BindInterfacesTo<MenuController>()
+                .AsSingle()
+                .NonLazy();
+
+            Container.BindInterfacesTo<LevelProgressController>()
+                .AsSingle()
+                .NonLazy();
+
+            Container.BindFactory<Transform, LevelMenuFactory>()
+                .FromComponentInNewPrefab(_levelMenuPrefab)
+                .UnderTransform(_canvas)
+                .AsSingle();
 
             //Bullets
             Container.Bind<BulletSpawner>()

@@ -22,7 +22,6 @@ namespace Game.AI.States
 
         public void OnEnter()
         {
-            Debug.Log("Вошел в состояние атаки");
         }
 
         public void OnUpdate(float deltaTime)
@@ -36,7 +35,6 @@ namespace Game.AI.States
 
         public void OnExit()
         {
-            Debug.Log("Вышел из состояния атаки");
         }
     }
 }
