@@ -1,20 +1,29 @@
+using System;
 using DG.Tweening;
 using UnityEngine;
 using Game.Scripts.Common;
+using R3;
 using UnityEngine.SceneManagement;
 
 namespace Game.Menu.Core
 {
     public class MenuFacade
     {
-        private readonly IGameSettings _gameSettings;
         private readonly ILevelLoader _levelLoader;
 
-        public MenuFacade(IGameSettings gameSettings,
-            ILevelLoader levelLoader)
+        private readonly Subject<Unit> _openMenuCommand = new();
+
+        public MenuFacade(ILevelLoader levelLoader)
         {
-            _gameSettings = gameSettings;
             _levelLoader = levelLoader;
+        }
+
+        public Observable<Unit> OpenMenuCommand => _openMenuCommand;
+
+        public void OpenMenu()
+        {
+            PauseGame();
+            _openMenuCommand?.OnNext(Unit.Default);
         }
 
         public void LoadGame()
@@ -22,20 +31,11 @@ namespace Game.Menu.Core
             _levelLoader.LoadLevel();
         }
 
-        public void SetMusicVolume(float volume)
-        {
-            _gameSettings.SetMusicVolume(volume);
-        }
-
-        public void SetEffectVolume(float volume)
-        {
-            _gameSettings.SetEffectsVolume(volume);
-        }
-
         public void LoadNextLevel()
         {
             _levelLoader.SetNextLevel();
             _levelLoader.LoadLevel();
+            //Save();
         }
 
         public void PauseGame()
@@ -51,7 +51,7 @@ namespace Game.Menu.Core
         public void ReturnToMainMenu()
         {
             ContinueGame();
-            SceneManager.LoadScene((int)SceneNumbers.Menu);
+            SceneManager.LoadScene((int)SceneNumber.Menu);
             DOTween.KillAll();
         }
 
@@ -60,5 +60,5 @@ namespace Game.Menu.Core
             DOTween.KillAll();
             Application.Quit();
         }
-    }   
+    }
 }
