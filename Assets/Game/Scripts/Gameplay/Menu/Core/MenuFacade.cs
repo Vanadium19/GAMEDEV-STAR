@@ -12,6 +12,7 @@ namespace Game.Menu.Core
 
         private readonly Subject<Unit> _openMenuCommand = new();
         private readonly Subject<Unit> _openDeathPanelCommand = new();
+        private readonly Subject<Unit> _openEndLevelPanelCommand = new();
 
         public MenuFacade(ILevelLoader levelLoader)
         {
@@ -20,6 +21,7 @@ namespace Game.Menu.Core
 
         public Observable<Unit> OpenMenuCommand => _openMenuCommand;
         public Observable<Unit> OpenDeathPanelCommand => _openDeathPanelCommand;
+        public Observable<Unit> OpenEndLevelPanelCommand => _openEndLevelPanelCommand;
 
         public void OpenMenu()
         {
@@ -31,6 +33,11 @@ namespace Game.Menu.Core
         {
             PauseGame();
             _openDeathPanelCommand?.OnNext(Unit.Default);
+        }
+
+        public void OpenEndLevelPanel()
+        {
+            _openEndLevelPanelCommand?.OnNext(Unit.Default);
         }
 
         public void LoadGame()

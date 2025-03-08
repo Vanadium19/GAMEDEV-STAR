@@ -20,10 +20,13 @@ namespace Game.Menu.UI
 
         public void Initialize()
         {
+            _view.Initialize();
+
             var disposableBuilder = Disposable.CreateBuilder();
 
             _menuFacade.OpenMenuCommand.Subscribe(_ => _view.OpenMenu()).AddTo(ref disposableBuilder);
             _menuFacade.OpenDeathPanelCommand.Subscribe(_ => _view.OpenDeathMenu()).AddTo(ref disposableBuilder);
+            _menuFacade.OpenEndLevelPanelCommand.Subscribe(_ => _view.OpenEndLevelPopup()).AddTo(ref disposableBuilder);
 
             _view.ExitButtonClicked.Subscribe(_ => _menuFacade.ReturnToMainMenu()).AddTo(ref disposableBuilder);
             _view.RestartButtonClicked.Subscribe(_ => _menuFacade.LoadGame()).AddTo(ref disposableBuilder);

@@ -16,6 +16,7 @@ namespace Game.Menu.UI
         [Header("Popups")] [SerializeField] private GameObject _menuPopup;
         [SerializeField] private GameObject _settingsPopup;
         [SerializeField] private GameObject _deathPopup;
+        [SerializeField] private GameObject _endLevelPopup;
 
         public Observable<Unit> ContinueButtonClicked;
         public Observable<Unit> RestartButtonClicked;
@@ -23,19 +24,12 @@ namespace Game.Menu.UI
 
         private IDisposable _disposables;
 
-        private void Awake()
-        {
-            ContinueButtonClicked = _continueButton.OnClickAsObservable();
-            RestartButtonClicked = _restartButton.OnClickAsObservable();
-            ExitButtonClicked = _exitButtons.Select(button => button.OnClickAsObservable()).Merge();
-        }
-
         private void OnEnable()
         {
             var disposableBuilder = Disposable.CreateBuilder();
 
             _settingsButton.OnClickAsObservable()
-                .Subscribe(_ => _settingsPopup.SetActive(true))
+                .Subscribe(_ => OpenSettingsPopup())
                 .AddTo(ref disposableBuilder);
 
             ContinueButtonClicked.Subscribe(_ => _menuPopup.SetActive(false))
@@ -49,9 +43,27 @@ namespace Game.Menu.UI
             _menuPopup.SetActive(true);
         }
 
+        public void Initialize()
+        {
+            ContinueButtonClicked = _continueButton.OnClickAsObservable();
+            RestartButtonClicked = _restartButton.OnClickAsObservable();
+            ExitButtonClicked = _exitButtons.Select(button => button.OnClickAsObservable()).Merge();
+        }
+
         public void OpenDeathMenu()
         {
             _deathPopup.SetActive(true);
+        }
+
+        public void OpenEndLevelPopup()
+        {
+            _endLevelPopup.SetActive(true);
+        }
+
+        private void OpenSettingsPopup()
+        {
+            _settingsPopup.SetActive(true);
+            _menuPopup.SetActive(false);
         }
     }
 }

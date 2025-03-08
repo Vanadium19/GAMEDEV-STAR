@@ -479,6 +479,9 @@ MonoBehaviour:
   _enemiesCountView: {fileID: 1602358048}
   _container: {fileID: 1059596345}
   _catalog: {fileID: 11400000, guid: 0f7d245cfef6fb64aa24ca94e958a344, type: 2}
+  _levelMenuPrefab: {fileID: 8751160133312295084, guid: a863be6ea04043e4e9c50f74b4803b04,
+    type: 3}
+  _canvas: {fileID: 1602358047}
 --- !u!1 &571122994
 GameObject:
   m_ObjectHideFlags: 0

@@ -34,8 +34,6 @@ namespace Game.AI.States
         public void OnEnter()
         {
             _currentTime = _enteredDelay;
-
-            Debug.Log("Вошел в состояние преследования");
         }
 
         public void OnUpdate(float deltaTime)
@@ -61,7 +59,7 @@ namespace Game.AI.States
             }
 
             Vector3 direction = Vector3.ProjectOnPlane(distanceVector, Vector3.up).normalized;
-            
+
             _movable.Move(direction);
             _rotater.Rotate(target.position);
         }
@@ -69,8 +67,6 @@ namespace Game.AI.States
         public void OnExit()
         {
             _movable.Move(Vector3.zero);
-
-            Debug.Log("Вышел из состояния преследования");
         }
     }
 }

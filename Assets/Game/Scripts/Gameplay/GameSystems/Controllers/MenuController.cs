@@ -17,9 +17,6 @@ namespace Game.GameSystems.Controllers
         {
             if (Input.GetKeyDown(KeyCode.Escape))
                 _menuFacade.OpenMenu();
-
-            if (Input.GetKeyDown(KeyCode.Tab))
-                _menuFacade.OpenDeathPanel();
         }
     }
 }
