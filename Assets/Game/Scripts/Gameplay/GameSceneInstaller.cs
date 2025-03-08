@@ -1,6 +1,7 @@
 ﻿using Game.Content.Enemies;
 using Game.Content.Player;
 using Game.Content.Projectiles;
+using Game.GameSystems.Controllers;
 using Game.Modules.Entities;
 using Game.View;
 using UnityEngine;
@@ -18,6 +19,11 @@ namespace Game.Scripts.Gameplay
 
         public override void InstallBindings()
         {
+            //Controllers
+            Container.BindInterfacesTo<MenuController>()
+                .AsSingle()
+                .NonLazy();
+
             Container.Bind<CharacterProvider>()
                 .AsSingle()
                 .WithArguments(_player);

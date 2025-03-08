@@ -1,4 +1,3 @@
-using System;
 using DG.Tweening;
 using UnityEngine;
 using Game.Scripts.Common;
@@ -12,6 +11,7 @@ namespace Game.Menu.Core
         private readonly ILevelLoader _levelLoader;
 
         private readonly Subject<Unit> _openMenuCommand = new();
+        private readonly Subject<Unit> _openDeathPanelCommand = new();
 
         public MenuFacade(ILevelLoader levelLoader)
         {
@@ -19,6 +19,7 @@ namespace Game.Menu.Core
         }
 
         public Observable<Unit> OpenMenuCommand => _openMenuCommand;
+        public Observable<Unit> OpenDeathPanelCommand => _openDeathPanelCommand;
 
         public void OpenMenu()
         {
@@ -26,8 +27,15 @@ namespace Game.Menu.Core
             _openMenuCommand?.OnNext(Unit.Default);
         }
 
+        public void OpenDeathPanel()
+        {
+            PauseGame();
+            _openDeathPanelCommand?.OnNext(Unit.Default);
+        }
+
         public void LoadGame()
         {
+            ContinueGame();
             _levelLoader.LoadLevel();
         }
 
