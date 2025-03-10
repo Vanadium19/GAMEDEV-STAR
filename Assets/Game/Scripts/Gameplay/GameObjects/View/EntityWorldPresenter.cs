@@ -34,7 +34,7 @@ namespace Game.View
 
         private void OnEnemiesCountChanged(int count)
         {
-            string text = $"Осталось врагов {count}";
+            string text = $"{_enemiesCounter.MaxEnemiesCount - count}/{_enemiesCounter.MaxEnemiesCount}";
 
             _view.ShowEnemiesCount(text);
         }
