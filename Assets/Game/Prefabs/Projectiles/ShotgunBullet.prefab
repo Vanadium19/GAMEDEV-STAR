@@ -16,8 +16,8 @@ GameObject:
   - component: {fileID: 3195588136802803409}
   - component: {fileID: 7211639688204660071}
   - component: {fileID: 261975404679859277}
-  - component: {fileID: 6062530050476180995}
   - component: {fileID: -7633097440569528123}
+  - component: {fileID: 5843795349938495262}
   m_Layer: 6
   m_Name: ShotgunBullet
   m_TagString: Bullet
@@ -153,7 +153,7 @@ MonoBehaviour:
   _scriptableObjectInstallers: []
   _monoInstallers:
   - {fileID: 261975404679859277}
-  - {fileID: 6062530050476180995}
+  - {fileID: 5843795349938495262}
   _installerPrefabs: []
   _autoRun: 1
   _kernel: {fileID: 0}
@@ -182,20 +182,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _controller: {fileID: 7211639688204660071}
---- !u!114 &6062530050476180995
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7057636561587500017}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68d34b8794c943f0971809bbdb8068bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _entity: {fileID: -7633097440569528123}
-  _rigidbody: {fileID: 4408160795929491117}
 --- !u!114 &-7633097440569528123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,3 +195,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _context: {fileID: 3195588136802803409}
+--- !u!114 &5843795349938495262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7057636561587500017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 539a731d97874b62b66adcffea79e68c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _entity: {fileID: -7633097440569528123}
+  _rigidbody: {fileID: 4408160795929491117}
+  _delay: 0.5

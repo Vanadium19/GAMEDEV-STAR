@@ -23,7 +23,7 @@ namespace Game.Menu.Core
             SceneManager.LoadScene(_level);
         }
 
-        public void SetNextLevel()
+        public void LoadNextLevel()
         {
             _level++;
         }
