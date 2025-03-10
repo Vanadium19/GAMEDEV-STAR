@@ -35,6 +35,8 @@ namespace Game.Core.Components
 
             _currentHealth.Value = Mathf.Max(0, _currentHealth.Value - damage);
 
+            Debug.Log($"Damage taken: {damage}");
+
             if (_currentHealth.Value <= 0)
                 _isDead.Value = true;
         }

@@ -375,7 +375,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 4949187238036537412}
   _transform: {fileID: 7767673133845404912}
-  _gameObject: {fileID: 8875681760111778527}
+  _entity: {fileID: 8976051938741261000}
   _health: 10
   _moveSpeed:
     value: 2.5

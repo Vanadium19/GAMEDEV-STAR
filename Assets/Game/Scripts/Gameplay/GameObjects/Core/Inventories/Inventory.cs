@@ -34,8 +34,9 @@ namespace Game.Core.Inventories
             weapon.Enable(false);
             weapon.PickUp(_handle);
             weapon.Emptied += DropWeapon;
-            
+
             _weapons[ExtraWeaponIndex] = weapon;
+            ChangeWeapon();
         }
 
         public void DropWeapon()
@@ -44,7 +45,7 @@ namespace Game.Core.Inventories
 
             _currentWeapon.Value = _weapons[DefaultWeaponIndex];
             _currentWeapon.Value.Enable(true);
-            
+
             _currentIndex = DefaultWeaponIndex;
             _weapons[ExtraWeaponIndex] = null;
 
@@ -55,8 +56,6 @@ namespace Game.Core.Inventories
 
         public void ChangeWeapon()
         {
-            Debug.Log("Change");
-
             int index = (_currentIndex + 1) % _weapons.Length;
 
             if (_weapons[index] == null)

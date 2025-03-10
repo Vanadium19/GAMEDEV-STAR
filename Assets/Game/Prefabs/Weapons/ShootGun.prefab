@@ -187,9 +187,9 @@ MonoBehaviour:
     _bulletConfig: {fileID: 11400000, guid: 90eb366f882038449836bba07ca7d2f6, type: 2}
     _transform: {fileID: 161973335804239666}
     _shootPoint: {fileID: 5283280379137565693}
-    _speed: 2
+    _speed: 5
     _delay: 0.5
-    _damage: 3
+    _damage: 4
     _ammoCount: 7
   _shootPoints:
   - {fileID: 4257814992390880576}
