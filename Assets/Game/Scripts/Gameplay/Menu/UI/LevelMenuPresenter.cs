@@ -31,7 +31,7 @@ namespace Game.Menu.UI
             _menuFacade.OpenEndLevelPanelCommand.Subscribe(_ => _view.OpenEndLevelPopup()).AddTo(ref disposableBuilder);
 
             _view.ExitButtonClicked.Subscribe(_ => _menuFacade.ReturnToMainMenu()).AddTo(ref disposableBuilder);
-            _view.RestartButtonClicked.Subscribe(_ => _menuFacade.LoadGame()).AddTo(ref disposableBuilder);
+            _view.RestartButtonClicked.Subscribe(_ => _menuFacade.LoadLevel()).AddTo(ref disposableBuilder);
             _view.ContinueButtonClicked.Subscribe(_ => _menuFacade.ContinueGame()).AddTo(ref disposableBuilder);
             _view.FPSButtonPressed.Skip(DefaultValueCount).Subscribe(_menuFacade.ShowFpsCounter).AddTo(ref disposableBuilder);
 

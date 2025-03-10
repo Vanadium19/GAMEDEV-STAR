@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51486418f4e6fec42a00b1e76efb36df, type: 3}
   m_Name: GameInstaller
   m_EditorClassIdentifier: 
+  _audioMixer: {fileID: 24100000, guid: 3ef0c7d3a7730be4cb8f9ba28708b495, type: 2}

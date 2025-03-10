@@ -10,7 +10,6 @@ namespace Game.Menu.Core
 
         public void ShowFpsCounter(bool value)
         {
-            Debug.Log($"ShowFPS: {value}");
             _showFPS = value;
         }
     }

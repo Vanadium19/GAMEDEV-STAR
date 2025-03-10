@@ -27,7 +27,7 @@ namespace Game.Menu.UI
 
             var disposableBuilder = Disposable.CreateBuilder();
 
-            _menuView.PlayButtonPressed.Subscribe(_ => _menuFacade.LoadGame()).AddTo(ref disposableBuilder);
+            _menuView.PlayButtonPressed.Subscribe(_ => _menuFacade.LoadLevel()).AddTo(ref disposableBuilder);
             _menuView.ExitButtonPressed.Subscribe(_ => _menuFacade.ExitGame()).AddTo(ref disposableBuilder);
             _menuView.FPSButtonPressed.Skip(DefaultValueCount).Subscribe(_menuFacade.ShowFpsCounter).AddTo(ref disposableBuilder);
 
