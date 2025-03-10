@@ -12,17 +12,30 @@ namespace Game.Menu.UI
         [SerializeField] private Button _restartButton;
         [SerializeField] private Button _settingsButton;
         [SerializeField] private Button _continueButton;
+        [SerializeField] private Toggle _fpsToggle;
 
         [Header("Popups")] [SerializeField] private GameObject _menuPopup;
         [SerializeField] private GameObject _settingsPopup;
         [SerializeField] private GameObject _deathPopup;
         [SerializeField] private GameObject _endLevelPopup;
+        [SerializeField] private GameObject _fpsCounter;
 
         public Observable<Unit> ContinueButtonClicked;
         public Observable<Unit> RestartButtonClicked;
         public Observable<Unit> ExitButtonClicked;
+        public Observable<bool> FPSButtonPressed;
 
         private IDisposable _disposables;
+
+        public void Initialize(bool showFPS)
+        {
+            _fpsToggle.isOn = showFPS;
+            
+            ContinueButtonClicked = _continueButton.OnClickAsObservable();
+            RestartButtonClicked = _restartButton.OnClickAsObservable();
+            ExitButtonClicked = _exitButtons.Select(button => button.OnClickAsObservable()).Merge();
+            FPSButtonPressed = _fpsToggle.OnValueChangedAsObservable();
+        }
 
         private void OnEnable()
         {
@@ -34,20 +47,21 @@ namespace Game.Menu.UI
 
             ContinueButtonClicked.Subscribe(_ => _menuPopup.SetActive(false))
                 .AddTo(ref disposableBuilder);
+            
+            FPSButtonPressed.Subscribe(_fpsCounter.SetActive)
+                .AddTo(ref disposableBuilder);
 
             _disposables = disposableBuilder.Build();
+        }
+
+        private void OnDisable()
+        {
+            _disposables?.Dispose();
         }
 
         public void OpenMenu()
         {
             _menuPopup.SetActive(true);
-        }
-
-        public void Initialize()
-        {
-            ContinueButtonClicked = _continueButton.OnClickAsObservable();
-            RestartButtonClicked = _restartButton.OnClickAsObservable();
-            ExitButtonClicked = _exitButtons.Select(button => button.OnClickAsObservable()).Merge();
         }
 
         public void OpenDeathMenu()

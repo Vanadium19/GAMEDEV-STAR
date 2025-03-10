@@ -7,6 +7,8 @@ namespace Game.Menu.UI
 {
     public class LevelMenuPresenter : IInitializable, IDisposable
     {
+        private const int DefaultValueCount = 1;
+
         private readonly MenuFacade _menuFacade;
         private readonly LevelMenuView _view;
 
@@ -20,7 +22,7 @@ namespace Game.Menu.UI
 
         public void Initialize()
         {
-            _view.Initialize();
+            _view.Initialize(_menuFacade.ShowFPS);
 
             var disposableBuilder = Disposable.CreateBuilder();
 
@@ -31,6 +33,7 @@ namespace Game.Menu.UI
             _view.ExitButtonClicked.Subscribe(_ => _menuFacade.ReturnToMainMenu()).AddTo(ref disposableBuilder);
             _view.RestartButtonClicked.Subscribe(_ => _menuFacade.LoadGame()).AddTo(ref disposableBuilder);
             _view.ContinueButtonClicked.Subscribe(_ => _menuFacade.ContinueGame()).AddTo(ref disposableBuilder);
+            _view.FPSButtonPressed.Skip(DefaultValueCount).Subscribe(_menuFacade.ShowFpsCounter).AddTo(ref disposableBuilder);
 
             _disposables = disposableBuilder.Build();
         }

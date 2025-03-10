@@ -23,6 +23,10 @@ namespace Game.Installers
                 .AsSingle()
                 .NonLazy();
 
+            Container.Bind<GameSettings>()
+                .AsSingle()
+                .NonLazy();
+
             Container.Bind<MenuFacade>()
                 .AsSingle()
                 .NonLazy();

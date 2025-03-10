@@ -9,16 +9,19 @@ namespace Game.Menu.Core
     public class MenuFacade
     {
         private readonly ILevelLoader _levelLoader;
+        private readonly GameSettings _gameSettings;
 
         private readonly Subject<Unit> _openMenuCommand = new();
         private readonly Subject<Unit> _openDeathPanelCommand = new();
         private readonly Subject<Unit> _openEndLevelPanelCommand = new();
 
-        public MenuFacade(ILevelLoader levelLoader)
+        public MenuFacade(ILevelLoader levelLoader, GameSettings gameSettings)
         {
             _levelLoader = levelLoader;
+            _gameSettings = gameSettings;
         }
 
+        public bool ShowFPS => _gameSettings.ShowFPS;
         public Observable<Unit> OpenMenuCommand => _openMenuCommand;
         public Observable<Unit> OpenDeathPanelCommand => _openDeathPanelCommand;
         public Observable<Unit> OpenEndLevelPanelCommand => _openEndLevelPanelCommand;
@@ -50,6 +53,12 @@ namespace Game.Menu.Core
         {
             _levelLoader.SetNextLevel();
             _levelLoader.LoadLevel();
+            //Save();
+        }
+
+        public void ShowFpsCounter(bool value)
+        {
+            _gameSettings.ShowFpsCounter(value);
             //Save();
         }
 
