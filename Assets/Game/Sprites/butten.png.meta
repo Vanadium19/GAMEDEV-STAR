@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 536d6c184c5cfa041a749897ec7f805b
+guid: 67ac643cc27ee734d9d227ac8dc91de2
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -95,17 +95,34 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: butten_0
+      rect:
+        serializedVersion: 2
+        x: 827
+        y: 650
+        width: 395
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d92f414a801ac7b439c43c08e2ad0a92
+      internalID: 1307288312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline:
-    - - {x: 535.5469, y: 495.5357}
-      - {x: 361.49414, y: 450}
-      - {x: 361.49414, y: 179.46428}
-      - {x: 484.66992, y: 112.5}
-      - {x: 897.041, y: 56.25}
-      - {x: 2163.6094, y: 56.25}
-      - {x: 2412.6387, y: 147.32143}
-      - {x: 2412.6387, y: 447.32144}
-      - {x: 2297.496, y: 495.5357}
+    - - {x: -135, y: 268}
+      - {x: -135, y: 108}
+      - {x: 264, y: 108}
+      - {x: 264, y: 261}
+      - {x: 251, y: 268}
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
@@ -115,7 +132,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      butten_0: 1307288312
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

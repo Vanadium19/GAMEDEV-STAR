@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3ff64b49c1054e1439fe27d97f1af587
+guid: 9529292de1dc0904e9b08e80c0e6782d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: end_0
+      name: mark For gun-Recovered 1_0
       rect:
         serializedVersion: 2
-        x: 300
-        y: 159
-        width: 4194
-        height: 1346
+        x: 52
+        y: 51
+        width: 431
+        height: 393
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,23 +111,22 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9203007a8e1713342b795488f981a9a7
-      internalID: -1685918352
+      spriteID: 5d1859611f133574daa4c701f0ed064e
+      internalID: -1332705114
       vertices: []
       indices: 
       edges: []
       weights: []
     outline:
-    - - {x: 1357.9785, y: 748.2353}
-      - {x: -2068.7402, y: 682.3529}
-      - {x: -2113.457, y: 661.17645}
-      - {x: -2113.457, y: 616.4706}
-      - {x: -1765.1367, y: -129.41176}
-      - {x: -1463.8867, y: -604.7059}
-      - {x: 1548.6133, y: -604.7059}
-      - {x: 1856.9238, y: -181.17647}
-      - {x: 2087.5684, y: 668.2353}
-      - {x: 2087.5684, y: 748.2353}
+    - - {x: -208, y: 215}
+      - {x: -229, y: 77}
+      - {x: -229, y: -21}
+      - {x: -186, y: -131}
+      - {x: -107, y: -182}
+      - {x: 97, y: -182}
+      - {x: 206, y: -81}
+      - {x: 206, y: 171}
+      - {x: 183, y: 215}
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
@@ -138,7 +137,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      end_0: -1685918352
+      mark For gun-Recovered 1_0: -1332705114
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
