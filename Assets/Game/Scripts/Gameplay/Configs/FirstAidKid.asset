@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51486418f4e6fec42a00b1e76efb36df, type: 3}
-  m_Name: GameInstaller
+  m_Script: {fileID: 11500000, guid: 7ad61eaf81c64c32ab8b98ff41d88fb1, type: 3}
+  m_Name: FirstAidKid
   m_EditorClassIdentifier: 
-  _catalog: {fileID: 11400000, guid: ceedff2ee195ddf488f71c0b8eaf0e62, type: 2}
-  _audioMixer: {fileID: 24100000, guid: 3ef0c7d3a7730be4cb8f9ba28708b495, type: 2}
+  <Prefab>k__BackingField: {fileID: 2663305352990109079, guid: 98a04451e3b751049a9c6763ee5e4d5b,
+    type: 3}
+  <Name>k__BackingField: FirstAidKit

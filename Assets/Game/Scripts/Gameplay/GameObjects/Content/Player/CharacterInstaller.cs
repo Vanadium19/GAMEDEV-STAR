@@ -80,5 +80,11 @@ namespace Game.Content.Player
                 .FromInstance(_healthView)
                 .AsSingle();
         }
+
+        [ContextMenu(nameof(TakeDamage))]
+        private void TakeDamage()
+        {
+            Container.Resolve<IDamagable>().TakeDamage(5);
+        }
     }
 }
