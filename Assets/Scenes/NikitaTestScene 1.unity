@@ -549,9 +549,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d88b7af802e4c80abeea4e63dcaa7f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletPrefab: {fileID: 8957498771988591285, guid: 677c68640b68cea41bbb4718767a3351,
-    type: 3}
-  _bulletsContainer: {fileID: 1525377097}
+  _player: {fileID: 0}
+  _enemiesCountView: {fileID: 0}
+  _container: {fileID: 0}
+  _catalog: {fileID: 0}
+  _levelMenuPrefab: {fileID: 0}
+  _canvas: {fileID: 0}
 --- !u!1 &571122994
 GameObject:
   m_ObjectHideFlags: 0
@@ -994,8 +997,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 270cdfa961dfab2409f73df3e08a490d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameObject: {fileID: 0}
   _transform: {fileID: 1406012278}
+  _entity: {fileID: 0}
   _damage: 1
   _radius: 3
   _delay: 1

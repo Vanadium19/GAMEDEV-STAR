@@ -1,8 +1,8 @@
 ﻿using Game.Core.Components;
 using Game.Modules.Entities;
 using Game.Scripts.Common;
+using Game.View;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Zenject;
 
 namespace Game.Content.Traps
@@ -19,6 +19,9 @@ namespace Game.Content.Traps
         [SerializeField] private int _damage = 5;
         [SerializeField] private float _radius = 3f;
         [SerializeField] private float _fireTime = 2f;
+
+        [Header("View")]
+        [SerializeField] private BarrelView _barrelView;
 
         public override void InstallBindings()
         {
@@ -46,6 +49,15 @@ namespace Game.Content.Traps
             Container.BindInterfacesAndSelfTo<HealthComponent>()
                 .AsSingle()
                 .WithArguments(Health, TeamType.Default);
+
+            //View
+            Container.BindInterfacesAndSelfTo<BarrelPresenter>()
+                .AsSingle()
+                .NonLazy();
+
+            Container.Bind<BarrelView>()
+                .FromInstance(_barrelView)
+                .AsSingle();
         }
     }
 }

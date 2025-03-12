@@ -19,17 +19,19 @@ namespace Game.Core.Components
             _speed = speed;
         }
 
-        public ReadOnlyReactiveProperty<bool> IsMoving => _isMoving;
+        public Observable<bool> IsMoving => _isMoving;
 
         public void Move(Vector3 direction)
         {
+            Vector3 velocity;
+
             if (!CheckConditions() || _rigidbody.isKinematic)
             {
                 _isMoving.Value = false;
                 return;
             }
 
-            Vector3 velocity = direction * _speed.Value + Vector3.up * _rigidbody.velocity.y;
+            velocity = direction * _speed.Value + Vector3.up * _rigidbody.velocity.y;
 
             _isMoving.Value = Mathf.Abs(velocity.x) > Lapping || Mathf.Abs(velocity.z) > Lapping;
             _rigidbody.velocity = velocity;

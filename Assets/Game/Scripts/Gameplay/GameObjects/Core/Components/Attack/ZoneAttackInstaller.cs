@@ -19,6 +19,9 @@ namespace Game.Core.Components
             Container.Decorate<IAttacker>()
                 .With<DelayAttackDecorator>()
                 .WithArguments(_delay);
+
+            Container.Bind<ZoneAttackComponent>().To<ZoneAttackComponent>()
+                .FromResolve();
         }
     }
 }

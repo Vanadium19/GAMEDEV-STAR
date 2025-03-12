@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Game.Core.Components;
 using Game.Modules.Entities;
 using R3;
-using UnityEngine;
 using Zenject;
 
 namespace Game.Content.Traps

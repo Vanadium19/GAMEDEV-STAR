@@ -5,13 +5,11 @@ using Zenject;
 
 namespace Game.Core.Components
 {
-    public class MeleeAttackComponent : EntityComponent, IAttacker, ITickable
+    public class MeleeAttackComponent : AbstractAttackComponent, ITickable
     {
         private readonly float _delay;
 
         private float _currentTime;
-
-        public event Action Attacked;
 
         public MeleeAttackComponent(float delay)
         {
@@ -24,13 +22,13 @@ namespace Game.Core.Components
                 _currentTime -= Time.deltaTime;
         }
 
-        public void Attack()
+        public override void Attack()
         {
-            if (_currentTime > 0)
+            if (!CheckConditions()||_currentTime > 0)
                 return;
 
             Debug.Log("Рукопашная атака!!!");
-            Attacked?.Invoke();
+            InvokeAttacked();
             _currentTime = _delay;
         }
     }
