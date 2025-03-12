@@ -1,17 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
 using Game.Modules.Entities;
 using UnityEngine;
 
 namespace Game.Core.Components
 {
-    public class ZoneAttackComponent : EntityComponent, IAttacker
+    public class ZoneAttackComponent : AbstractAttackComponent
     {
+        private const int _maxCollidersCount = 10;
+        
         private readonly Transform _transform;
-        private float _attackRadius;
-        private int _damage;
-
-        public event Action Attacked;
+        private readonly float _attackRadius;
+        private readonly int _damage;
 
         public ZoneAttackComponent(Transform transform, float attackRadius, int damage)
         {
@@ -20,40 +19,22 @@ namespace Game.Core.Components
             _damage = damage;
         }
 
-        public void Attack()
+        public override void Attack()
         {
-            List<IDamagable> damagables = GetAllDamagableEntitiesFromColliders(GetAllCollidersInHitRadius());
-            TakeDamageToAllDamagableEntities(damagables);
-        }
+            if (!CheckConditions())
+                return;
 
-        private Collider[] GetAllCollidersInHitRadius()
-        {
-            return Physics.OverlapSphere(_transform.position, _attackRadius);
-        }
+            Collider[] colliders = new Collider[_maxCollidersCount];
+            int collidersCount = Physics.OverlapSphereNonAlloc(_transform.position, _attackRadius, colliders);
 
-        private List<IDamagable> GetAllDamagableEntitiesFromColliders(Collider[] colliders)
-        {
-            List<IDamagable> damagableEntities = new List<IDamagable>();
-            for (int i = 0; i < colliders.Length; i++)
+            for(int i = 0; i < collidersCount; i++)
             {
                 if (colliders[i].TryGetComponent(out IEntity entity) && entity.TryGet(out IDamagable damagable))
                 {
-                    damagableEntities.Add(damagable);
+                    damagable.TakeDamage(_damage);
                 }
             }
-
-            return damagableEntities;
-        }
-
-        private void TakeDamageToAllDamagableEntities(List<IDamagable> damagables)
-        {
-            foreach (var damagable in damagables)
-            {
-                damagable.TakeDamage(_damage);
-                Debug.Log($"{damagable} получил урон");
-            }
-
-            Attacked?.Invoke();
+            InvokeAttacked();
         }
     }
 }

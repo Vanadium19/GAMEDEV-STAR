@@ -1,6 +1,7 @@
 ﻿using Game.Core.Components;
 using Game.Modules.Entities;
 using Game.Scripts.Common;
+using Game.View;
 using UnityEngine;
 using Zenject;
 
@@ -11,6 +12,8 @@ namespace Game.Content.Traps
         [SerializeField] private Entity _entity;
         [SerializeField] private float _multiplier;
         [SerializeField] private int _health = 5;
+        [Header("View")]
+        [SerializeField] private SlowZoneView _slowZoneView;
 
         public override void InstallBindings()
         {
@@ -28,6 +31,15 @@ namespace Game.Content.Traps
             Container.BindInterfacesAndSelfTo<HealthComponent>()
                 .AsSingle()
                 .WithArguments(_health, TeamType.Enemy);
+
+            //View
+            Container.BindInterfacesAndSelfTo<SlowZonePresenter>()
+                .AsSingle()
+                .NonLazy();
+
+            Container.Bind<SlowZoneView>()
+                .FromInstance(_slowZoneView)
+                .AsSingle();
         }
     }
 }
