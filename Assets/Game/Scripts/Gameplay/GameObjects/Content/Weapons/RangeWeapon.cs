@@ -2,19 +2,21 @@ using System;
 using Game.Modules.Entities;
 using UnityEngine;
 using Game.Scripts.Common;
+using R3;
 using Zenject;
 
 namespace Game.Content.Weapons
 {
     public abstract class RangeWeapon : IWeapon, ITickable
     {
-        private const int InfiniteAmmo = -1;
+        public const int InfiniteAmmo = -1;
 
         private readonly IEntity _entity;
         private readonly Transform _transform;
         private readonly float _delay;
 
-        private int _ammoCount;
+        private readonly ReactiveProperty<int> _ammoCount;
+
         private float _currentTime;
 
         public event Action Emptied;
@@ -23,11 +25,12 @@ namespace Game.Content.Weapons
         {
             _entity = entity;
             _transform = transform;
-            _ammoCount = ammoCount;
+            _ammoCount = new ReactiveProperty<int>(ammoCount);
             _delay = delay;
         }
 
-        private bool IsGunEmpty => _ammoCount == 0;
+        private bool IsGunEmpty => _ammoCount.CurrentValue == 0;
+        public ReadOnlyReactiveProperty<int> AmmoCount => _ammoCount;
 
         public void Tick()
         {
@@ -71,7 +74,7 @@ namespace Game.Content.Weapons
 
         private void SubtractAmmo()
         {
-            _ammoCount = Mathf.Max(InfiniteAmmo, _ammoCount - 1);
+            _ammoCount.Value = Mathf.Max(InfiniteAmmo, _ammoCount.Value - 1);
 
             if (!IsGunEmpty)
                 return;
