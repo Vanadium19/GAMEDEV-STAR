@@ -13,7 +13,8 @@ namespace Game.Core.Components
                 .AsSingle()
                 .WithArguments(_attackDelay);
 
-            Container.Bind<AbstractAttackComponent>().To<MeleeAttackComponent>()
+            Container.Bind<AbstractAttackComponent>()
+                .To<MeleeAttackComponent>()
                 .FromResolve();
         }
     }

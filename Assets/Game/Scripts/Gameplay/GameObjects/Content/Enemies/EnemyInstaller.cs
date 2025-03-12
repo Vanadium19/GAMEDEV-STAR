@@ -10,17 +10,16 @@ namespace Game.Content.Enemies
 {
     public class EnemyInstaller : MonoInstaller
     {
-        [Header("Unity Components")][SerializeField] private Rigidbody _rigidbody;
+        [Header("Unity Components")] [SerializeField] private Rigidbody _rigidbody;
         [SerializeField] private Transform _transform;
         [SerializeField] private Entity _entity;
 
-        [Header("Main Settings")][SerializeField] private int _health = 100;
+        [Header("Main Settings")] [SerializeField] private int _health = 100;
         [SerializeField] private SerializableReactiveProperty<float> _moveSpeed = new(5f);
         [SerializeField] private SerializableReactiveProperty<float> _rotationSpeed = new(3f);
         [SerializeField] private TeamType _team = TeamType.Enemy;
 
-        [Header("View")][SerializeField] private EnemyView _enemyView;
-        [SerializeField] private WeaponView _weaponView;
+        [Header("View")] [SerializeField] private EnemyView _enemyView;
 
         public override void InstallBindings()
         {
@@ -67,7 +66,6 @@ namespace Game.Content.Enemies
             Container.Bind<EnemyView>()
                 .FromInstance(_enemyView)
                 .AsSingle();
-
         }
     }
 }

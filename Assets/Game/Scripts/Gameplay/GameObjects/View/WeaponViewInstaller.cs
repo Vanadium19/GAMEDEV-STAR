@@ -2,7 +2,7 @@
 using UnityEngine;
 using Game.View;
 
-namespace Game.Installers
+namespace Game.View
 {
     public class WeaponViewInstaller : MonoInstaller
     {
@@ -13,9 +13,9 @@ namespace Game.Installers
             Container.BindInterfacesAndSelfTo<WeaponPresenter>()
                 .AsSingle()
                 .NonLazy();
-            
+
             Container.Bind<WeaponView>()
-                .FromInstance( _weaponView )
+                .FromInstance(_weaponView)
                 .AsSingle();
         }
     }

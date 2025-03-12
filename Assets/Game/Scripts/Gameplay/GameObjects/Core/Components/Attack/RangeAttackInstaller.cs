@@ -10,7 +10,8 @@ namespace Game.Core.Components
                 .AsSingle()
                 .NonLazy();
 
-            Container.Bind<AbstractAttackComponent>().To<RangeAttackComponent>()
+            Container.Bind<AbstractAttackComponent>()
+                .To<RangeAttackComponent>()
                 .FromResolve();
         }
     }

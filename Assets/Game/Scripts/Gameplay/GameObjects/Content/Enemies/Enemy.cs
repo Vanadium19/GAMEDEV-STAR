@@ -12,7 +12,7 @@ namespace Game.Content.Enemies
     public class Enemy : IInitializable, IDisposable
     {
         private const float _destroyDelay = 1.0f;
-        
+
         private readonly IEntity _entity;
         private readonly IHealth _health;
 
@@ -21,7 +21,10 @@ namespace Game.Content.Enemies
 
         private IDisposable _disposables;
 
-        public Enemy(IEntity entity, IHealth health, MoveComponent moveComponent, AbstractAttackComponent attackComponent)
+        public Enemy(IEntity entity,
+            IHealth health,
+            MoveComponent moveComponent,
+            AbstractAttackComponent attackComponent)
         {
             _entity = entity;
             _health = health;
@@ -33,7 +36,7 @@ namespace Game.Content.Enemies
         {
             _moveComponent.AddCondition(() => !_health.IsDead.CurrentValue);
             _attackComponent.AddCondition(() => !_health.IsDead.CurrentValue);
-            
+
             var disposableBuilder = Disposable.CreateBuilder();
 
             _health.IsDead.Where(value => value)
@@ -57,7 +60,7 @@ namespace Game.Content.Enemies
         private async UniTaskVoid DestroyEntityAsync()
         {
             await UniTask.Delay(TimeSpan.FromSeconds(_destroyDelay));
-            
+
             _entity.Destroy();
         }
     }
