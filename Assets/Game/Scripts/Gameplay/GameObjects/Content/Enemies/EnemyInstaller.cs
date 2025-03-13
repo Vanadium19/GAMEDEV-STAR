@@ -20,7 +20,6 @@ namespace Game.Content.Enemies
         [SerializeField] private TeamType _team = TeamType.Enemy;
 
         [Header("View")][SerializeField] private EnemyView _enemyView;
-        [SerializeField] private WeaponView _weaponView;
 
         public override void InstallBindings()
         {

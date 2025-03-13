@@ -18,21 +18,28 @@ namespace Game.Content.Enemies
 
         private readonly MoveComponent _moveComponent;
         private readonly AbstractAttackComponent _attackComponent;
+        private readonly RotationComponent _rotationComponent;
 
         private IDisposable _disposables;
 
-        public Enemy(IEntity entity, IHealth health, MoveComponent moveComponent, AbstractAttackComponent attackComponent)
+        public Enemy(IEntity entity,
+            IHealth health,
+            MoveComponent moveComponent,
+            AbstractAttackComponent attackComponent,
+            RotationComponent rotationComponent)
         {
             _entity = entity;
             _health = health;
             _moveComponent = moveComponent;
             _attackComponent = attackComponent;
+            _rotationComponent = rotationComponent;
         }
 
         public void Initialize()
         {
             _moveComponent.AddCondition(() => !_health.IsDead.CurrentValue);
             _attackComponent.AddCondition(() => !_health.IsDead.CurrentValue);
+            _rotationComponent.AddCondition(() => !_health.IsDead.CurrentValue);
             
             var disposableBuilder = Disposable.CreateBuilder();
 
