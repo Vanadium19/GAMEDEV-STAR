@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Linq;
 using Game.Modules.Entities;
-using log4net.Util;
 using R3;
-using UnityEngine;
 using Zenject;
-using Transform = UnityEngine.Transform;
 
 namespace Game.Content.Enemies
 {
