@@ -12,6 +12,10 @@ namespace Game.Core.Components
             Container.BindInterfacesAndSelfTo<MeleeAttackComponent>()
                 .AsSingle()
                 .WithArguments(_attackDelay);
+
+            Container.Bind<AbstractAttackComponent>()
+                .To<MeleeAttackComponent>()
+                .FromResolve();
         }
     }
 }

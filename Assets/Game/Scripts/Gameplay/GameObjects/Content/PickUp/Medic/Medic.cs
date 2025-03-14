@@ -7,10 +7,12 @@ namespace Game.Content.PickUp
     public class Medic : ICollectable
     {
         private readonly int _heal;
+        private readonly IEntity _entity;
 
-        public Medic(int heal)
+        public Medic(int heal, IEntity entity)
         {
             _heal = heal;
+            _entity = entity;
         }
 
         public void Collect(IEntity collector)
@@ -18,7 +20,7 @@ namespace Game.Content.PickUp
             if (collector.TryGet(out IHealable healable))
             {
                 healable.TakeHeal(_heal);
-                Debug.Log("Heal");
+                _entity.Destroy();
             }
         }
     }

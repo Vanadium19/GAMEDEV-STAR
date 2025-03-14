@@ -1,9 +1,9 @@
 ﻿using Game.Core.Components;
 using Game.Modules.Entities;
 using Game.Scripts.Common;
+using Game.View;
 using R3;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Zenject;
 
 namespace Game.Content.Enemies
@@ -18,6 +18,8 @@ namespace Game.Content.Enemies
         [SerializeField] private SerializableReactiveProperty<float> _moveSpeed = new(5f);
         [SerializeField] private SerializableReactiveProperty<float> _rotationSpeed = new(3f);
         [SerializeField] private TeamType _team = TeamType.Enemy;
+
+        [Header("View")] [SerializeField] private EnemyView _enemyView;
 
         public override void InstallBindings()
         {
@@ -54,6 +56,15 @@ namespace Game.Content.Enemies
 
             Container.Bind<TeamType>()
                 .FromInstance(_team)
+                .AsSingle();
+
+            //View
+            Container.BindInterfacesAndSelfTo<EnemyPresenter>()
+                .AsSingle()
+                .NonLazy();
+
+            Container.Bind<EnemyView>()
+                .FromInstance(_enemyView)
                 .AsSingle();
         }
     }

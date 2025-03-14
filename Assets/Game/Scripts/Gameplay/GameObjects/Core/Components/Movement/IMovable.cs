@@ -5,6 +5,8 @@ namespace Game.Core.Components
 {
     public interface IMovable
     { 
+        public Observable<bool> IsMoving { get; }
+
         public void Move(Vector3 direction);
 
         public void ChangeSpeed(float multiplier);

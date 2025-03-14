@@ -47,7 +47,7 @@ namespace Game.Core.Components
             if (_currentHealth.Value <= 0)
                 return;
 
-            _currentHealth.Value = Mathf.Max(_maxHealth, _currentHealth.Value + heal);
+            _currentHealth.Value = Mathf.Min(_maxHealth, _currentHealth.Value + heal);
         }
 
         public void ResetHealth()

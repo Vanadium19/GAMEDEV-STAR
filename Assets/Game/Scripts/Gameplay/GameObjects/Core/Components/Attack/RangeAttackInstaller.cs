@@ -9,6 +9,10 @@ namespace Game.Core.Components
             Container.BindInterfacesAndSelfTo<RangeAttackComponent>()
                 .AsSingle()
                 .NonLazy();
+
+            Container.Bind<AbstractAttackComponent>()
+                .To<RangeAttackComponent>()
+                .FromResolve();
         }
     }
 }

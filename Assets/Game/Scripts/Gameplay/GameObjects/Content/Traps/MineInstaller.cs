@@ -3,6 +3,7 @@ using UnityEngine;
 using Game.Core.Components;
 using Game.GameSystems.Traps;
 using Game.Modules.Entities;
+using Game.View;
 
 namespace Game.Content.Traps
 {
@@ -14,6 +15,9 @@ namespace Game.Content.Traps
         [SerializeField] private int _damage = 5;
         [SerializeField] private float _radius = 3f;
         [SerializeField] private float _delay = 1f;
+
+        [Header("View")]
+        [SerializeField] private MineView _mineView;
 
         public override void InstallBindings()
         {
@@ -40,6 +44,15 @@ namespace Game.Content.Traps
             Container.Decorate<IAttacker>()
                 .With<DelayAttackDecorator>()
                 .WithArguments(_delay);
+
+            //View
+            Container.BindInterfacesAndSelfTo<MinePresenter>()
+                .AsSingle()
+                .NonLazy();
+
+            Container.Bind<MineView>()
+                .FromInstance(_mineView)
+                .AsSingle();
         }
     }
 }

@@ -1,17 +1,13 @@
-﻿using System;
-using Game.Content.Weapons;
-using Game.Modules.Entities;
+﻿using Game.Content.Weapons;
 using Game.Scripts.Common;
 
 namespace Game.Core.Components
 {
-    public class RangeAttackComponent : EntityComponent, IAttacker
+    public class RangeAttackComponent : AbstractAttackComponent
     {
         private readonly TeamType _team;
         
         private IWeapon _weapon;
-
-        public event Action Attacked;
 
         public RangeAttackComponent(IWeapon weapon, TeamType team)
         {
@@ -19,10 +15,13 @@ namespace Game.Core.Components
             _team = team;
         }
 
-        public void Attack()
+        public override void Attack()
         {
+            if (!CheckConditions())
+                return;
+
             if (_weapon.Shoot(_team))
-                Attacked?.Invoke();
+                InvokeAttacked();
         }
 
         public void SetWeapon(IWeapon weapon)

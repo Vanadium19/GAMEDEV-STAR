@@ -1,0 +1,751 @@
+fileFormatVersion: 2
+guid: ba27cfc6b57dcb84c8fcc165652c4815
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: main canal Setting_9
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 668
+        width: 66
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0878169048e5fda46a7175f6755abed4
+      internalID: 958618941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main canal Setting_10
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 668
+        width: 61
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97fe0ded7a8bbd3408cc01b10904220c
+      internalID: 1018988354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main canal Setting_11
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 668
+        width: 61
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbbed69539f269540ab96619da382ab6
+      internalID: -1343275974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main canal Setting_12
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 668
+        width: 60
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a84becb2fb2f8074d8593c6d5bed1629
+      internalID: -928070863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main canal Setting_13
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 668
+        width: 60
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae93c1f0531e94f4ba0f090523f09f78
+      internalID: 1595731954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main canal Setting_14
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 667
+        width: 146
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aea026bb7a6298f4e8fed47fc5e08a7f
+      internalID: -1432864353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main canal Setting_15
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 667
+        width: 86
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b9992363c4d284439992fc2d571b9ab
+      internalID: 484341973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main canal Setting_16
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 667
+        width: 86
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94c36c87919de4d4dabd9f32e43fd361
+      internalID: 652948627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main canal Setting_17
+      rect:
+        serializedVersion: 2
+        x: 897
+        y: 667
+        width: 86
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 478f601c01583cc4b80f728df518a305
+      internalID: -142937092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main canal Setting_18
+      rect:
+        serializedVersion: 2
+        x: 987
+        y: 671
+        width: 128
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb6741e7e9c86fd4bb0f673f9a5757bf
+      internalID: -1754642205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main canal Setting_19
+      rect:
+        serializedVersion: 2
+        x: 1119
+        y: 671
+        width: 128
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f94c474277b7b4048be5776d99f5c481
+      internalID: -509379675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main canal Setting_20
+      rect:
+        serializedVersion: 2
+        x: 1264
+        y: 660
+        width: 211
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cc5c63aab77c1f46b0af903913af98b
+      internalID: 407071066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main canal Setting_28
+      rect:
+        serializedVersion: 2
+        x: 1265
+        y: 371
+        width: 210
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b7dd4b8985ae6f4f83f61a36be4aedc
+      internalID: 1541027801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main canal Setting_29
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 379
+        width: 127
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ec25111634e2de478ea5bec35e03dac
+      internalID: 1423765580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main canal Setting_30
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 379
+        width: 60
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 323931c9c3c974a48862d92f5b12bf41
+      internalID: 1885106174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main canal Setting_31
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 379
+        width: 61
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9010296fb5476e94ab4e98271f023ba5
+      internalID: -802397555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main canal Setting_32
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 379
+        width: 60
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3e9911997d1845429a33df65c1cb5ea
+      internalID: -666493355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main canal Setting_33
+      rect:
+        serializedVersion: 2
+        x: 580
+        y: 378
+        width: 145
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a06984c897df8a84686e8e0fc2344173
+      internalID: 332936905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main canal Setting_34
+      rect:
+        serializedVersion: 2
+        x: 727
+        y: 378
+        width: 85
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 685a816c02db86140a3ae526406c949b
+      internalID: 995211578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main canal Setting_35
+      rect:
+        serializedVersion: 2
+        x: 815
+        y: 378
+        width: 85
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 549797fb72e3fff48853cf82ab3aa01e
+      internalID: 1299700884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main canal Setting_36
+      rect:
+        serializedVersion: 2
+        x: 902
+        y: 378
+        width: 85
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c76172cb9987ff54c9aaf92a8ad58738
+      internalID: 601651777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main canal Setting_37
+      rect:
+        serializedVersion: 2
+        x: 991
+        y: 381
+        width: 127
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e11c2860df726f47a6d3a71db0d5c7b
+      internalID: 1657599882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main canal Setting_38
+      rect:
+        serializedVersion: 2
+        x: 1122
+        y: 381
+        width: 127
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae0c099b31191dc439750d7d86a54709
+      internalID: 1387516990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main canal Setting_45
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 131
+        width: 149
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c78775637f3af14fab653b26d63c3ca
+      internalID: 675262760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main canal Setting_0
+      rect:
+        serializedVersion: 2
+        x: 1128
+        y: 939
+        width: 274
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53eba47f925699046ab10338a1cb8a5d
+      internalID: 73894428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main canal Setting_1
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 575
+        width: 298
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c444d2f35377f24c8072b9cc496a303
+      internalID: -1950448131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main canal Setting_2
+      rect:
+        serializedVersion: 2
+        x: 1002
+        y: 119
+        width: 164
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11333676f47aab04c8ce13ee8585e88f
+      internalID: 651900790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main canal Setting_3
+      rect:
+        serializedVersion: 2
+        x: 719
+        y: 291
+        width: 376
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e325d26bbeec864a8f7c9e4e92b1151
+      internalID: -1940507674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 65c915592c7744d4f810ffa3e2287141
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      main canal Setting_0: 73894428
+      main canal Setting_1: -1950448131
+      main canal Setting_10: 1018988354
+      main canal Setting_11: -1343275974
+      main canal Setting_12: -928070863
+      main canal Setting_13: 1595731954
+      main canal Setting_14: -1432864353
+      main canal Setting_15: 484341973
+      main canal Setting_16: 652948627
+      main canal Setting_17: -142937092
+      main canal Setting_18: -1754642205
+      main canal Setting_19: -509379675
+      main canal Setting_2: 651900790
+      main canal Setting_20: 407071066
+      main canal Setting_21: -1928489410
+      main canal Setting_22: 1299957446
+      main canal Setting_23: -1255600621
+      main canal Setting_24: 799907074
+      main canal Setting_25: -1550703146
+      main canal Setting_26: 962267014
+      main canal Setting_27: -1332585387
+      main canal Setting_28: 1541027801
+      main canal Setting_29: 1423765580
+      main canal Setting_3: -1940507674
+      main canal Setting_30: 1885106174
+      main canal Setting_31: -802397555
+      main canal Setting_32: -666493355
+      main canal Setting_33: 332936905
+      main canal Setting_34: 995211578
+      main canal Setting_35: 1299700884
+      main canal Setting_36: 601651777
+      main canal Setting_37: 1657599882
+      main canal Setting_38: 1387516990
+      main canal Setting_39: 713074059
+      main canal Setting_4: 1669139426
+      main canal Setting_40: 449650285
+      main canal Setting_41: 1107048540
+      main canal Setting_42: -588988500
+      main canal Setting_43: 227160457
+      main canal Setting_44: 1038517477
+      main canal Setting_45: 675262760
+      main canal Setting_46: -1009915159
+      main canal Setting_47: -2039320557
+      main canal Setting_48: 249437765
+      main canal Setting_5: 1183610812
+      main canal Setting_6: 1783726796
+      main canal Setting_7: -973173364
+      main canal Setting_8: 282320555
+      main canal Setting_9: 958618941
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

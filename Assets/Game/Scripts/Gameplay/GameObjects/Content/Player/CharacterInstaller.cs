@@ -23,6 +23,8 @@ namespace Game.Content.Player
         [SerializeField] private TeamType _team = TeamType.Player;
 
         [Header("View")] [SerializeField] private HealthView _healthView;
+        [SerializeField] private PlayerView _playerView;
+        [SerializeField] private WeaponView _weaponView;
 
         public override void InstallBindings()
         {
@@ -79,6 +81,16 @@ namespace Game.Content.Player
             Container.Bind<HealthView>()
                 .FromInstance(_healthView)
                 .AsSingle();
+
+            Container.Bind<PlayerView>()
+                .FromInstance(_playerView)
+                .AsSingle();
+        }
+
+        [ContextMenu(nameof(TakeDamage))]
+        private void TakeDamage()
+        {
+            Container.Resolve<IDamagable>().TakeDamage(5);
         }
     }
 }

@@ -1,5 +1,7 @@
-﻿using Game.Menu.Core;
+﻿using Game.Core.Inventories;
+using Game.Menu.Core;
 using UnityEngine;
+using UnityEngine.Audio;
 using Zenject;
 
 namespace Game.Installers
@@ -8,22 +10,32 @@ namespace Game.Installers
         menuName = "Zenject/New GameInstaller")]
     public class GameInstaller : ScriptableObjectInstaller
     {
+        [SerializeField] private WeaponCatalog _catalog;
+        [SerializeField] private AudioMixer _audioMixer;
+
         public override void InstallBindings()
         {
-            BindManagers();
-        }
+            Container.Bind<WeaponCatalog>()
+                .FromInstance(_catalog)
+                .AsSingle();
 
-        private void BindManagers()
-        {
-            Container.BindInterfacesTo<VolumeSettings>()
+            Container.Bind<AudioMixer>()
+                .FromInstance(_audioMixer)
+                .AsSingle();
+
+            Container.Bind<VolumeSettings>()
                 .AsSingle()
                 .NonLazy();
 
-            Container.BindInterfacesTo<LevelLoader>()
+            Container.Bind<LevelLoader>()
                 .AsSingle()
                 .NonLazy();
 
-            Container.Bind<MenuFacade>()
+            Container.Bind<GameSettings>()
+                .AsSingle()
+                .NonLazy();
+
+            Container.BindInterfacesAndSelfTo<MenuFacade>()
                 .AsSingle()
                 .NonLazy();
         }
