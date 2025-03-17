@@ -34,7 +34,7 @@ namespace Game.Menu.UI
             _menuFacade.OpenDeathPanelCommand.Subscribe(_ => _view.OpenDeathMenu()).AddTo(ref disposableBuilder);
             _menuFacade.OpenEndLevelPanelCommand.Subscribe(_ => _view.OpenEndLevelPopup()).AddTo(ref disposableBuilder);
 
-            _view.ExitButtonClicked.Subscribe(_ => _menuFacade.ReturnToMainMenu()).AddTo(ref disposableBuilder);
+            _view.ExitButtonClicked.Subscribe(_ => Exit()).AddTo(ref disposableBuilder);
             _view.RestartButtonClicked.Subscribe(_ => _menuFacade.LoadLevel()).AddTo(ref disposableBuilder);
             _view.ContinueButtonClicked.Subscribe(_ => ContinueGame()).AddTo(ref disposableBuilder);
             _view.FPSButtonPressed.Skip(DefaultValueCount).Subscribe(_menuFacade.ShowFpsCounter).AddTo(ref disposableBuilder);
@@ -57,6 +57,12 @@ namespace Game.Menu.UI
         {
             _menuFacade.ContinueGame();
             _cursorChanger.SetAimCursor();
+        }
+
+        private void Exit()
+        {
+            _cursorChanger.SetDefaultCursor();
+            _menuFacade.ReturnToMainMenu();
         }
     }
 }
