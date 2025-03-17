@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _catalog: {fileID: 11400000, guid: ceedff2ee195ddf488f71c0b8eaf0e62, type: 2}
   _audioMixer: {fileID: 24100000, guid: 3ef0c7d3a7730be4cb8f9ba28708b495, type: 2}
+  _cursorTexture: {fileID: 2800000, guid: 29d74e4bb8ed0a74e96cc6603da30e6e, type: 3}
