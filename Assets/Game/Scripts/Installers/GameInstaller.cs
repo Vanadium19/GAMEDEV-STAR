@@ -1,5 +1,6 @@
 ﻿using Game.Core.Inventories;
 using Game.Menu.Core;
+using Game.Menu.UI;
 using UnityEngine;
 using UnityEngine.Audio;
 using Zenject;
@@ -12,6 +13,7 @@ namespace Game.Installers
     {
         [SerializeField] private WeaponCatalog _catalog;
         [SerializeField] private AudioMixer _audioMixer;
+        [SerializeField] private Texture2D _cursorTexture;
 
         public override void InstallBindings()
         {
@@ -34,6 +36,10 @@ namespace Game.Installers
             Container.Bind<GameSettings>()
                 .AsSingle()
                 .NonLazy();
+
+            Container.BindInterfacesTo<CursorChanger>()
+                .AsSingle()
+                .WithArguments(_cursorTexture);
 
             Container.BindInterfacesAndSelfTo<MenuFacade>()
                 .AsSingle()
